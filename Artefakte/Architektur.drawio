@@ -1,15 +1,18 @@
-<mxfile host="app.diagrams.net" modified="2021-04-30T13:20:23.397Z" agent="5.0 (Macintosh)" etag="XZzCIzVQ9H80u3615ZYY" version="14.6.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-04-30T13:27:48.818Z" agent="5.0 (Macintosh)" etag="4jpvKoY5WS7R9oBIaJai" version="14.6.9" type="github">
   <diagram name="Page-1" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel dx="1258" dy="1628" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-29" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="-30" y="380" width="430" height="250" as="geometry" />
+        </mxCell>
         <mxCell id="sFw1YCxArVGwYr5Psf2_-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="VayuEp_gb8o4iQxjAT1D-1" target="VayuEp_gb8o4iQxjAT1D-6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-8" value="aktiviert motor um Fenster zu öffnen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sFw1YCxArVGwYr5Psf2_-7">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-8" value="aktiviert motor um&lt;br&gt; Fenster zu öffnen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sFw1YCxArVGwYr5Psf2_-7">
           <mxGeometry x="-0.0385" y="-2" relative="1" as="geometry">
-            <mxPoint as="offset" />
+            <mxPoint x="25" y="-2" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="sFw1YCxArVGwYr5Psf2_-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="VayuEp_gb8o4iQxjAT1D-1" target="VayuEp_gb8o4iQxjAT1D-5">
@@ -23,7 +26,7 @@
         <mxCell id="sFw1YCxArVGwYr5Psf2_-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="VayuEp_gb8o4iQxjAT1D-1" target="sFw1YCxArVGwYr5Psf2_-16">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-18" value="sendet Messdaten&lt;br&gt;via WiFi" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sFw1YCxArVGwYr5Psf2_-17">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-18" value="sendet Messdaten &amp;amp; Notifikation&lt;br&gt;via WiFi" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sFw1YCxArVGwYr5Psf2_-17">
           <mxGeometry x="0.0704" y="-2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -31,30 +34,39 @@
         <mxCell id="VayuEp_gb8o4iQxjAT1D-1" value="&lt;div&gt;ESP32&lt;/div&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/computer-hardware-glyphs-vol-2/52/microchip__chip__cpu__computer__proceesor__pc__hardware-128.png" parent="1" vertex="1">
           <mxGeometry x="120" y="320" width="128" height="128" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="VayuEp_gb8o4iQxjAT1D-4">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="VayuEp_gb8o4iQxjAT1D-4">
           <mxGeometry relative="1" as="geometry">
+            <mxPoint x="184" y="540" as="sourcePoint" />
             <mxPoint x="184" y="480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-30" value="Sendet Messdaten" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sFw1YCxArVGwYr5Psf2_-2">
+          <mxGeometry x="-0.04" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="VayuEp_gb8o4iQxjAT1D-4" value="BME680" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/innovation-technology-1/512/tech_0007-128.png" parent="1" vertex="1">
-          <mxGeometry x="120" y="600" width="128" height="128" as="geometry" />
+          <mxGeometry x="120" y="550" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="VayuEp_gb8o4iQxjAT1D-5" value="Diffusor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/glypho-free/64/drawer-front-upload-output-arrow-up-128.png;fontStyle=0" parent="1" vertex="1">
-          <mxGeometry x="560" y="600" width="128" height="128" as="geometry" />
+          <mxGeometry x="560" y="550" width="128" height="128" as="geometry" />
         </mxCell>
-        <mxCell id="VayuEp_gb8o4iQxjAT1D-6" value="&lt;div&gt;Fenster&lt;/div&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/stop-virus-outline-iconset/128/ic_wind-128.png" parent="1" vertex="1">
-          <mxGeometry x="560" y="320" width="128" height="128" as="geometry" />
+        <mxCell id="VayuEp_gb8o4iQxjAT1D-6" value="&lt;div&gt;Fenster&lt;/div&gt;&amp;nbsp;mit Motor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/stop-virus-outline-iconset/128/ic_wind-128.png" parent="1" vertex="1">
+          <mxGeometry x="700" y="320" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="sFw1YCxArVGwYr5Psf2_-4" value="Wo werden daten ausgewerte?&lt;br&gt;im ESP oder auf einem Server?&lt;br&gt; " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="360" y="-100" width="170" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-20" value="kommuniziert mit ESP32 &lt;br&gt;um fenster zu öffen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="sFw1YCxArVGwYr5Psf2_-16" target="VayuEp_gb8o4iQxjAT1D-1">
-          <mxGeometry x="-0.2384" y="-2" relative="1" as="geometry">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-20" value="kommuniziert via WiFi&lt;br&gt;mit ESP32 &lt;br&gt;um fenster zu öffen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="sFw1YCxArVGwYr5Psf2_-16" target="VayuEp_gb8o4iQxjAT1D-1">
+          <mxGeometry x="0.589" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="sFw1YCxArVGwYr5Psf2_-16" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/essentials-9/128/__Phone-128.png" vertex="1" parent="1">
-          <mxGeometry x="560" y="60" width="128" height="128" as="geometry" />
+          <mxGeometry x="560" y="80" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-22" value="M" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=center;html=1;verticalAlign=middle;strokeWidth=1;shape=ellipse;aspect=fixed;fontSize=35;" vertex="1" parent="1">
+          <mxGeometry x="580" y="354" width="60" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
