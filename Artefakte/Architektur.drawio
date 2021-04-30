@@ -1,23 +1,58 @@
-<mxfile host="app.diagrams.net" modified="2021-04-30T12:47:05.231Z" agent="5.0 (Macintosh)" etag="IiOKOvRYZYhazXb_OnWn" version="14.6.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-04-30T13:16:26.563Z" agent="5.0 (Macintosh)" etag="-kLpbelEJibSwFuX-L08" version="14.6.9" type="github">
   <diagram name="Page-1" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="1258" dy="778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="1258" dy="1628" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="VayuEp_gb8o4iQxjAT1D-1" target="VayuEp_gb8o4iQxjAT1D-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-8" value="aktiviert motor um Fenster zu öffnen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sFw1YCxArVGwYr5Psf2_-7">
+          <mxGeometry x="-0.0385" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="VayuEp_gb8o4iQxjAT1D-1" target="VayuEp_gb8o4iQxjAT1D-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-10" value="aktiviert Diffusor" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sFw1YCxArVGwYr5Psf2_-9">
+          <mxGeometry x="-0.0777" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="VayuEp_gb8o4iQxjAT1D-1" target="sFw1YCxArVGwYr5Psf2_-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-18" value="sendet Messdaten" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sFw1YCxArVGwYr5Psf2_-17">
+          <mxGeometry x="0.0704" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="VayuEp_gb8o4iQxjAT1D-1" value="&lt;div&gt;ESP32&lt;/div&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/computer-hardware-glyphs-vol-2/52/microchip__chip__cpu__computer__proceesor__pc__hardware-128.png" parent="1" vertex="1">
-          <mxGeometry x="170" y="320" width="128" height="128" as="geometry" />
+          <mxGeometry x="120" y="320" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="VayuEp_gb8o4iQxjAT1D-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="184" y="480" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="VayuEp_gb8o4iQxjAT1D-4" value="BME680" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/innovation-technology-1/512/tech_0007-128.png" parent="1" vertex="1">
-          <mxGeometry x="486" y="320" width="128" height="128" as="geometry" />
+          <mxGeometry x="120" y="600" width="128" height="128" as="geometry" />
         </mxCell>
-        <mxCell id="VayuEp_gb8o4iQxjAT1D-5" value="Diffusor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/glypho-free/64/drawer-front-upload-output-arrow-up-128.png" parent="1" vertex="1">
-          <mxGeometry x="810" y="520" width="128" height="128" as="geometry" />
+        <mxCell id="VayuEp_gb8o4iQxjAT1D-5" value="Diffusor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/glypho-free/64/drawer-front-upload-output-arrow-up-128.png;fontStyle=0" parent="1" vertex="1">
+          <mxGeometry x="560" y="600" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="VayuEp_gb8o4iQxjAT1D-6" value="&lt;div&gt;Fenster&lt;/div&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/stop-virus-outline-iconset/128/ic_wind-128.png" parent="1" vertex="1">
-          <mxGeometry x="810" y="120" width="128" height="128" as="geometry" />
+          <mxGeometry x="560" y="320" width="128" height="128" as="geometry" />
         </mxCell>
-        <mxCell id="nrIacdBtR2JChTGn0QuH-2" value="Mobile client" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#232F3E;fillColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.mobile_client;" vertex="1" parent="1">
-          <mxGeometry x="430" y="60" width="160" height="160" as="geometry" />
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-4" value="Wo werden daten ausgewertet " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="-100" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-5" value="" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3E;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.traditional_server;" vertex="1" parent="1">
+          <mxGeometry x="160" width="69.23" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-16" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/essentials-9/128/__Phone-128.png" vertex="1" parent="1">
+          <mxGeometry x="560" y="60" width="128" height="128" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
