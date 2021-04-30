@@ -1,40 +1,32 @@
-// #include <Arduino.h>
-
-// void setup() {
-//   // put your setup code here, to run once:
-// }
-
-// void loop() {
-//   // put your main code here, to run repeatedly:
-// }
-
 #include <Arduino.h>
+#include <Wire.h>
+#include <SPI.h>
+#include <DHT.h>
 
-int buttonPressed = 0; //Variable global def.
-int buttonPin = 26; 
-int ledPin = 14;
+#define DHTPIN 14
+#define DHTTYPE DHT22
 
+//Globale Variable
+float temperature, humidity;
 
-void ISRbuttonClicked(){
-  buttonPressed = digitalRead(buttonPin);
-}
+DHT my_sensor( DHTPIN, DHTTYPE);
 
-/*Wird am Anfang immer ausgeführt*/
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  pinMode(ledPin, OUTPUT); //Output Pin wird initalisiert, Zahl auf dem Mainboard am gelben Kabel
-  pinMode(buttonPin, INPUT); //Input pin initalisieren
-  attachInterrupt(buttonPin, ISRbuttonClicked, CHANGE);
-  //digitalWrite(14, HIGH); LED wird beim Initalisieren angestellt
+  my_sensor.begin();
 }
 
-/*hier findet die eigentliche Logik statt*/
 void loop() {
-  //put your main code here, to run repeatedly:
-  if(buttonPressed > 0) {
-    digitalWrite(ledPin, HIGH);
-  } else {
-    digitalWrite(ledPin, LOW);
-  }
-}  
+  // put your main code here, to run repeatedly:
+  humidity = my_sensor.readHumidity();
+  temperature = my_sensor.readTemperature();
+
+  Serial.print("Temperatur: ");
+  Serial.print(temperature);
+  Serial.print("°C / Humidity: ");
+  Serial.print(humidity);
+  Serial.println(" %");
+
+  delay(4000);
+}
