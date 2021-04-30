@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-04-30T13:35:37.973Z" agent="5.0 (Macintosh)" etag="haPdBUNQJeHig-j9ZccD" version="14.6.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-04-30T13:40:41.281Z" agent="5.0 (Macintosh)" etag="jrOF6_Dj0Q6kYRZyClga" version="14.6.9" type="github">
   <diagram name="Page-1" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel dx="1258" dy="778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -39,9 +39,9 @@
           <mxGeometry x="810" y="570" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="VayuEp_gb8o4iQxjAT1D-6" value="&lt;div&gt;Fenster&lt;/div&gt;&amp;nbsp;mit Motor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/stop-virus-outline-iconset/128/ic_wind-128.png" parent="1" vertex="1">
-          <mxGeometry x="810" y="320" width="128" height="128" as="geometry" />
+          <mxGeometry x="820" y="320" width="128" height="128" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-4" value="Wo werden daten ausgewerte?&lt;br&gt;im ESP oder auf einem Server?&lt;br&gt; " style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-4" value="Wo werden daten ausgewerte?&lt;br&gt;im ESP oder auf einem Server? - Datenanaylse&lt;br&gt; " style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="10" y="10" width="170" height="80" as="geometry" />
         </mxCell>
         <mxCell id="sFw1YCxArVGwYr5Psf2_-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="sFw1YCxArVGwYr5Psf2_-16" target="sFw1YCxArVGwYr5Psf2_-31">
