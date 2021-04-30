@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-04-30T11:04:28.908Z" agent="5.0 (Macintosh)" etag="8UXUFaHqwdP5LkZ76LVm" version="14.6.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-04-30T12:47:05.231Z" agent="5.0 (Macintosh)" etag="IiOKOvRYZYhazXb_OnWn" version="14.6.9" type="github">
   <diagram name="Page-1" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel dx="1258" dy="778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -8,13 +8,16 @@
           <mxGeometry x="170" y="320" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="VayuEp_gb8o4iQxjAT1D-4" value="BME680" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/innovation-technology-1/512/tech_0007-128.png" parent="1" vertex="1">
-          <mxGeometry x="450" y="320" width="128" height="128" as="geometry" />
+          <mxGeometry x="486" y="320" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="VayuEp_gb8o4iQxjAT1D-5" value="Diffusor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/glypho-free/64/drawer-front-upload-output-arrow-up-128.png" parent="1" vertex="1">
           <mxGeometry x="810" y="520" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="VayuEp_gb8o4iQxjAT1D-6" value="&lt;div&gt;Fenster&lt;/div&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/stop-virus-outline-iconset/128/ic_wind-128.png" parent="1" vertex="1">
           <mxGeometry x="810" y="120" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="nrIacdBtR2JChTGn0QuH-2" value="Mobile client" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#232F3E;fillColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.mobile_client;" vertex="1" parent="1">
+          <mxGeometry x="430" y="60" width="160" height="160" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
