@@ -3,8 +3,8 @@
 #include <SPI.h>
 #include <DHT.h>
 
-#define DHTPIN 14
-#define DHTTYPE DHT22
+#define DHTPIN 18
+#define DHTTYPE DHT11
 
 //Globale Variable
 float temperature, humidity;
