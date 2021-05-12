@@ -2,9 +2,13 @@
 #include <Wire.h>
 #include <SPI.h>
 #include <DHT.h>
+#include "WiFi.h"
 
 #define DHTPIN 18
 #define DHTTYPE DHT11
+
+const char* ssid = "Duckn3t";
+const char* password =  "quack1QUACK4quack1";
 
 //Globale Variable
 float temperature, humidity;
@@ -21,6 +25,17 @@ void ISRbuttonClicked(){
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+
+  /*WLAN*/
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.println("Connecting to WiFi..");
+  }
+
+  Serial.println("Connected to the WiFi network");
+
   pinMode(ledPin, OUTPUT); //Output Pin wird initalisiert, Zahl auf dem Mainboard am gelben Kabel
   pinMode(buttonPin, INPUT); //Input pin initalisieren
   attachInterrupt(buttonPin, ISRbuttonClicked, CHANGE);
