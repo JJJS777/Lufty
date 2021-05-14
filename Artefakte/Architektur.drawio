@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-05-14T12:07:56.134Z" agent="5.0 (Macintosh)" etag="N7sdjkjtqKRqBWXqryxX" version="14.6.12" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2021-05-14T12:10:11.940Z" agent="5.0 (Macintosh)" etag="N8U8Y6D_xdl4SaoGvwtk" version="14.6.12" type="github" pages="2">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="2778" dy="1765" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="2288" dy="1498" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -13,13 +13,8 @@
         <mxCell id="sFw1YCxArVGwYr5Psf2_-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="sFw1YCxArVGwYr5Psf2_-22" target="VayuEp_gb8o4iQxjAT1D-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="VayuEp_gb8o4iQxjAT1D-1" target="VayuEp_gb8o4iQxjAT1D-5" edge="1">
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;endArrow=none;endFill=0;" edge="1" parent="1" source="VayuEp_gb8o4iQxjAT1D-1" target="L6Wv2gptWpFD-Na3jaec-4">
           <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-10" value="aktiviert Diffusor" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="sFw1YCxArVGwYr5Psf2_-9" vertex="1" connectable="0">
-          <mxGeometry x="-0.0777" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="VayuEp_gb8o4iQxjAT1D-1" value="&lt;div&gt;ESP32&lt;/div&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/computer-hardware-glyphs-vol-2/52/microchip__chip__cpu__computer__proceesor__pc__hardware-128.png" parent="1" vertex="1">
           <mxGeometry x="120" y="320" width="128" height="128" as="geometry" />
@@ -39,7 +34,7 @@
           <mxGeometry x="120" y="550" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="VayuEp_gb8o4iQxjAT1D-5" value="Diffusor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/glypho-free/64/drawer-front-upload-output-arrow-up-128.png;fontStyle=0" parent="1" vertex="1">
-          <mxGeometry x="810" y="570" width="128" height="128" as="geometry" />
+          <mxGeometry x="830" y="574" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="VayuEp_gb8o4iQxjAT1D-6" value="&lt;div&gt;Fenster&lt;/div&gt;&amp;nbsp;mit Motor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/stop-virus-outline-iconset/128/ic_wind-128.png" parent="1" vertex="1">
           <mxGeometry x="820" y="320" width="128" height="128" as="geometry" />
@@ -134,8 +129,16 @@
         <mxCell id="L6Wv2gptWpFD-Na3jaec-3" value="" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.intune.intune_wifi_profiles" vertex="1" parent="1">
           <mxGeometry x="570" y="324" width="103.2" height="120" as="geometry" />
         </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=none;endFill=0;" edge="1" parent="1" source="L6Wv2gptWpFD-Na3jaec-4" target="VayuEp_gb8o4iQxjAT1D-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-13" value="aktiviert Diffusor" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6Wv2gptWpFD-Na3jaec-12">
+          <mxGeometry x="-0.02" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-4" value="" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.intune.intune_wifi_profiles" vertex="1" parent="1">
-          <mxGeometry x="596.8" y="600" width="103.2" height="120" as="geometry" />
+          <mxGeometry x="570" y="578" width="103.2" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
