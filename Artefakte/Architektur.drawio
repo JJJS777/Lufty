@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-05-14T13:54:23.120Z" agent="5.0 (Macintosh)" etag="zCu0Kvv2m9bsQcuuvGQt" version="14.6.12" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2021-05-14T13:55:24.265Z" agent="5.0 (Macintosh)" etag="9TJlLHStMtHxagThsQE0" version="14.6.12" type="github" pages="2">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="3137" dy="1961" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="1779" dy="1220" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -105,8 +105,9 @@
         <mxCell id="KKaPVOt-ZBPMSquiPYqL-4" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Software_as_a_Service.svg;" vertex="1" parent="1">
           <mxGeometry x="810" y="-180" width="129" height="129" as="geometry" />
         </mxCell>
-        <mxCell id="KKaPVOt-ZBPMSquiPYqL-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fillColor=#ffe6cc;strokeColor=#d79b00;" edge="1" parent="1" source="sFw1YCxArVGwYr5Psf2_-16" target="KKaPVOt-ZBPMSquiPYqL-1">
+        <mxCell id="KKaPVOt-ZBPMSquiPYqL-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fillColor=#ffe6cc;strokeColor=#d79b00;" edge="1" parent="1" target="KKaPVOt-ZBPMSquiPYqL-1">
           <mxGeometry relative="1" as="geometry">
+            <mxPoint x="810" y="70" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="810" y="70" />
               <mxPoint x="-250" y="70" />
