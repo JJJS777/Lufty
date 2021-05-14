@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-05-14T13:56:24.149Z" agent="5.0 (Macintosh)" etag="J-VtIdQzxoCexWlp_6k5" version="14.6.12" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2021-05-14T14:00:47.871Z" agent="5.0 (Macintosh)" etag="ef5ZuCa8SOdV-SimnzON" version="14.6.12" type="github" pages="2">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="4665" dy="2795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="2083" dy="1387" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -49,7 +49,7 @@
           <mxGeometry x="820" y="324" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="sFw1YCxArVGwYr5Psf2_-4" value="Wo werden daten ausgewerte?&lt;br&gt;&lt;div&gt;im ESP oder auf einem Server? - Datenanaylse&lt;/div&gt;&lt;div&gt;Kann Blynk Datenbanken-Daten abrufen und Rendern? &lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Sinnvoll daten zu speichern und auszuwerten?&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="40" y="-340" width="330" height="80" as="geometry" />
+          <mxGeometry x="-350" y="-380" width="330" height="80" as="geometry" />
         </mxCell>
         <mxCell id="sFw1YCxArVGwYr5Psf2_-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="sFw1YCxArVGwYr5Psf2_-16" target="sFw1YCxArVGwYr5Psf2_-31" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -138,6 +138,9 @@
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-4" value="" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.intune.intune_wifi_profiles" vertex="1" parent="1">
           <mxGeometry x="540" y="578" width="103.2" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-20" value="&lt;div&gt;&lt;h1&gt;&lt;b&gt;Notizen&lt;/b&gt;&lt;/h1&gt;&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;Wo werden daten ausgewerte?&lt;/li&gt;&lt;li&gt;im ESP oder auf einem Server? - Datenanaylse&lt;/li&gt;&lt;li&gt;Kann Blynk Datenbanken-Daten abrufen und Rendern?&lt;/li&gt;&lt;li&gt;Sinnvoll daten zu speichern und auszuwerten?&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;rotation=0;align=left;verticalAlign=top;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="-1070" y="-820" width="430" height="250" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
