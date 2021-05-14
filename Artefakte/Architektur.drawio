@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-05-14T14:03:15.574Z" agent="5.0 (Macintosh)" etag="oGj0C_aULTayyZpXcG3f" version="14.6.12" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2021-05-14T14:04:28.476Z" agent="5.0 (Macintosh)" etag="Pnrlr2AJ_SVj-JRGFySc" version="14.6.12" type="github" pages="2">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="4665" dy="2795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="2083" dy="1387" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -143,6 +143,144 @@
           <mxGeometry x="920" y="758" width="103.2" height="120" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;endArrow=none;endFill=0;" edge="1" parent="L6Wv2gptWpFD-Na3jaec-22" source="VayuEp_gb8o4iQxjAT1D-1" target="L6Wv2gptWpFD-Na3jaec-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-23" value="&lt;b&gt;Erste Iteration&lt;/b&gt;" style="shape=umlFrame;whiteSpace=wrap;html=1;width=120;height=30;boundedLbl=1;verticalAlign=middle;align=left;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="-1070" y="710" width="1480" height="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-24" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-1030" y="770" width="1338" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-25" value="" style="group" vertex="1" connectable="0" parent="L6Wv2gptWpFD-Na3jaec-24">
+          <mxGeometry y="470" width="250" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-26" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=90;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="L6Wv2gptWpFD-Na3jaec-25">
+          <mxGeometry x="10" y="-10" width="230" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-27" value="Optinal" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#d79b00;fillColor=#ffe6cc;" vertex="1" parent="L6Wv2gptWpFD-Na3jaec-25">
+          <mxGeometry y="210" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-28" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=90;" vertex="1" parent="L6Wv2gptWpFD-Na3jaec-24">
+          <mxGeometry x="350" y="560" width="430" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-29" value="&lt;div&gt;ESP32&lt;/div&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/computer-hardware-glyphs-vol-2/52/microchip__chip__cpu__computer__proceesor__pc__hardware-128.png" vertex="1" parent="L6Wv2gptWpFD-Na3jaec-24">
+          <mxGeometry x="500" y="500" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=classic;endFill=1;" edge="1" parent="L6Wv2gptWpFD-Na3jaec-24" source="L6Wv2gptWpFD-Na3jaec-32">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="564" y="720" as="sourcePoint" />
+            <mxPoint x="564" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-31" value="Sendet Messdaten" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6Wv2gptWpFD-Na3jaec-30">
+          <mxGeometry x="-0.04" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-32" value="BME680" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/innovation-technology-1/512/tech_0007-128.png" vertex="1" parent="L6Wv2gptWpFD-Na3jaec-24">
+          <mxGeometry x="500" y="730" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-33" value="Diffusor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/glypho-free/64/drawer-front-upload-output-arrow-up-128.png;fontStyle=0" vertex="1" parent="L6Wv2gptWpFD-Na3jaec-24">
+          <mxGeometry x="1210" y="754" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-34" value="&lt;div&gt;Fenster&lt;/div&gt;&amp;nbsp;mit Motor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/stop-virus-outline-iconset/128/ic_wind-128.png" vertex="1" parent="L6Wv2gptWpFD-Na3jaec-24">
+          <mxGeometry x="1200" y="504" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-35" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/essentials-9/128/__Phone-128.png" vertex="1" parent="L6Wv2gptWpFD-Na3jaec-24">
+          <mxGeometry x="1190" y="262" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" edge="1" parent="L6Wv2gptWpFD-Na3jaec-24" source="L6Wv2gptWpFD-Na3jaec-38" target="L6Wv2gptWpFD-Na3jaec-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-37" value="sendet Messdaten &lt;br&gt;&amp;amp; Notifikation&lt;br&gt;&lt;div&gt;via WiFi&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6Wv2gptWpFD-Na3jaec-36">
+          <mxGeometry x="-0.2454" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-38" value="" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.intune.intune_wifi_profiles" vertex="1" parent="L6Wv2gptWpFD-Na3jaec-24">
+          <mxGeometry x="800" y="266" width="103.2" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" edge="1" parent="L6Wv2gptWpFD-Na3jaec-24" source="L6Wv2gptWpFD-Na3jaec-35" target="L6Wv2gptWpFD-Na3jaec-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-40" value="kommuniziert via WiFi&lt;br&gt;mit ESP32 um fenster zu öffnen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6Wv2gptWpFD-Na3jaec-39">
+          <mxGeometry x="0.0053" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-41" value="M" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=center;html=1;verticalAlign=middle;strokeWidth=1;shape=ellipse;aspect=fixed;fontSize=35;" vertex="1" parent="L6Wv2gptWpFD-Na3jaec-24">
+          <mxGeometry x="1100" y="538" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="L6Wv2gptWpFD-Na3jaec-24" source="L6Wv2gptWpFD-Na3jaec-41" target="L6Wv2gptWpFD-Na3jaec-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=open;startFill=0;fillColor=#ffe6cc;strokeColor=#d79b00;" edge="1" parent="L6Wv2gptWpFD-Na3jaec-24" source="L6Wv2gptWpFD-Na3jaec-45" target="L6Wv2gptWpFD-Na3jaec-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-44" value="Speicher Daten zur &lt;br&gt;weiteren verarbeitung" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6Wv2gptWpFD-Na3jaec-43">
+          <mxGeometry x="-0.0638" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-45" value="MySQL DB &#xa;instance" style="outlineConnect=0;strokeColor=#d79b00;fillColor=#ffe6cc;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.mysql_db_instance;" vertex="1" parent="L6Wv2gptWpFD-Na3jaec-24">
+          <mxGeometry x="55" y="494" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="L6Wv2gptWpFD-Na3jaec-24" source="L6Wv2gptWpFD-Na3jaec-50" target="L6Wv2gptWpFD-Na3jaec-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-47" value="SaaS (z.B. blynk) um über &lt;br&gt;Mobile-App ESP32 zu steuern und Daten zu Rendern" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6Wv2gptWpFD-Na3jaec-46">
+          <mxGeometry x="-0.1161" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;fillColor=#ffe6cc;strokeColor=#d79b00;" edge="1" parent="L6Wv2gptWpFD-Na3jaec-24" source="L6Wv2gptWpFD-Na3jaec-50">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="589.9999999999995" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-49" value="Integration mit DB" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6Wv2gptWpFD-Na3jaec-48">
+          <mxGeometry x="0.0239" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-50" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Software_as_a_Service.svg;" vertex="1" parent="L6Wv2gptWpFD-Na3jaec-24">
+          <mxGeometry x="1190" width="129" height="129" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fillColor=#ffe6cc;strokeColor=#d79b00;" edge="1" parent="L6Wv2gptWpFD-Na3jaec-24" target="L6Wv2gptWpFD-Na3jaec-45">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1190" y="250" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="1190" y="250" />
+              <mxPoint x="130" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-52" value="Abruf der Daten" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6Wv2gptWpFD-Na3jaec-51">
+          <mxGeometry x="0.2027" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.4;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="L6Wv2gptWpFD-Na3jaec-24" source="L6Wv2gptWpFD-Na3jaec-54" target="L6Wv2gptWpFD-Na3jaec-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-54" value="" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.intune.intune_wifi_profiles" vertex="1" parent="L6Wv2gptWpFD-Na3jaec-24">
+          <mxGeometry x="920" y="520" width="103.2" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.001;entryY=0.361;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;endArrow=none;endFill=0;" edge="1" parent="L6Wv2gptWpFD-Na3jaec-24" source="L6Wv2gptWpFD-Na3jaec-29" target="L6Wv2gptWpFD-Na3jaec-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=none;endFill=0;" edge="1" parent="L6Wv2gptWpFD-Na3jaec-24" source="L6Wv2gptWpFD-Na3jaec-58" target="L6Wv2gptWpFD-Na3jaec-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-57" value="aktiviert Diffusor" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6Wv2gptWpFD-Na3jaec-56">
+          <mxGeometry x="-0.02" relative="1" as="geometry">
+            <mxPoint x="15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-58" value="" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.intune.intune_wifi_profiles" vertex="1" parent="L6Wv2gptWpFD-Na3jaec-24">
+          <mxGeometry x="920" y="758" width="103.2" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;endArrow=none;endFill=0;" edge="1" parent="L6Wv2gptWpFD-Na3jaec-24" source="L6Wv2gptWpFD-Na3jaec-29" target="L6Wv2gptWpFD-Na3jaec-58">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
