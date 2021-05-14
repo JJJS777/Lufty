@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-05-14T12:00:37.424Z" agent="5.0 (Macintosh)" etag="xn59un5TA5kwp2DhDZcn" version="14.6.12" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2021-05-14T12:07:56.134Z" agent="5.0 (Macintosh)" etag="N7sdjkjtqKRqBWXqryxX" version="14.6.12" type="github" pages="2">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel dx="2778" dy="1765" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -130,6 +130,12 @@
           <mxGeometry x="0.2027" y="2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-3" value="" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.intune.intune_wifi_profiles" vertex="1" parent="1">
+          <mxGeometry x="570" y="324" width="103.2" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-4" value="" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.intune.intune_wifi_profiles" vertex="1" parent="1">
+          <mxGeometry x="596.8" y="600" width="103.2" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
