@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-05-14T11:34:52.609Z" agent="5.0 (Macintosh)" etag="lZlXnD8i74YD1Ekr0eBY" version="14.6.12" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2021-05-14T12:00:37.424Z" agent="5.0 (Macintosh)" etag="xn59un5TA5kwp2DhDZcn" version="14.6.12" type="github" pages="2">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="3137" dy="1961" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="2778" dy="1765" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -44,8 +44,8 @@
         <mxCell id="VayuEp_gb8o4iQxjAT1D-6" value="&lt;div&gt;Fenster&lt;/div&gt;&amp;nbsp;mit Motor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/stop-virus-outline-iconset/128/ic_wind-128.png" parent="1" vertex="1">
           <mxGeometry x="820" y="320" width="128" height="128" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-4" value="Wo werden daten ausgewerte?&lt;br&gt;im ESP oder auf einem Server? - Datenanaylse&lt;br&gt; " style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="40" y="-340" width="170" height="80" as="geometry" />
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-4" value="Wo werden daten ausgewerte?&lt;br&gt;&lt;div&gt;im ESP oder auf einem Server? - Datenanaylse&lt;/div&gt;&lt;div&gt;Kann Blynk Datenbanken-Daten abrufen und Rendern? &lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Sinnvoll daten zu speichern und auszuwerten?&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="-340" width="330" height="80" as="geometry" />
         </mxCell>
         <mxCell id="sFw1YCxArVGwYr5Psf2_-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="sFw1YCxArVGwYr5Psf2_-16" target="sFw1YCxArVGwYr5Psf2_-31" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -102,6 +102,16 @@
         </mxCell>
         <mxCell id="KKaPVOt-ZBPMSquiPYqL-7" value="SaaS (z.B. blynk) um über &lt;br&gt;Mobile-App ESP32 zu steuern und Daten zu Rendern" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KKaPVOt-ZBPMSquiPYqL-6">
           <mxGeometry x="-0.1161" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" source="KKaPVOt-ZBPMSquiPYqL-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="209.99999999999955" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-2" value="Integration mit DB" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6Wv2gptWpFD-Na3jaec-1">
+          <mxGeometry x="0.0239" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
