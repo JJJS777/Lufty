@@ -1,19 +1,22 @@
-<mxfile host="app.diagrams.net" modified="2021-04-30T13:40:41.281Z" agent="5.0 (Macintosh)" etag="jrOF6_Dj0Q6kYRZyClga" version="14.6.9" type="github">
-  <diagram name="Page-1" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="1258" dy="778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+<mxfile host="app.diagrams.net" modified="2021-05-14T11:34:52.609Z" agent="5.0 (Macintosh)" etag="lZlXnD8i74YD1Ekr0eBY" version="14.6.12" type="github" pages="2">
+  <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
+    <mxGraphModel dx="3137" dy="1961" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-29" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=90;" vertex="1" parent="1">
+        <mxCell id="KKaPVOt-ZBPMSquiPYqL-2" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="-430" y="380" width="430" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-29" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=90;" parent="1" vertex="1">
           <mxGeometry x="-30" y="380" width="430" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="sFw1YCxArVGwYr5Psf2_-22" target="VayuEp_gb8o4iQxjAT1D-6">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="sFw1YCxArVGwYr5Psf2_-22" target="VayuEp_gb8o4iQxjAT1D-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="VayuEp_gb8o4iQxjAT1D-1" target="VayuEp_gb8o4iQxjAT1D-5">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="VayuEp_gb8o4iQxjAT1D-1" target="VayuEp_gb8o4iQxjAT1D-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-10" value="aktiviert Diffusor" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sFw1YCxArVGwYr5Psf2_-9">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-10" value="aktiviert Diffusor" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="sFw1YCxArVGwYr5Psf2_-9" vertex="1" connectable="0">
           <mxGeometry x="-0.0777" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -21,13 +24,13 @@
         <mxCell id="VayuEp_gb8o4iQxjAT1D-1" value="&lt;div&gt;ESP32&lt;/div&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/computer-hardware-glyphs-vol-2/52/microchip__chip__cpu__computer__proceesor__pc__hardware-128.png" parent="1" vertex="1">
           <mxGeometry x="120" y="320" width="128" height="128" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="VayuEp_gb8o4iQxjAT1D-4">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=classic;endFill=1;" parent="1" source="VayuEp_gb8o4iQxjAT1D-4" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="184" y="540" as="sourcePoint" />
             <mxPoint x="184" y="480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-30" value="Sendet Messdaten" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sFw1YCxArVGwYr5Psf2_-2">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-30" value="Sendet Messdaten" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="sFw1YCxArVGwYr5Psf2_-2" vertex="1" connectable="0">
           <mxGeometry x="-0.04" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -41,45 +44,91 @@
         <mxCell id="VayuEp_gb8o4iQxjAT1D-6" value="&lt;div&gt;Fenster&lt;/div&gt;&amp;nbsp;mit Motor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/stop-virus-outline-iconset/128/ic_wind-128.png" parent="1" vertex="1">
           <mxGeometry x="820" y="320" width="128" height="128" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-4" value="Wo werden daten ausgewerte?&lt;br&gt;im ESP oder auf einem Server? - Datenanaylse&lt;br&gt; " style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="10" y="10" width="170" height="80" as="geometry" />
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-4" value="Wo werden daten ausgewerte?&lt;br&gt;im ESP oder auf einem Server? - Datenanaylse&lt;br&gt; " style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="-340" width="170" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="sFw1YCxArVGwYr5Psf2_-16" target="sFw1YCxArVGwYr5Psf2_-31">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="sFw1YCxArVGwYr5Psf2_-16" target="sFw1YCxArVGwYr5Psf2_-31" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-41" value="kommuniziert via WiFi&lt;br&gt;mit ESP32 um fenster zu öffnen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sFw1YCxArVGwYr5Psf2_-35">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-41" value="kommuniziert via WiFi&lt;br&gt;mit ESP32 um fenster zu öffnen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="sFw1YCxArVGwYr5Psf2_-35" vertex="1" connectable="0">
           <mxGeometry x="0.0053" y="-2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-16" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/essentials-9/128/__Phone-128.png" vertex="1" parent="1">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-16" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/essentials-9/128/__Phone-128.png" parent="1" vertex="1">
           <mxGeometry x="810" y="82" width="128" height="128" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="sFw1YCxArVGwYr5Psf2_-31" target="sFw1YCxArVGwYr5Psf2_-29">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="sFw1YCxArVGwYr5Psf2_-31" target="sFw1YCxArVGwYr5Psf2_-29" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-40" value="sendet Messdaten &lt;br&gt;&amp;amp; Notifikation&lt;br&gt;&lt;div&gt;via WiFi&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sFw1YCxArVGwYr5Psf2_-36">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-40" value="sendet Messdaten &lt;br&gt;&amp;amp; Notifikation&lt;br&gt;&lt;div&gt;via WiFi&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="sFw1YCxArVGwYr5Psf2_-36" vertex="1" connectable="0">
           <mxGeometry x="-0.2454" y="-2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-31" value="" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.intune.intune_wifi_profiles" vertex="1" parent="1">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-31" value="" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.intune.intune_wifi_profiles" parent="1" vertex="1">
           <mxGeometry x="420" y="86" width="103.2" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-22" value="M" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=center;html=1;verticalAlign=middle;strokeWidth=1;shape=ellipse;aspect=fixed;fontSize=35;" vertex="1" parent="1">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-22" value="M" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=center;html=1;verticalAlign=middle;strokeWidth=1;shape=ellipse;aspect=fixed;fontSize=35;" parent="1" vertex="1">
           <mxGeometry x="700" y="354" width="60" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=none;" edge="1" parent="1" source="VayuEp_gb8o4iQxjAT1D-1" target="sFw1YCxArVGwYr5Psf2_-22">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=none;" parent="1" source="VayuEp_gb8o4iQxjAT1D-1" target="sFw1YCxArVGwYr5Psf2_-22" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="248" y="384" as="sourcePoint" />
             <mxPoint x="810" y="384" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="sFw1YCxArVGwYr5Psf2_-43" value="aktiviert motor um&lt;br&gt; Fenster zu öffnen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sFw1YCxArVGwYr5Psf2_-42">
+        <mxCell id="sFw1YCxArVGwYr5Psf2_-43" value="aktiviert motor um&lt;br&gt; Fenster zu öffnen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="sFw1YCxArVGwYr5Psf2_-42" vertex="1" connectable="0">
           <mxGeometry x="-0.0385" y="-2" relative="1" as="geometry">
             <mxPoint x="25" y="-2" as="offset" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="KKaPVOt-ZBPMSquiPYqL-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=open;startFill=0;" edge="1" parent="1" source="KKaPVOt-ZBPMSquiPYqL-1" target="VayuEp_gb8o4iQxjAT1D-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KKaPVOt-ZBPMSquiPYqL-9" value="Speicher Daten zur &lt;br&gt;weiteren verarbeitung" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KKaPVOt-ZBPMSquiPYqL-8">
+          <mxGeometry x="-0.0638" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KKaPVOt-ZBPMSquiPYqL-1" value="MySQL DB &#xa;instance" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#232F3E;fillColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.mysql_db_instance;" vertex="1" parent="1">
+          <mxGeometry x="-285" y="314" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="KKaPVOt-ZBPMSquiPYqL-3" value="Optinal" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-215" y="730" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="KKaPVOt-ZBPMSquiPYqL-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="KKaPVOt-ZBPMSquiPYqL-4" target="sFw1YCxArVGwYr5Psf2_-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KKaPVOt-ZBPMSquiPYqL-7" value="SaaS (z.B. blynk) um über &lt;br&gt;Mobile-App ESP32 zu steuern und Daten zu Rendern" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KKaPVOt-ZBPMSquiPYqL-6">
+          <mxGeometry x="-0.1161" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KKaPVOt-ZBPMSquiPYqL-4" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Software_as_a_Service.svg;" vertex="1" parent="1">
+          <mxGeometry x="810" y="-180" width="129" height="129" as="geometry" />
+        </mxCell>
+        <mxCell id="KKaPVOt-ZBPMSquiPYqL-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="sFw1YCxArVGwYr5Psf2_-16" target="KKaPVOt-ZBPMSquiPYqL-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="810" y="70" />
+              <mxPoint x="-215" y="70" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KKaPVOt-ZBPMSquiPYqL-11" value="Abruf der Daten" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KKaPVOt-ZBPMSquiPYqL-10">
+          <mxGeometry x="0.2027" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="bwPkYq8E7ANFqFx1OJKg" name="Aktivitätsdiagramm">
+    <mxGraphModel dx="1426" dy="778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="MwLlSuZRGqhdZxkgWoQN-0" />
+        <mxCell id="MwLlSuZRGqhdZxkgWoQN-1" parent="MwLlSuZRGqhdZxkgWoQN-0" />
       </root>
     </mxGraphModel>
   </diagram>
