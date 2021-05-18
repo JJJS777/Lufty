@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-05-18T15:25:31.371Z" agent="5.0 (Macintosh)" etag="wUM1EZlo2-NDBqXeBoBJ" version="14.6.13" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-05-18T15:33:40.740Z" agent="5.0 (Macintosh)" etag="M79IATzHYZ0j9qlEwyuM" version="14.6.13" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel dx="2526" dy="1628" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -290,6 +290,14 @@
       <root>
         <mxCell id="eVNNBtCcll8Z-r2CayTo-0" />
         <mxCell id="eVNNBtCcll8Z-r2CayTo-1" parent="eVNNBtCcll8Z-r2CayTo-0" />
+        <mxCell id="bO-F13z6633doV8jWszJ-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="eVNNBtCcll8Z-r2CayTo-1" source="bO-F13z6633doV8jWszJ-0">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="20" y="145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bO-F13z6633doV8jWszJ-0" value="Object" style="html=1;" vertex="1" parent="eVNNBtCcll8Z-r2CayTo-1">
+          <mxGeometry x="120" y="120" width="110" height="50" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
