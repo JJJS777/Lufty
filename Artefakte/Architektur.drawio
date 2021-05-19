@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2021-05-19T13:29:02.549Z" agent="5.0 (Macintosh)" etag="hq8wEqOJaTu3a8LcN1J_" version="14.6.13" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-05-19T13:33:17.715Z" agent="5.0 (Macintosh)" etag="fbEXvaJpY3xxiz0XN9xF" version="14.6.13" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="2526" dy="1628" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="2083" dy="1387" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="L6Wv2gptWpFD-Na3jaec-23" value="&lt;b&gt;Erste Iteration&lt;/b&gt; (mit MQTT)" style="shape=umlFrame;whiteSpace=wrap;html=1;width=230;height=50;boundedLbl=1;verticalAlign=middle;align=left;spacingLeft=5;" parent="1" vertex="1">
-          <mxGeometry x="-1070" y="660" width="1840" height="1060" as="geometry" />
+          <mxGeometry x="-1060" y="660" width="1840" height="1060" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-62" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=0;" parent="1" vertex="1">
           <mxGeometry x="150" y="1030" width="503" height="250" as="geometry" />
@@ -210,16 +210,8 @@
         <mxCell id="L6Wv2gptWpFD-Na3jaec-41" value="M" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=center;html=1;verticalAlign=middle;strokeWidth=1;shape=ellipse;aspect=fixed;fontSize=35;" parent="1" vertex="1">
           <mxGeometry x="420" y="1120" width="60" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="L6Wv2gptWpFD-Na3jaec-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="L6Wv2gptWpFD-Na3jaec-50" target="L6Wv2gptWpFD-Na3jaec-35" edge="1">
-          <mxGeometry x="-1380" y="720" as="geometry" />
-        </mxCell>
-        <mxCell id="L6Wv2gptWpFD-Na3jaec-47" value="SaaS (z.B. blynk) um über &lt;br&gt;Mobile-App ESP32 zu steuern und Daten zu Rendern" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="L6Wv2gptWpFD-Na3jaec-46" vertex="1" connectable="0">
-          <mxGeometry x="-0.1161" y="2" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="L6Wv2gptWpFD-Na3jaec-50" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Software_as_a_Service.svg;" parent="1" vertex="1">
-          <mxGeometry x="-240" y="720" width="129" height="129" as="geometry" />
+        <mxCell id="L6Wv2gptWpFD-Na3jaec-50" value="blynk" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Software_as_a_Service.svg;" parent="1" vertex="1">
+          <mxGeometry x="-460" y="709" width="129" height="129" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-34" value="&lt;div&gt;Fenster&lt;/div&gt;&amp;nbsp;mit Motor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/stop-virus-outline-iconset/128/ic_wind-128.png" parent="1" vertex="1">
           <mxGeometry x="491" y="1088" width="128" height="128" as="geometry" />
@@ -273,6 +265,9 @@
         </mxCell>
         <mxCell id="W2XWbZiIZC6_Dd2EvQrE-3" value="Aktor-Board-Fenster" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="150" y="1280" width="115" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sHGwKZjFcYj0_iWmlczI-1" value="openweathermap" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/web-development-5/500/api-code-window-128.png" vertex="1" parent="1">
+          <mxGeometry x="-240" y="710" width="128" height="128" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
