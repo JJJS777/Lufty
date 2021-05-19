@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-05-19T14:29:20.405Z" agent="5.0 (Macintosh)" etag="5JOJRr8natejmEVOXi8B" version="14.6.13" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-05-19T14:29:35.822Z" agent="5.0 (Macintosh)" etag="KGzm5B6Lt_7VvhSYBxbg" version="14.6.13" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel dx="4665" dy="2795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -265,7 +265,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="sHGwKZjFcYj0_iWmlczI-7" value="&lt;b&gt;Erste Iteration&lt;/b&gt; (mit MQTT)&lt;br&gt;&lt;div&gt;Option 2&lt;/div&gt;" style="shape=umlFrame;whiteSpace=wrap;html=1;width=230;height=50;boundedLbl=1;verticalAlign=middle;align=left;spacingLeft=5;" vertex="1" parent="1">
-          <mxGeometry x="-1060" y="1680" width="1950" height="990" as="geometry" />
+          <mxGeometry x="-1070" y="1680" width="1950" height="990" as="geometry" />
         </mxCell>
         <mxCell id="sHGwKZjFcYj0_iWmlczI-8" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="1">
           <mxGeometry x="190" y="1871" width="503" height="380" as="geometry" />
