@@ -1,17 +1,17 @@
-<mxfile host="app.diagrams.net" modified="2021-05-19T13:34:06.098Z" agent="5.0 (Macintosh)" etag="7Cs6M2jgXwRwBzuAqDUP" version="14.6.13" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-05-19T13:35:13.450Z" agent="5.0 (Macintosh)" etag="BZNzBKhDp14trE5rbysa" version="14.6.13" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel dx="4665" dy="2795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="L6Wv2gptWpFD-Na3jaec-23" value="&lt;b&gt;Erste Iteration&lt;/b&gt; (mit MQTT)" style="shape=umlFrame;whiteSpace=wrap;html=1;width=230;height=50;boundedLbl=1;verticalAlign=middle;align=left;spacingLeft=5;" parent="1" vertex="1">
-          <mxGeometry x="-1070" y="620" width="1660" height="990" as="geometry" />
+          <mxGeometry x="-1070" y="620" width="1710" height="990" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-62" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=0;" parent="1" vertex="1">
-          <mxGeometry x="47" y="961" width="503" height="250" as="geometry" />
+          <mxGeometry x="80" y="961" width="503" height="250" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-69" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=0;" parent="1" vertex="1">
-          <mxGeometry x="47" y="1301" width="503" height="250" as="geometry" />
+          <mxGeometry x="80" y="1301" width="503" height="250" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-20" value="&lt;div&gt;&lt;h1&gt;&lt;b&gt;Notizen&lt;/b&gt;&lt;/h1&gt;&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;Wo werden daten ausgewerte?&lt;/li&gt;&lt;li&gt;im ESP oder auf einem Server? - Datenanaylse&lt;/li&gt;&lt;li&gt;Kann Blynk Datenbanken-Daten abrufen und Rendern?&lt;/li&gt;&lt;li&gt;Sinnvoll daten zu speichern und auszuwerten?&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;rotation=0;align=left;verticalAlign=top;spacingLeft=15;" parent="1" vertex="1">
           <mxGeometry x="-1070" y="-820" width="430" height="250" as="geometry" />
@@ -155,7 +155,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-28" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=90;" parent="1" vertex="1">
-          <mxGeometry x="-1133" y="1211" width="430" height="250" as="geometry" />
+          <mxGeometry x="-1100" y="1211" width="430" height="250" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontColor=#000000;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="L6Wv2gptWpFD-Na3jaec-29" target="L6Wv2gptWpFD-Na3jaec-73" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -166,12 +166,12 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-29" value="&lt;div&gt;ESP32&lt;/div&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/computer-hardware-glyphs-vol-2/52/microchip__chip__cpu__computer__proceesor__pc__hardware-128.png" parent="1" vertex="1">
-          <mxGeometry x="-983" y="1151" width="128" height="128" as="geometry" />
+          <mxGeometry x="-950" y="1151" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=classic;endFill=1;" parent="1" source="L6Wv2gptWpFD-Na3jaec-32" edge="1">
-          <mxGeometry x="-1483" y="651" as="geometry">
-            <mxPoint x="-919" y="1371" as="sourcePoint" />
-            <mxPoint x="-919" y="1311" as="targetPoint" />
+          <mxGeometry x="-1450" y="651" as="geometry">
+            <mxPoint x="-886" y="1371" as="sourcePoint" />
+            <mxPoint x="-886" y="1311" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-31" value="Sendet Messdaten" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="L6Wv2gptWpFD-Na3jaec-30" vertex="1" connectable="0">
@@ -180,16 +180,16 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-32" value="BME680" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/innovation-technology-1/512/tech_0007-128.png" parent="1" vertex="1">
-          <mxGeometry x="-983" y="1381" width="128" height="128" as="geometry" />
+          <mxGeometry x="-950" y="1381" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-33" value="Diffusor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/glypho-free/64/drawer-front-upload-output-arrow-up-128.png;fontStyle=0" parent="1" vertex="1">
-          <mxGeometry x="367" y="1362" width="128" height="128" as="geometry" />
+          <mxGeometry x="400" y="1362" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-35" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/essentials-9/128/__Phone-128.png" parent="1" vertex="1">
-          <mxGeometry x="-343" y="913" width="128" height="128" as="geometry" />
+          <mxGeometry x="-310" y="913" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="L6Wv2gptWpFD-Na3jaec-38" target="L6Wv2gptWpFD-Na3jaec-28" edge="1">
-          <mxGeometry x="-1483" y="651" as="geometry" />
+          <mxGeometry x="-1450" y="651" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-37" value="sendet Messdaten &lt;br&gt;&amp;amp; Notifikation&lt;br&gt;&lt;div&gt;via WiFi&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="L6Wv2gptWpFD-Na3jaec-36" vertex="1" connectable="0">
           <mxGeometry x="-0.2454" y="-2" relative="1" as="geometry">
@@ -197,10 +197,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-38" value="" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.intune.intune_wifi_profiles" parent="1" vertex="1">
-          <mxGeometry x="-683" y="917" width="103.2" height="120" as="geometry" />
+          <mxGeometry x="-650" y="917" width="103.2" height="120" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="L6Wv2gptWpFD-Na3jaec-35" target="L6Wv2gptWpFD-Na3jaec-38" edge="1">
-          <mxGeometry x="-1483" y="651" as="geometry" />
+          <mxGeometry x="-1450" y="651" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-40" value="kommuniziert via WiFi&lt;br&gt;mit ESP32 um fenster zu öffnen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="L6Wv2gptWpFD-Na3jaec-39" vertex="1" connectable="0">
           <mxGeometry x="0.0053" y="-2" relative="1" as="geometry">
@@ -208,19 +208,19 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-41" value="M" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=center;html=1;verticalAlign=middle;strokeWidth=1;shape=ellipse;aspect=fixed;fontSize=35;" parent="1" vertex="1">
-          <mxGeometry x="317" y="1051" width="60" height="60" as="geometry" />
+          <mxGeometry x="350" y="1051" width="60" height="60" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-50" value="blynk" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Software_as_a_Service.svg;" parent="1" vertex="1">
-          <mxGeometry x="-563" y="640" width="129" height="129" as="geometry" />
+          <mxGeometry x="-428.52" y="680" width="129" height="129" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-34" value="&lt;div&gt;Fenster&lt;/div&gt;&amp;nbsp;mit Motor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/stop-virus-outline-iconset/128/ic_wind-128.png" parent="1" vertex="1">
-          <mxGeometry x="388" y="1019" width="128" height="128" as="geometry" />
+          <mxGeometry x="421" y="1019" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" source="L6Wv2gptWpFD-Na3jaec-61" target="L6Wv2gptWpFD-Na3jaec-41" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-61" value="&lt;div&gt;ESP32&lt;/div&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/computer-hardware-glyphs-vol-2/52/microchip__chip__cpu__computer__proceesor__pc__hardware-128.png" parent="1" vertex="1">
-          <mxGeometry x="76" y="1017" width="128" height="128" as="geometry" />
+          <mxGeometry x="109" y="1017" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" source="L6Wv2gptWpFD-Na3jaec-70" target="L6Wv2gptWpFD-Na3jaec-33" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -228,8 +228,8 @@
         <mxCell id="L6Wv2gptWpFD-Na3jaec-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontColor=#000000;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="L6Wv2gptWpFD-Na3jaec-70" target="L6Wv2gptWpFD-Na3jaec-73" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="-63" y="1426" />
-              <mxPoint x="-63" y="1336" />
+              <mxPoint x="-30" y="1426" />
+              <mxPoint x="-30" y="1336" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -239,13 +239,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-70" value="&lt;div&gt;ESP32&lt;/div&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/computer-hardware-glyphs-vol-2/52/microchip__chip__cpu__computer__proceesor__pc__hardware-128.png" parent="1" vertex="1">
-          <mxGeometry x="87" y="1362" width="128" height="128" as="geometry" />
+          <mxGeometry x="120" y="1362" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="L6Wv2gptWpFD-Na3jaec-73" target="L6Wv2gptWpFD-Na3jaec-61" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="-63" y="1336" />
-              <mxPoint x="-63" y="1081" />
+              <mxPoint x="-30" y="1336" />
+              <mxPoint x="-30" y="1081" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -255,19 +255,19 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-73" value="MQTT-Broker" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.servers.network;fontColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="-343" y="1243" width="110.95" height="186" as="geometry" />
+          <mxGeometry x="-310" y="1243" width="110.95" height="186" as="geometry" />
         </mxCell>
         <mxCell id="W2XWbZiIZC6_Dd2EvQrE-1" value="Sensor-Board" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="-1043" y="1551" width="80" height="20" as="geometry" />
+          <mxGeometry x="-1010" y="1551" width="80" height="20" as="geometry" />
         </mxCell>
         <mxCell id="W2XWbZiIZC6_Dd2EvQrE-2" value="Sensor-Board-Diffusor" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="47" y="1551" width="130" height="20" as="geometry" />
+          <mxGeometry x="80" y="1551" width="130" height="20" as="geometry" />
         </mxCell>
         <mxCell id="W2XWbZiIZC6_Dd2EvQrE-3" value="Aktor-Board-Fenster" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="47" y="1211" width="115" height="20" as="geometry" />
+          <mxGeometry x="80" y="1211" width="115" height="20" as="geometry" />
         </mxCell>
         <mxCell id="sHGwKZjFcYj0_iWmlczI-1" value="openweathermap" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/web-development-5/500/api-code-window-128.png" vertex="1" parent="1">
-          <mxGeometry x="-343" y="641" width="128" height="128" as="geometry" />
+          <mxGeometry x="-208.51999999999998" y="681" width="128" height="128" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
