@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-05-19T14:23:58.829Z" agent="5.0 (Macintosh)" etag="BN0d4MyzKDS2wCR05NFM" version="14.6.13" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-05-19T14:24:40.488Z" agent="5.0 (Macintosh)" etag="6R0kS4uCq4JmVIJ-p8gT" version="14.6.13" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="3137" dy="1961" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="2288" dy="1498" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -191,7 +191,7 @@
         <mxCell id="L6Wv2gptWpFD-Na3jaec-41" value="M" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=center;html=1;verticalAlign=middle;strokeWidth=1;shape=ellipse;aspect=fixed;fontSize=35;" parent="1" vertex="1">
           <mxGeometry x="460" y="1051" width="60" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="sHGwKZjFcYj0_iWmlczI-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="L6Wv2gptWpFD-Na3jaec-50" target="L6Wv2gptWpFD-Na3jaec-35">
+        <mxCell id="sHGwKZjFcYj0_iWmlczI-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="L6Wv2gptWpFD-Na3jaec-50" target="L6Wv2gptWpFD-Na3jaec-35">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="L6Wv2gptWpFD-Na3jaec-50" value="blynk" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Software_as_a_Service.svg;" parent="1" vertex="1">
@@ -256,7 +256,7 @@
         <mxCell id="sHGwKZjFcYj0_iWmlczI-1" value="openweathermap" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/web-development-5/500/api-code-window-128.png" vertex="1" parent="1">
           <mxGeometry x="-1030" y="913" width="128" height="128" as="geometry" />
         </mxCell>
-        <mxCell id="sHGwKZjFcYj0_iWmlczI-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.008;entryY=0.481;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="L6Wv2gptWpFD-Na3jaec-29" target="L6Wv2gptWpFD-Na3jaec-50">
+        <mxCell id="sHGwKZjFcYj0_iWmlczI-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.008;entryY=0.481;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="L6Wv2gptWpFD-Na3jaec-29" target="L6Wv2gptWpFD-Na3jaec-50">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="sHGwKZjFcYj0_iWmlczI-6" value="sendet Messdaten" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sHGwKZjFcYj0_iWmlczI-4">
