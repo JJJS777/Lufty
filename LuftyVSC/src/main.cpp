@@ -5,7 +5,7 @@
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <BlynkSimpleEsp32.h>
-#include <Arduino_JSON>
+#include <Arduino_JSON.h>
 #include <HTTPClient.h>
 
 #define BLYNK_PRINT Serial
@@ -43,6 +43,7 @@ unsigned long timerDelay = 10000;
 
 String jsonBuffer;
 
+
 void ISRbuttonClicked(){
   buttonPressed = digitalRead(buttonPin);
 }
@@ -77,6 +78,31 @@ void sendSensor() {
   Blynk.virtualWrite(V6, temperature);
 }
 
+String httpGETRequest(const char* serverName) {
+  HTTPClient http;
+    
+  // Your IP address with path or Domain name with URL path 
+  http.begin(serverName);
+  
+  // Send HTTP POST request
+  int httpResponseCode = http.GET();
+  
+  String payload = "{}"; 
+  
+  if (httpResponseCode>0) {
+    Serial.print("HTTP Response code: ");
+    Serial.println(httpResponseCode);
+    payload = http.getString();
+  }
+  else {
+    Serial.print("Error code: ");
+    Serial.println(httpResponseCode);
+  }
+  // Free resources
+  http.end();
+
+  return payload;
+}
 
 void setup() {
   // put your setup code here, to run once:
@@ -141,31 +167,4 @@ timer.run();
     }
     lastTime = millis();
   }
-}
-
-String httpGETRequest(const char* serverName) {
-  HTTPClient http;
-    
-  // Your IP address with path or Domain name with URL path 
-  http.begin(serverName);
-  
-  // Send HTTP POST request
-  int httpResponseCode = http.GET();
-  
-  String payload = "{}"; 
-  
-  if (httpResponseCode>0) {
-    Serial.print("HTTP Response code: ");
-    Serial.println(httpResponseCode);
-    payload = http.getString();
-  }
-  else {
-    Serial.print("Error code: ");
-    Serial.println(httpResponseCode);
-  }
-  // Free resources
-  http.end();
-
-  return payload;
-
 }
