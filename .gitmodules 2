@@ -1,0 +1,3 @@
+[submodule "LuftyVSC/PackageManager/macos/vcpkg"]
+	path = LuftyVSC/PackageManager/macos/vcpkg
+	url = https://github.com/microsoft/vcpkg
