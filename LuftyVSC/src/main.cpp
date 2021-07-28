@@ -69,21 +69,23 @@ void loop() {
   fensterAuf(){
   }else {
     println("Fenster kann nicht geöffnet werden da das Wetter nich geeignet ist.")
+    fensterZu(){
+    
+  }
   }}
+
   preSleeping(time>23 && time <24){
     if(temperature > 18){
-      fensterAuf()
+      iswindowOpenable()
     }
   }
   
-  fensterZu(){
-    
-  }
+  
   checkHumidity(){
     if(humidity < 20)
     {
       humidifier ON
-      fensterZu()
+      iswindowOpenable()
     }
     if(humidity >60)
     {
@@ -92,7 +94,7 @@ void loop() {
   }
   if(temperature > 23){
     humidifier OFF
-    fensterAuf()
+    iswindowOpenable()
   }
   if(temperature <20)
   {
