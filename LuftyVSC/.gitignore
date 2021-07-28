@@ -1,6 +1,13 @@
 # Created by https://www.toptal.com/developers/gitignore/api/c++,visualstudio,macos,windows,platformio
 # Edit at https://www.toptal.com/developers/gitignore?templates=c++,visualstudio,macos,windows,platformio
 
+### Eigene ###
+c_cpp_properties.json
+PackageManager
+.pio
+platformio.ini
+
+
 ### C++ ###
 # Prerequisites
 *.d
