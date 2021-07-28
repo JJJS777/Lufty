@@ -11,7 +11,7 @@ const char* ssid = "Duckn3t";
 const char* password =  "quack1QUACK4quack1";
 
 //Globale Variable
-float temperature, humidity;
+float temperature, humidity, pressure;
 int ledPin = 14;
 int buttonPressed = 0; //Variable global def.
 int buttonPin = 26; 
@@ -60,6 +60,44 @@ void loop() {
     Serial.print(humidity);
     Serial.println(" %");
   }
+  
 
   delay(2000);
+  /*
+  iswindowOpenable(){
+    if(WindSpeed<40||API_temp <28||API_temp > 8|| AirQuality <100)
+  fensterAuf(){
+  }else {
+    println("Fenster kann nicht geöffnet werden da das Wetter nich geeignet ist.")
+  }}
+  preSleeping(time>23 && time <24){
+    if(temperature > 18){
+      fensterAuf()
+    }
+  }
+  
+  fensterZu(){
+    
+  }
+  checkHumidity(){
+    if(humidity < 20)
+    {
+      humidifier ON
+      fensterZu()
+    }
+    if(humidity >60)
+    {
+      humidifier OFF
+    }
+  }
+  if(temperature > 23){
+    humidifier OFF
+    fensterAuf()
+  }
+  if(temperature <20)
+  {
+    checkHumidity
+  }*/
+
+  
 }
