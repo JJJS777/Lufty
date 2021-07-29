@@ -7,22 +7,20 @@
 #include <BlynkSimpleEsp32.h>
 #include <Arduino_JSON.h>
 #include <HTTPClient.h>
+#include "Adafruit_BME680.h"
 
 #define BLYNK_PRINT Serial
-#define DHTPIN 18
-#define DHTTYPE DHT11
+
+Adafruit_BME680 bme; // I2C geht auch mit SPI Protokoll
 
 const char* ssid = "Duckn3t";
 const char* password =  "quack1QUACK4quack1";
 const char auth[] = "h14JLgNFT8QLSKFXGJ9c9z9sSv5Lm8TX";
 
 //Globale Variable
-float temperature, humidity;
+float temperature, humidity, pressure, gasResistance;
 int ledPin = 14;
-int buttonPressed = 0; //Variable global def.
-int buttonPin = 26;
 
-DHT my_sensor( DHTPIN, DHTTYPE);
 BlynkTimer timer;
 
 /*OpenWeatherMap.org*/
@@ -39,38 +37,20 @@ unsigned long lastTime = 0;
 // Timer set to 10 minutes (600000)
 //unsigned long timerDelay = 600000;
 // Set timer to 10 seconds (10000)
-unsigned long timerDelay = 10000;
+unsigned long timerDelay = 30000;
 
 String jsonBuffer;
 
-
-void ISRbuttonClicked(){
-  buttonPressed = digitalRead(buttonPin);
-}
-
 void sendSensor() {
-  humidity = my_sensor.readHumidity();
-  temperature = my_sensor.readTemperature();
+  humidity = bme.readHumidity();
+  temperature = bme.readTemperature();
 
   if (isnan(humidity) || isnan(temperature)) {
     Serial.println("Failed to read from DHT sensor!");
     return;
   }
 
-    if (temperature < 19.00 || temperature > 22.00 || humidity < 50.00  ){
-    digitalWrite(ledPin, HIGH);
-    Serial.println("Messung Prüfen -> Knopf Drücken");
-  } else {
-    digitalWrite(ledPin, LOW);
-  }
-
-  if ( buttonPressed > 0 ) {
-    Serial.print("Temperatur: ");
-    Serial.print(temperature);
-    Serial.print("°C / Humidity: ");
-    Serial.print(humidity);
-    Serial.println(" %");
-  }
+  Serial.println(humidity);
 
   // You can send any value at any time.
   // Please don't send more that 10 values per second.
@@ -122,20 +102,30 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   pinMode(ledPin, OUTPUT); //Output Pin wird initalisiert, Zahl auf dem Mainboard am gelben Kabel
-  pinMode(buttonPin, INPUT); //Input pin initalisieren
-  attachInterrupt(buttonPin, ISRbuttonClicked, CHANGE);
-  my_sensor.begin();
+
+  //Init BME680
+  if(!bme.begin()){
+    Serial.println(F("Could not find a valid BME680 sensor, check wiring!"));
+  }
+  
+  // Set up oversampling and filter initialization
+  bme.setTemperatureOversampling(BME680_OS_8X);
+  bme.setHumidityOversampling(BME680_OS_2X);
+  bme.setPressureOversampling(BME680_OS_4X);
+  bme.setIIRFilterSize(BME680_FILTER_SIZE_3);
+  bme.setGasHeater(320, 150); // 320*C for 150 ms
 
   // Setup a function to be called every second
   timer.setInterval(1000L, sendSensor);
 }
 
 void loop() {
-// put your main code here, to run repeatedly:
-Blynk.run();
-timer.run();
+  // put your main code here, to run repeatedly:
+  Blynk.run();
+  timer.run();
+  sendSensor();
 
-// Send an HTTP GET request
+  // Send an HTTP GET request
   if ((millis() - lastTime) > timerDelay) {
     // Check WiFi connection status
     if(WiFi.status()== WL_CONNECTED){
