@@ -11,7 +11,7 @@
 
 #define BLYNK_PRINT Serial
 
-Adafruit_BME680 bme; // I2C geht auch mit SPI Protokoll
+Adafruit_BME680 bme; // I2C
 
 const char* ssid = "Duckn3t";
 const char* password =  "quack1QUACK4quack1";
@@ -41,16 +41,25 @@ unsigned long timerDelay = 30000;
 
 String jsonBuffer;
 
-void sendSensor() {
-  humidity = bme.readHumidity();
-  temperature = bme.readTemperature();
-
-  if (isnan(humidity) || isnan(temperature)) {
-    Serial.println("Failed to read from DHT sensor!");
+void getBME680data() {
+  
+  unsigned long endTime = bme.beginReading();
+  if(endTime == 0){
+    Serial.println(F("Failed to begin reading"));
     return;
   }
 
-  Serial.println(humidity);
+  if(!bme.endReading()){
+    Serial.println(F("Failed to Complete reading"));
+    return;
+  }
+  
+  humidity = bme.humidity;
+  temperature = bme.temperature;
+  pressure = bme.pressure;
+  gasResistance = bme.gas_resistance;
+
+  // Serial.println(humidity);
 
   // You can send any value at any time.
   // Please don't send more that 10 values per second.
@@ -93,6 +102,7 @@ void setup() {
   Blynk.config(auth);
   Blynk.connect();
 
+  /* WiFi Connection */
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.println("Connecting to WiFi..");
@@ -101,11 +111,12 @@ void setup() {
   Serial.print("Connected to WiFi network with IP Address: ");
   Serial.println(WiFi.localIP());
 
-  pinMode(ledPin, OUTPUT); //Output Pin wird initalisiert, Zahl auf dem Mainboard am gelben Kabel
+  //pinMode(ledPin, OUTPUT); //Output Pin wird initalisiert, Zahl auf dem Mainboard am gelben Kabel
 
   //Init BME680
   if(!bme.begin()){
     Serial.println(F("Could not find a valid BME680 sensor, check wiring!"));
+    while(1);
   }
   
   // Set up oversampling and filter initialization
@@ -115,18 +126,26 @@ void setup() {
   bme.setIIRFilterSize(BME680_FILTER_SIZE_3);
   bme.setGasHeater(320, 150); // 320*C for 150 ms
 
-  // Setup a function to be called every second
-  timer.setInterval(1000L, sendSensor);
+  // // Setup a function to be called every second
+  // timer.setInterval(10000L, getBME680data );
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Blynk.run();
-  timer.run();
-  sendSensor();
+  //Blynk.run();
+  //timer.run();
+  //getBME680data();
 
   // Send an HTTP GET request
   if ((millis() - lastTime) > timerDelay) {
+    getBME680data();
+    Serial.printf("Temperature = %.2f ºC \n", temperature);
+    Serial.printf("Humidity = %.2f % \n", humidity);
+    Serial.printf("Pressure = %.2f hPa \n", pressure);
+    Serial.printf("Gas Resistance = %.2f KOhm \n", gasResistance);
+    Serial.println();
+
+
     // Check WiFi connection status
     if(WiFi.status()== WL_CONNECTED){
       String serverPath = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&APPID=" + openWeatherMapApiKey;
