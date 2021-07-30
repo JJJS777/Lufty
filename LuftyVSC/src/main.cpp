@@ -126,8 +126,8 @@ void setup() {
   bme.setIIRFilterSize(BME680_FILTER_SIZE_3);
   bme.setGasHeater(320, 150); // 320*C for 150 ms
 
-  // // Setup a function to be called every second
-  // timer.setInterval(10000L, getBME680data );
+  // Setup a function to be called every second
+  timer.setInterval(10000L, getBME680data );
 }
 
 void loop() {
