@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <Adafruit_I2CDevice.h>
 #include <Wire.h>
 #include <SPI.h>
 #include <DHT.h>
@@ -111,14 +112,14 @@ void setup() {
   Serial.print("Connected to WiFi network with IP Address: ");
   Serial.println(WiFi.localIP());
 
-  //pinMode(ledPin, OUTPUT); //Output Pin wird initalisiert, Zahl auf dem Mainboard am gelben Kabel
-
   //Init BME680
   if(!bme.begin()){
     Serial.println(F("Could not find a valid BME680 sensor, check wiring!"));
     while(1);
   }
   
+  pinMode(ledPin, OUTPUT); //Output Pin wird initalisiert, Zahl auf dem Mainboard am gelben Kabel
+
   // Set up oversampling and filter initialization
   bme.setTemperatureOversampling(BME680_OS_8X);
   bme.setHumidityOversampling(BME680_OS_2X);
@@ -132,20 +133,12 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  //Blynk.run();
-  //timer.run();
-  //getBME680data();
+  Blynk.run();
+  timer.run();
+  getBME680data();
 
   // Send an HTTP GET request
   if ((millis() - lastTime) > timerDelay) {
-    getBME680data();
-    Serial.printf("Temperature = %.2f ºC \n", temperature);
-    Serial.printf("Humidity = %.2f % \n", humidity);
-    Serial.printf("Pressure = %.2f hPa \n", pressure);
-    Serial.printf("Gas Resistance = %.2f KOhm \n", gasResistance);
-    Serial.println();
-
-
     // Check WiFi connection status
     if(WiFi.status()== WL_CONNECTED){
       String serverPath = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&APPID=" + openWeatherMapApiKey;
