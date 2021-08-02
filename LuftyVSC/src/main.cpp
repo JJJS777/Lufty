@@ -3,6 +3,7 @@
 #include <SPI.h>
 #include <DHT.h>
 #include "WiFi.h"
+#include <Servo.h>
 
 #define DHTPIN 18
 #define DHTTYPE DHT11
@@ -102,4 +103,17 @@ void loop() {
   }*/
 
   
+}
+
+Servo servo1;
+#define servo1Pin D2 // Define the NodeMCU pin to attach the Servo
+
+void servoSetup(){
+  servo1.attach(servo1Pin);
+  //potReading = analogRead(A0);
+  servo1Angle = map(potReading, 0, 1023, 0, 180);
+  servo1.write(servo1Angle); 
+  Serial.println(servo1Angle);
+
+
 }
