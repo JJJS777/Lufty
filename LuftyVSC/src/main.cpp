@@ -10,7 +10,7 @@
 #include <HTTPClient.h>
 #include "Adafruit_BME680.h"
 
-#define BLYNK_PRINT Serial
+#define BLYNK_PRINT Serialear
 
 Adafruit_BME680 bme; // I2C
 
@@ -60,7 +60,11 @@ void getBME680data() {
   pressure = bme.pressure;
   gasResistance = bme.gas_resistance;
 
-  // Serial.println(humidity);
+  Serial.printf("Temperature = %.2f ºC \n", temperature);
+  Serial.printf("Humidity = %.2f % \n", humidity);
+  Serial.printf("Pressure = %.2f hPa \n", pressure);
+  Serial.printf("Gas Resistance = %.2f KOhm \n", gasResistance);
+  Serial.println(); 
 
   // You can send any value at any time.
   // Please don't send more that 10 values per second.
@@ -113,7 +117,7 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   //Init BME680
-  if(!bme.begin()){
+  if(!bme.begin(0x76)){
     Serial.println(F("Could not find a valid BME680 sensor, check wiring!"));
     while(1);
   }
@@ -127,8 +131,8 @@ void setup() {
   bme.setIIRFilterSize(BME680_FILTER_SIZE_3);
   bme.setGasHeater(320, 150); // 320*C for 150 ms
 
-  // Setup a function to be called every second
-  timer.setInterval(10000L, getBME680data );
+  // // Setup a function to be called every second
+  // timer.setInterval(10000L, getBME680data );
 }
 
 void loop() {
