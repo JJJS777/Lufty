@@ -116,7 +116,7 @@ void setup() {
   Serial.print("Connected to WiFi network with IP Address: ");
   Serial.println(WiFi.localIP());
 
-  //Init BME680
+  //Init BME680, adresse von BME 0x76 übergeben
   if(!bme.begin(0x76)){
     Serial.println(F("Could not find a valid BME680 sensor, check wiring!"));
     while(1);
