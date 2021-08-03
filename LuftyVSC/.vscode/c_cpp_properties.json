@@ -10,9 +10,6 @@
             "includePath": [
                 "C:/Projects/Lufty/Lufty/LuftyVSC/include",
                 "C:/Projects/Lufty/Lufty/LuftyVSC/src",
-                "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
-                "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
-                "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                 "C:/Projects/Lufty/Lufty/LuftyVSC/.pio/libdeps/nodemcu-32s/DHT sensor library",
                 "C:/Projects/Lufty/Lufty/LuftyVSC/.pio/libdeps/nodemcu-32s/Adafruit Unified Sensor",
                 "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/tools/sdk/include/config",
@@ -97,13 +94,16 @@
                 "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/Preferences/src",
                 "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/SD/src",
                 "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/SD_MMC/src",
+                "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
                 "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/SPIFFS/src",
                 "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/SimpleBLE/src",
                 "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/Ticker/src",
                 "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/Update/src",
                 "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src",
+                "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                 "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/WiFiClientSecure/src",
                 "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
+                "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                 ""
             ],
             "browse": {
@@ -111,9 +111,6 @@
                 "path": [
                     "C:/Projects/Lufty/Lufty/LuftyVSC/include",
                     "C:/Projects/Lufty/Lufty/LuftyVSC/src",
-                    "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
-                    "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
-                    "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                     "C:/Projects/Lufty/Lufty/LuftyVSC/.pio/libdeps/nodemcu-32s/DHT sensor library",
                     "C:/Projects/Lufty/Lufty/LuftyVSC/.pio/libdeps/nodemcu-32s/Adafruit Unified Sensor",
                     "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/tools/sdk/include/config",
@@ -198,13 +195,16 @@
                     "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/Preferences/src",
                     "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/SD/src",
                     "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/SD_MMC/src",
+                    "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
                     "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/SPIFFS/src",
                     "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/SimpleBLE/src",
                     "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/Ticker/src",
                     "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/Update/src",
                     "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src",
+                    "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                     "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/WiFiClientSecure/src",
                     "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
+                    "C:/Users/Manuel/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                     ""
                 ]
             },
