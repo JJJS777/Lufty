@@ -8,18 +8,23 @@
 #include <BlynkSimpleEsp32.h>
 #include <Arduino_JSON.h>
 #include <HTTPClient.h>
-#include "Adafruit_BME680.h"
+#include "bsec.h"
 
 #define BLYNK_PRINT Serialear
 
-Adafruit_BME680 bme; // I2C
+// Helper functions declarations
+void checkIaqSensorStatus(void);
+void errLeds(void);
 
-const char* ssid = "Duckn3t";
-const char* password =  "quack1QUACK4quack1";
+// Create an object of the class Bsec
+Bsec iaqSensor;
+
+const char *ssid = "Duckn3t";
+const char *password = "quack1QUACK4quack1";
 const char auth[] = "h14JLgNFT8QLSKFXGJ9c9z9sSv5Lm8TX";
 
 //Globale Variable
-float temperature, humidity, pressure, gasResistance;
+float rawTemperature, temperature, rawHumidity, humidity, pressure, iaqData, iaqAccuracy, staticIaq, gasResistance, co2Equivalent, breathVocEquivalent;
 int ledPin = 14;
 
 BlynkTimer timer;
@@ -40,55 +45,84 @@ unsigned long lastTime = 0;
 // Set timer to 10 seconds (10000)
 unsigned long timerDelay = 30000;
 
-String jsonBuffer;
+String jsonBuffer, output;
 
-void getBME680data() {
-  
-  unsigned long endTime = bme.beginReading();
-  if(endTime == 0){
-    Serial.println(F("Failed to begin reading"));
-    return;
+void getBME680data()
+{
+  rawTemperature = iaqSensor.rawTemperature;
+  temperature = iaqSensor.temperature;
+  rawHumidity = iaqSensor.rawHumidity;
+  humidity = iaqSensor.humidity;
+  pressure = iaqSensor.pressure;
+  iaqData = iaqSensor.iaq;
+  iaqAccuracy = iaqSensor.iaqAccuracy;
+  staticIaq = iaqSensor.staticIaq;
+  gasResistance = iaqSensor.gasResistance;
+  co2Equivalent = iaqSensor.co2Equivalent;
+  breathVocEquivalent = iaqSensor.breathVocEquivalent;
+
+  unsigned long time_trigger = millis();
+  if (iaqSensor.run()) { // If new data is available
+    Serial.print(F("Raw-Temperature = "));
+    Serial.print(rawTemperature);
+    Serial.println(F(" °C"));
+
+    Serial.print(F("Temperature = "));
+    Serial.print(temperature);
+    Serial.println(F(" °C"));
+
+    Serial.print(F("Raw-Humidity = "));
+    Serial.print(rawHumidity);
+    Serial.println(F(" %"));
+
+    Serial.print(F("Humidity = "));
+    Serial.print(humidity);
+    Serial.println(F(" %"));
+
+    Serial.print(F("Pressure = "));
+    Serial.print(pressure / 100.0);
+    Serial.println(F(" hPa"));
+
+    Serial.print(F("Index of Air Quality = "));
+    Serial.print(iaqData);
+    Serial.println();
+
+    Serial.print(F("Gas = "));
+    Serial.print(gasResistance / 1000.0);
+    Serial.println(F(" KOhms"));
+
+    Serial.println();
+  } else {
+    checkIaqSensorStatus();
   }
-
-  if(!bme.endReading()){
-    Serial.println(F("Failed to Complete reading"));
-    return;
-  }
-  
-  humidity = bme.humidity;
-  temperature = bme.temperature;
-  pressure = bme.pressure;
-  gasResistance = bme.gas_resistance;
-
-  Serial.printf("Temperature = %.2f ºC \n", temperature);
-  Serial.printf("Humidity = %.2f % \n", humidity);
-  Serial.printf("Pressure = %.2f hPa \n", pressure);
-  Serial.printf("Gas Resistance = %.2f KOhm \n", gasResistance);
-  Serial.println(); 
 
   // You can send any value at any time.
   // Please don't send more that 10 values per second.
   Blynk.virtualWrite(V5, humidity);
   Blynk.virtualWrite(V6, temperature);
+  delay(2000);
 }
 
-String httpGETRequest(const char* serverName) {
+String httpGETRequest(const char *serverName)
+{
   HTTPClient http;
-    
-  // Your IP address with path or Domain name with URL path 
+
+  // Your IP address with path or Domain name with URL path
   http.begin(serverName);
-  
+
   // Send HTTP POST request
   int httpResponseCode = http.GET();
-  
-  String payload = "{}"; 
-  
-  if (httpResponseCode>0) {
+
+  String payload = "{}";
+
+  if (httpResponseCode > 0)
+  {
     Serial.print("HTTP Response code: ");
     Serial.println(httpResponseCode);
     payload = http.getString();
   }
-  else {
+  else
+  {
     Serial.print("Error code: ");
     Serial.println(httpResponseCode);
   }
@@ -98,7 +132,8 @@ String httpGETRequest(const char* serverName) {
   return payload;
 }
 
-void setup() {
+void setup()
+{
   // put your setup code here, to run once:
   Serial.begin(9600);
 
@@ -107,56 +142,64 @@ void setup() {
   Blynk.config(auth);
   Blynk.connect();
 
+  /*BME680 w/ BSEC*/
+  Wire.begin();
+  iaqSensor.begin(BME680_I2C_ADDR_PRIMARY, Wire);
+  checkIaqSensorStatus();
+
+  bsec_virtual_sensor_t sensorList[10] = {
+      BSEC_OUTPUT_RAW_TEMPERATURE,
+      BSEC_OUTPUT_RAW_PRESSURE,
+      BSEC_OUTPUT_RAW_HUMIDITY,
+      BSEC_OUTPUT_RAW_GAS,
+      BSEC_OUTPUT_IAQ,
+      BSEC_OUTPUT_STATIC_IAQ,
+      BSEC_OUTPUT_CO2_EQUIVALENT,
+      BSEC_OUTPUT_BREATH_VOC_EQUIVALENT,
+      BSEC_OUTPUT_SENSOR_HEAT_COMPENSATED_TEMPERATURE,
+      BSEC_OUTPUT_SENSOR_HEAT_COMPENSATED_HUMIDITY,
+  };
+
+  iaqSensor.updateSubscription(sensorList, 10, BSEC_SAMPLE_RATE_LP);
+  checkIaqSensorStatus();
+
   /* WiFi Connection */
-  while (WiFi.status() != WL_CONNECTED) {
+  while (WiFi.status() != WL_CONNECTED)
+  {
     delay(500);
     Serial.println("Connecting to WiFi..");
   }
 
   Serial.print("Connected to WiFi network with IP Address: ");
   Serial.println(WiFi.localIP());
-
-  //Init BME680, adresse von BME 0x76 übergeben
-  if(!bme.begin(0x76)){
-    Serial.println(F("Could not find a valid BME680 sensor, check wiring!"));
-    while(1);
-  }
-  
-  pinMode(ledPin, OUTPUT); //Output Pin wird initalisiert, Zahl auf dem Mainboard am gelben Kabel
-
-  // Set up oversampling and filter initialization
-  bme.setTemperatureOversampling(BME680_OS_8X);
-  bme.setHumidityOversampling(BME680_OS_2X);
-  bme.setPressureOversampling(BME680_OS_4X);
-  bme.setIIRFilterSize(BME680_FILTER_SIZE_3);
-  bme.setGasHeater(320, 150); // 320*C for 150 ms
-
-  // // Setup a function to be called every second
-  // timer.setInterval(10000L, getBME680data );
 }
 
-void loop() {
+void loop()
+{
   // put your main code here, to run repeatedly:
   Blynk.run();
   timer.run();
   getBME680data();
 
   // Send an HTTP GET request
-  if ((millis() - lastTime) > timerDelay) {
+  if ((millis() - lastTime) > timerDelay)
+  {
     // Check WiFi connection status
-    if(WiFi.status()== WL_CONNECTED){
+    if (WiFi.status() == WL_CONNECTED)
+    {
       String serverPath = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&APPID=" + openWeatherMapApiKey;
-      
+
       jsonBuffer = httpGETRequest(serverPath.c_str());
       Serial.println(jsonBuffer);
       JSONVar myObject = JSON.parse(jsonBuffer);
-  
+
       // JSON.typeof(jsonVar) can be used to get the type of the var
-      if (JSON.typeof(myObject) == "undefined") {
+      if (JSON.typeof(myObject) == "undefined")
+      {
         Serial.println("Parsing input failed!");
         return;
       }
-    
+
       Serial.print("JSON object = ");
       Serial.println(myObject);
       Serial.print("Temperature: ");
@@ -168,9 +211,48 @@ void loop() {
       Serial.print("Wind Speed: ");
       Serial.println(myObject["wind"]["speed"]);
     }
-    else {
+    else
+    {
       Serial.println("WiFi Disconnected");
     }
     lastTime = millis();
   }
+}
+
+
+// Helper function definitions
+void checkIaqSensorStatus(void)
+{
+  if (iaqSensor.status != BSEC_OK) {
+    if (iaqSensor.status < BSEC_OK) {
+      output = "BSEC error code : " + String(iaqSensor.status);
+      Serial.println(output);
+      for (;;)
+        errLeds(); /* Halt in case of failure */
+    } else {
+      output = "BSEC warning code : " + String(iaqSensor.status);
+      Serial.println(output);
+    }
+  }
+
+  if (iaqSensor.bme680Status != BME680_OK) {
+    if (iaqSensor.bme680Status < BME680_OK) {
+      output = "BME680 error code : " + String(iaqSensor.bme680Status);
+      Serial.println(output);
+      for (;;)
+        errLeds(); /* Halt in case of failure */
+    } else {
+      output = "BME680 warning code : " + String(iaqSensor.bme680Status);
+      Serial.println(output);
+    }
+  }
+}
+
+void errLeds(void)
+{
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(100);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(100);
 }
