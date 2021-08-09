@@ -36,6 +36,7 @@ String openWeatherMapApiKey = "a07094aa292e8325eaf597b2f9ce6e44";
 // Replace with your country code and city
 String city = "Cologne";
 String countryCode = "DE";
+String unitsApi = "metric";
 
 // THE DEFAULT TIMER IS SET TO 10 SECONDS FOR TESTING PURPOSES
 // For a final application, check the API call limits per hour/minute to avoid getting blocked/banned
@@ -143,10 +144,13 @@ void decodingJSON(){
     // Check WiFi connection status
     if (WiFi.status() == WL_CONNECTED)
     {
-      String serverPath = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&APPID=" + openWeatherMapApiKey;
+      String serverPath = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&units=" + unitsApi + "&APPID=" + openWeatherMapApiKey;
+
+      Serial.println("_____\n");
+      Serial.println("API-Call\n");
 
       jsonBuffer = httpGETRequest(serverPath.c_str());
-      Serial.println(jsonBuffer);
+      //Serial.println(jsonBuffer);
       JSONVar myObject = JSON.parse(jsonBuffer);
 
       // JSON.typeof(jsonVar) can be used to get the type of the var
@@ -156,16 +160,13 @@ void decodingJSON(){
         return;
       }
 
-      Serial.print("JSON object = ");
-      Serial.println(myObject);
-      Serial.print("Temperature: ");
-      Serial.println(myObject["main"]["temp"]);
-      Serial.print("Pressure: ");
-      Serial.println(myObject["main"]["pressure"]);
-      Serial.print("Humidity: ");
-      Serial.println(myObject["main"]["humidity"]);
-      Serial.print("Wind Speed: ");
-      Serial.println(myObject["wind"]["speed"]);
+      double apiTemp = myObject["main"]["temp"];
+
+      Serial.println("\n\nDaten aus Open-WeatherMap:");
+      Serial.print("Temperatur aus API: ");
+      Serial.print(apiTemp);
+      Serial.println("°C");
+      Serial.println("_____\n\n");
     }
     else
     {
