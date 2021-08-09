@@ -40,7 +40,7 @@ String countryCode = "DE";
 // THE DEFAULT TIMER IS SET TO 10 SECONDS FOR TESTING PURPOSES
 // For a final application, check the API call limits per hour/minute to avoid getting blocked/banned
 unsigned long lastTime = 0;
-unsigned long timerDelay = 30000;
+unsigned long timerDelay = 60000;
 
 String jsonBuffer, output;
 
@@ -136,7 +136,7 @@ String httpGETRequest(const char *serverName)
   return payload;
 }
 
-void sendHttpGetReq(){
+void decodingJSON(){
   // Send an HTTP GET request
   if ((millis() - lastTime) > timerDelay)
   {
@@ -223,7 +223,7 @@ void loop()
   Blynk.run();
   timer.run();
   getBME680data();
-  sendHttpGetReq();
+  decodingJSON();
 }
 
 
