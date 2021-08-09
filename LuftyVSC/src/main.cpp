@@ -40,9 +40,6 @@ String countryCode = "DE";
 // THE DEFAULT TIMER IS SET TO 10 SECONDS FOR TESTING PURPOSES
 // For a final application, check the API call limits per hour/minute to avoid getting blocked/banned
 unsigned long lastTime = 0;
-// Timer set to 10 minutes (600000)
-//unsigned long timerDelay = 600000;
-// Set timer to 10 seconds (10000)
 unsigned long timerDelay = 30000;
 
 String jsonBuffer, output;
@@ -85,6 +82,13 @@ void getBME680data()
 
     Serial.print(F("Index of Air Quality = "));
     Serial.print(iaqData);
+    Serial.println();
+
+    /*IAQ Accuracy (begins at 0 after start up, goes to 1 after a few minutes and 
+    reaches 3 when the sensor is calibrated). The initial value of the IAQ index is 25.00. 
+    and it stays that way for a good while. Only after several minutes does the IAQ value starts to drift. */
+    Serial.print(F("Genauigkeit des Index of Air Quality = "));
+    Serial.print(iaqAccuracy);
     Serial.println();
 
     Serial.print(F("Gas = "));
@@ -132,55 +136,7 @@ String httpGETRequest(const char *serverName)
   return payload;
 }
 
-void setup()
-{
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-
-  /*Blynk*/
-  WiFi.begin(ssid, password);
-  Blynk.config(auth);
-  Blynk.connect();
-
-  /*BME680 w/ BSEC*/
-  Wire.begin();
-  iaqSensor.begin(BME680_I2C_ADDR_PRIMARY, Wire);
-  checkIaqSensorStatus();
-
-  bsec_virtual_sensor_t sensorList[10] = {
-      BSEC_OUTPUT_RAW_TEMPERATURE,
-      BSEC_OUTPUT_RAW_PRESSURE,
-      BSEC_OUTPUT_RAW_HUMIDITY,
-      BSEC_OUTPUT_RAW_GAS,
-      BSEC_OUTPUT_IAQ,
-      BSEC_OUTPUT_STATIC_IAQ,
-      BSEC_OUTPUT_CO2_EQUIVALENT,
-      BSEC_OUTPUT_BREATH_VOC_EQUIVALENT,
-      BSEC_OUTPUT_SENSOR_HEAT_COMPENSATED_TEMPERATURE,
-      BSEC_OUTPUT_SENSOR_HEAT_COMPENSATED_HUMIDITY,
-  };
-
-  iaqSensor.updateSubscription(sensorList, 10, BSEC_SAMPLE_RATE_LP);
-  checkIaqSensorStatus();
-
-  /* WiFi Connection */
-  while (WiFi.status() != WL_CONNECTED)
-  {
-    delay(500);
-    Serial.println("Connecting to WiFi..");
-  }
-
-  Serial.print("Connected to WiFi network with IP Address: ");
-  Serial.println(WiFi.localIP());
-}
-
-void loop()
-{
-  // put your main code here, to run repeatedly:
-  Blynk.run();
-  timer.run();
-  getBME680data();
-
+void sendHttpGetReq(){
   // Send an HTTP GET request
   if ((millis() - lastTime) > timerDelay)
   {
@@ -217,6 +173,57 @@ void loop()
     }
     lastTime = millis();
   }
+}
+
+void setup()
+{
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+
+  /* WiFi Connection */
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(500);
+    Serial.println("Connecting to WiFi..");
+  }
+
+  Serial.print("Connected to WiFi network with IP Address: ");
+  Serial.println(WiFi.localIP());
+
+  /*Blynk*/
+  Blynk.config(auth);
+  Blynk.connect();
+  
+  /*BME680 w/ BSEC*/
+  Wire.begin();
+  iaqSensor.begin(BME680_I2C_ADDR_PRIMARY, Wire);
+  checkIaqSensorStatus();
+
+  bsec_virtual_sensor_t sensorList[10] = {
+      BSEC_OUTPUT_RAW_TEMPERATURE,
+      BSEC_OUTPUT_RAW_PRESSURE,
+      BSEC_OUTPUT_RAW_HUMIDITY,
+      BSEC_OUTPUT_RAW_GAS,
+      BSEC_OUTPUT_IAQ,
+      BSEC_OUTPUT_STATIC_IAQ,
+      BSEC_OUTPUT_CO2_EQUIVALENT,
+      BSEC_OUTPUT_BREATH_VOC_EQUIVALENT,
+      BSEC_OUTPUT_SENSOR_HEAT_COMPENSATED_TEMPERATURE,
+      BSEC_OUTPUT_SENSOR_HEAT_COMPENSATED_HUMIDITY,
+  };
+
+  iaqSensor.updateSubscription(sensorList, 10, BSEC_SAMPLE_RATE_LP);
+  checkIaqSensorStatus();
+}
+
+void loop()
+{
+  // put your main code here, to run repeatedly:
+  Blynk.run();
+  timer.run();
+  getBME680data();
+  sendHttpGetReq();
 }
 
 
