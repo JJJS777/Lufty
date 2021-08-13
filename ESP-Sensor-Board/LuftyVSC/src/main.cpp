@@ -370,11 +370,6 @@ void checkIaqSensorStatus(void)
       Serial.println(output);
     }
   }
-<<<<<<< HEAD
-=======
-  
->>>>>>> main
-
   if (iaqSensor.bme680Status != BME680_OK) {
     if (iaqSensor.bme680Status < BME680_OK) {
       output = "BME680 error code : " + String(iaqSensor.bme680Status);
