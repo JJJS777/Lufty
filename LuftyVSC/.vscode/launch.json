@@ -12,9 +12,9 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "C:/Users/Manuel/Documents/GitHub/Lufty/LuftyVSC/.pio/build/nodemcu-32s/firmware.elf",
+            "executable": "/Users/julianschiller/Documents/Dokumente - 777/Git/WebDev/IoT/Lufty/LuftyVSC/.pio/build/nodemcu-32s/firmware.elf",
             "projectEnvName": "nodemcu-32s",
-            "toolchainBinDir": "C:/Users/Manuel/.platformio/packages/toolchain-xtensa32/bin",
+            "toolchainBinDir": "/Users/julianschiller/.platformio/packages/toolchain-xtensa32/bin",
             "internalConsoleOptions": "openOnSessionStart",
             "preLaunchTask": {
                 "type": "PlatformIO",
@@ -25,9 +25,9 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "C:/Users/Manuel/Documents/GitHub/Lufty/LuftyVSC/.pio/build/nodemcu-32s/firmware.elf",
+            "executable": "/Users/julianschiller/Documents/Dokumente - 777/Git/WebDev/IoT/Lufty/LuftyVSC/.pio/build/nodemcu-32s/firmware.elf",
             "projectEnvName": "nodemcu-32s",
-            "toolchainBinDir": "C:/Users/Manuel/.platformio/packages/toolchain-xtensa32/bin",
+            "toolchainBinDir": "/Users/julianschiller/.platformio/packages/toolchain-xtensa32/bin",
             "internalConsoleOptions": "openOnSessionStart"
         }
     ]
