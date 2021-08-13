@@ -25,6 +25,12 @@
 #define MQTT_PUB_WINDOW_OPEN "esp/sensorBoard/window/open"
 #define MQTT_PUB_WINDOW_CLOSE "esp/sensorBoard/window/close"
 
+/*Test Topics*/
+#define MQTT_PUB_TEMP "esp/bme680/temperature"
+#define MQTT_PUB_HUM  "esp/bme680/humidity"
+#define MQTT_PUB_PRES "esp/bme680/pressure"
+#define MQTT_PUB_GAS  "esp/bme680/gas"
+
 
 // Helper functions declarations
 void checkIaqSensorStatus(void);
@@ -162,7 +168,6 @@ String httpGETRequest(const char *serverName)
 }
 
 void decodingJSON(){
-  // Send an HTTP GET request
   if ((millis() - lastTime) > timerDelay)
   {
     // Check WiFi connection status
@@ -173,8 +178,11 @@ void decodingJSON(){
       Serial.println("_____\n");
       Serial.println("API-Call\n");
 
+      /* Sendet einen HTTP GET request uns speichert die Res. in der Variable jsonBuffer. The httpGETRequest() function makes a 
+      request to OpenWeatherMap and it retrieves a string with a JSON object that contains all the information about the weather for your city.*/
       jsonBuffer = httpGETRequest(serverPath.c_str());
       //Serial.println(jsonBuffer);
+      
       JSONVar myObject = JSON.parse(jsonBuffer);
 
       // JSON.typeof(jsonVar) can be used to get the type of the var
@@ -309,10 +317,42 @@ void setup(){
 
 void loop(){
   // put your main code here, to run repeatedly:
+  /*Blynk*/
   Blynk.run();
   timer.run();
-  getBME680data();
+
+  //getBME680data();
   decodingJSON();
+
+  unsigned long currentMillis = millis();
+  // Every X number of seconds (interval = 10 seconds) 
+  // it publishes a new MQTT message
+  if (currentMillis - previousMills >= interval) {
+    // Save the last time a new reading was published
+    previousMills = currentMillis;
+    
+    getBME680data();
+    
+    // Publish an MQTT message on topic esp/bme680/temperature
+    uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP, 1, true, String(temperature).c_str());
+    Serial.printf("Publishing on topic %s at QoS 1, packetId: %i", MQTT_PUB_TEMP, packetIdPub1);
+    Serial.printf("Message: %.2f \n", temperature);
+
+    // Publish an MQTT message on topic esp/bme680/humidity
+    uint16_t packetIdPub2 = mqttClient.publish(MQTT_PUB_HUM, 1, true, String(humidity).c_str());
+    Serial.printf("Publishing on topic %s at QoS 1, packetId %i: ", MQTT_PUB_HUM, packetIdPub2);
+    Serial.printf("Message: %.2f \n", humidity);
+
+    // Publish an MQTT message on topic esp/bme680/pressure
+    uint16_t packetIdPub3 = mqttClient.publish(MQTT_PUB_PRES, 1, true, String(pressure).c_str());
+    Serial.printf("Publishing on topic %s at QoS 1, packetId %i: ", MQTT_PUB_PRES, packetIdPub3);
+    Serial.printf("Message: %.2f \n", pressure);
+
+    // Publish an MQTT message on topic esp/bme680/gas
+    uint16_t packetIdPub4 = mqttClient.publish(MQTT_PUB_GAS, 1, true, String(gasResistance).c_str());
+    Serial.printf("Publishing on topic %s at QoS 1, packetId %i: ", MQTT_PUB_GAS, packetIdPub4);
+    Serial.printf("Message: %.2f \n", gasResistance);
+  }
 }
 
 
