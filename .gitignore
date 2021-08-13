@@ -3,9 +3,9 @@
 
 ### Eigene ###
 c_cpp_properties.json
-PackageManager
+#PackageManager
 .pio
-platformio.ini
+#platformio.ini
 
 
 ### C++ ###
