@@ -4,7 +4,6 @@
 * ```platformio```
 ## Hardware
 * ESP32
-* Servo 
 * Wires
 * Diffusor (we used **BONECO U50**)
 
