@@ -11,9 +11,9 @@
 # Setup
 ## Software
 ### Using Win10
-* open ```/ESP-Aktor-Board-Window/test``` as existing project in platformio
+* open ```/ESP-Aktor-Board-Window/window``` as existing project in platformio
 ### Using other OS
-* copy ```/ESP-Aktor-Board-Window/test/src/main.cpp``` 
+* copy ```/ESP-Aktor-Board-Window/window/src/main.cpp``` 
 * creste new platformio project under ```/ESP-Aktor-Board-Window``` 
 * paste the copied ```main.cpp``` file under ```/src``` 
 * install ```ServoESP32``` dependency in platformio
