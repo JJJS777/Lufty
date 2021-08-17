@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <Servo.h>
 
-static const int servoPin = 34;
+static const int servoPin = 16;
 
 Servo servo1;
 
