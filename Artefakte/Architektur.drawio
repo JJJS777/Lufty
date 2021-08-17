@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-08-12T15:40:13.408Z" agent="5.0 (Macintosh)" etag="6FlF7AhsuZksE9shu3ix" version="14.9.6" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-17T12:55:13.348Z" agent="5.0 (Macintosh)" etag="o8CPsIJ_TEv0dLm4G_T_" version="14.9.6" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="3626" dy="2495" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="3777" dy="2660" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -413,6 +413,9 @@
         <mxCell id="OwfbI39isTWdKtGaW7ez-79" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=90;" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
           <mxGeometry x="305" y="881" width="430" height="250" as="geometry" />
         </mxCell>
+        <mxCell id="mDo8GEIdPsgVUwYxy8PX-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="OwfbI39isTWdKtGaW7ez-37" source="OwfbI39isTWdKtGaW7ez-80" target="OwfbI39isTWdKtGaW7ez-83">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="OwfbI39isTWdKtGaW7ez-80" value="&lt;div&gt;ESP32&lt;/div&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/computer-hardware-glyphs-vol-2/52/microchip__chip__cpu__computer__proceesor__pc__hardware-128.png" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
           <mxGeometry x="455" y="821" width="128" height="128" as="geometry" />
         </mxCell>
@@ -443,7 +446,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="OwfbI39isTWdKtGaW7ez-88" value="blynk" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Software_as_a_Service.svg;" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
-          <mxGeometry x="1095" y="350" width="129" height="129" as="geometry" />
+          <mxGeometry x="990" y="351" width="129" height="129" as="geometry" />
         </mxCell>
         <mxCell id="OwfbI39isTWdKtGaW7ez-89" value="&lt;div&gt;Fenster&lt;/div&gt;&amp;nbsp;mit Motor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/stop-virus-outline-iconset/128/ic_wind-128.png" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
           <mxGeometry x="1826" y="689" width="128" height="128" as="geometry" />
