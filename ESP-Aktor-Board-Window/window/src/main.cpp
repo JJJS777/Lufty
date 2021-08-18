@@ -6,6 +6,10 @@
 #include <WiFiClient.h>
 #include <HTTPClient.h>
 #include <AsyncMqttClient.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 #define MQTT_HOST IPAddress(192, 168, 141, 99)
 #define MQTT_PORT 1883
@@ -100,22 +104,28 @@ void onMqttPublish(uint16_t packetId)
     Serial.println(packetId);
 }
 
-void onMqttMessage(char* topic, char* payload, AsyncMqttClientMessageProperties properties, size_t len, size_t index, size_t total) {
-  Serial.println("Publish received.");
-  Serial.print("  topic: ");
-  Serial.println(topic);
-  Serial.print("  qos: ");
-  Serial.println(properties.qos);
-  Serial.print("  dup: ");
-  Serial.println(properties.dup);
-  Serial.print("  retain: ");
-  Serial.println(properties.retain);
-  Serial.print("  len: ");
-  Serial.println(len);
-  Serial.print("  index: ");
-  Serial.println(index);
-  Serial.print("  total: ");
-  Serial.println(total);
+void onMqttMessage(char *topic, char *payload, AsyncMqttClientMessageProperties properties, size_t len, size_t index, size_t total)
+{
+    Serial.println("Publish received.");
+    Serial.print("  topic: ");
+    Serial.println(topic);
+    Serial.print("  qos: ");
+    Serial.println(properties.qos);
+    Serial.print("  dup: ");
+    Serial.println(properties.dup);
+    Serial.print("  retain: ");
+    Serial.println(properties.retain);
+    Serial.print("  len: ");
+    Serial.println(len);
+    Serial.print("  index: ");
+    Serial.println(index);
+    Serial.print("  total: ");
+    Serial.println(total);
+    Serial.println(payload);
+    for (size_t i = 0; i < len; ++i)
+    {
+        Serial.print(payload[i]);
+    }
 }
 
 void window_open()
@@ -181,7 +191,6 @@ void loop()
 
         // SUB an MQTT message on topic esp/bme680/temperature
         uint16_t packetIdSub1 = mqttClient.subscribe(MQTT_PUB_TEMP, MQTT_QoS);
-          mqttClient.onMessage(onMqttMessage);
-
+        mqttClient.onMessage(onMqttMessage);
     }
 }
