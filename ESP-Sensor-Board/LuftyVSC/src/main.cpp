@@ -20,6 +20,7 @@
 #define BLYNK_PRINT Serialear
 #define MQTT_HOST IPAddress(192, 168, 141, 99)
 #define MQTT_PORT 1883
+#define MQTT_QoS 1
 #define MQTT_PUB_DIFFUSOR_ON "esp/sensorBoard/diffusor/on"
 #define MQTT_PUB_DIFFUSOR_OFF "esp/sensorBoard/diffusor/off"
 #define MQTT_PUB_WINDOW_OPEN "esp/sensorBoard/window/open"
@@ -262,6 +263,38 @@ void onMqttPublish(uint16_t packetId){
   Serial.print("  packetId: ");
   Serial.println(packetId);
 }
+
+/****** ANWENDUNGSLOGIK ******/
+
+void closeWindow(){
+  // Publish an MQTT message on topic esp/sensorBoard/window/close
+    uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP, MQTT_QoS, true, String(temperature).c_str());
+    Serial.printf("Publishing on topic %s at %i, packetId: %i", MQTT_PUB_TEMP, MQTT_QoS, packetIdPub1);
+    Serial.printf("Message: closing Window...");
+}
+
+void checkConditions (){
+  if( badConditionsInside && badConditionsOutside ){
+    closeWindow();
+    deffusorOn();
+  } else if ( badConditionsInside && goodConditionsOutside ){
+    openWindow();
+    diffusorOff();
+  } else {
+    msgUser();
+  }
+
+}
+
+
+void diffusorControle() {
+
+}
+
+
+
+/****** ANWENDUNGSLOGIK ENDE ******/
+
 
 void setup(){
   // put your setup code here, to run once:
