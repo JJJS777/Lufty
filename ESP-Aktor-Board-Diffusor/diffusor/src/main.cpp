@@ -91,9 +91,6 @@ void onMqttUnsubscribe(uint16_t packetId) {
   Serial.print("  packetId: ");
   Serial.println(packetId);
 }
-
-Adafruit_MQTT_Subscribe on = Adafruit_MQTT_Subscribe(&mqtt, MQTT_NAME "esp/sensorBoard/diffusor/on");
-Adafruit_MQTT_Subscribe off = Adafruit_MQTT_Subscribe(&mqtt, MQTT_NAME "esp/sensorBoard/diffusor/off");
  
 static const int diffusorPin = 32;
 void setup()
