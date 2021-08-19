@@ -6,32 +6,21 @@
 #include <WiFiClient.h>
 #include <HTTPClient.h>
 #include <AsyncMqttClient.h>
-#include <iostream>
-#include <string>
 
-using namespace std;
 
 #define MQTT_HOST IPAddress(192, 168, 141, 99)
 #define MQTT_PORT 1883
 #define MQTT_QoS 1
-#define MQTT_PUB_DIFFUSOR_ON "esp/sensorBoard/diffusor/on"
-#define MQTT_PUB_DIFFUSOR_OFF "esp/sensorBoard/diffusor/off"
-#define MQTT_PUB_WINDOW_OPEN "esp/sensorBoard/window/open"
-#define MQTT_PUB_WINDOW_CLOSE "esp/sensorBoard/window/close"
+#define MQTT_SUB_WINDOW "esp/sensorBoard/window"
 
-/*Test Topics*/
-#define MQTT_PUB_TEMP "esp/bme680/temperature"
-#define MQTT_PUB_HUM "esp/bme680/humidity"
-#define MQTT_PUB_PRES "esp/bme680/pressure"
-#define MQTT_PUB_GAS "esp/bme680/gas"
-
+char mqttCommandMsg = 'c'; //ggf. zu lokaler variable machen
 static const int servoPin = 16;
 const char *ssid = "Duckn3t";
 const char *password = "quack1QUACK4quack1";
 
 //MQTT-Timer-Hilfsvariable die alle 10 sec die Anweisung an den Broker publiziert
 unsigned long previousMills = 0;
-const long interval = 10000;
+const long interval = 60000;
 
 Servo servo1;
 
@@ -96,6 +85,21 @@ void onMqttDisconnect(AsyncMqttClientDisconnectReason reason)
     }
 }
 
+/*Eventhandler für Subscriber*/
+void onMqttSubscribe(uint16_t packetId, uint8_t qos) {
+  Serial.println("Subscribe acknowledged.");
+  Serial.print("  packetId: ");
+  Serial.println(packetId);
+  Serial.print("  qos: ");
+  Serial.println(qos);
+}
+
+void onMqttUnsubscribe(uint16_t packetId) {
+  Serial.println("Unsubscribe acknowledged.");
+  Serial.print("  packetId: ");
+  Serial.println(packetId);
+}
+
 /*onMqttPublish wird aufgerufen, wenn eine MSG auf einem MQTT-Topic publiziert wird: Callback-Fkt, wird asynch ausgeführt*/
 void onMqttPublish(uint16_t packetId)
 {
@@ -104,48 +108,38 @@ void onMqttPublish(uint16_t packetId)
     Serial.println(packetId);
 }
 
-void onMqttMessage(char *topic, char *payload, AsyncMqttClientMessageProperties properties, size_t len, size_t index, size_t total)
-{
-    Serial.println("Publish received.");
-    Serial.print("  topic: ");
-    Serial.println(topic);
-    Serial.print("  qos: ");
-    Serial.println(properties.qos);
-    Serial.print("  dup: ");
-    Serial.println(properties.dup);
-    Serial.print("  retain: ");
-    Serial.println(properties.retain);
-    Serial.print("  len: ");
-    Serial.println(len);
-    Serial.print("  index: ");
-    Serial.println(index);
-    Serial.print("  total: ");
-    Serial.println(total);
-    Serial.println(payload);
-    for (size_t i = 0; i < len; ++i)
-    {
-        Serial.print(payload[i]);
-    }
-}
-
 void window_open()
 {
     for (int posDegrees = 0; posDegrees <= 180; posDegrees++)
     {
         servo1.write(posDegrees);
-        Serial.println(posDegrees);
-        delay(20);
     }
+    Serial.println("... Fenster öffnet sich ...");
+    delay(1000);
 }
+
 void window_close()
 {
     for (int posDegrees = 180; posDegrees >= 0; posDegrees--)
     {
         servo1.write(posDegrees);
-        Serial.println(posDegrees);
-        delay(20);
     }
+    Serial.println("... Fenster schließt sich ... ");
+    delay(1000);
 }
+
+void onMqttMessage(char *topic, char *payload, AsyncMqttClientMessageProperties properties, size_t len, size_t index, size_t total)
+{
+    for (size_t i = 0; i < len; ++i)
+    {
+        mqttCommandMsg = *payload;
+    }
+
+    if(mqttCommandMsg == '1'){ window_open(); }
+    if(mqttCommandMsg == '0'){ window_close(); }
+}
+
+
 
 void setup()
 {
@@ -162,13 +156,9 @@ void setup()
     /*Zuweisung weiterer Callback-Fkt'en. Die zugewiesen Fkt werden automatisch aufgerufen, sobald diese Benötigt werden*/
     mqttClient.onConnect(onMqttConnect);
     mqttClient.onDisconnect(onMqttDisconnect);
-    //mqttClient.onSubscribe(onMqttSubscribe);
-    //mqttClient.onUnsubscribe(onMqttUnsubscribe);
-    mqttClient.onPublish(onMqttPublish);
+    mqttClient.onSubscribe(onMqttSubscribe);
+    mqttClient.onUnsubscribe(onMqttUnsubscribe);
     mqttClient.setServer(MQTT_HOST, MQTT_PORT);
-
-    /*MQTT-Broker Authentifizierung: wenn der MQTT-Broker auth benötigt*/
-    mqttClient.setCredentials("REPlACE_WITH_YOUR_USER", "REPLACE_WITH_YOUR_PASSWORD");
 
     /*mit WiFi verbindne durch das aufrufen der connectToWifi-Fkt*/
     connectToWifi();
@@ -176,21 +166,14 @@ void setup()
 
 void loop()
 {
-    // window_open();
-    // delay(20000);
-    // window_close();
-    // delay(20000);
-
     unsigned long currentMillis = millis();
     // Every X number of seconds (interval = 10 seconds)
-    // it publishes a new MQTT message
     if (currentMillis - previousMills >= interval)
     {
         // Save the last time a new reading was published
         previousMills = currentMillis;
-
-        // SUB an MQTT message on topic esp/bme680/temperature
-        uint16_t packetIdSub1 = mqttClient.subscribe(MQTT_PUB_TEMP, MQTT_QoS);
+        uint16_t packetIdSubWindow = mqttClient.subscribe(MQTT_SUB_WINDOW, MQTT_QoS);
+        Serial.println(packetIdSubWindow);
         mqttClient.onMessage(onMqttMessage);
     }
 }
