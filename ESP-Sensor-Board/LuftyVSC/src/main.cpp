@@ -20,16 +20,8 @@
 #define BLYNK_PRINT Serialear
 #define MQTT_HOST IPAddress(192, 168, 141, 99)
 #define MQTT_PORT 1883
-#define MQTT_PUB_DIFFUSOR_ON "esp/sensorBoard/diffusor/on"
-#define MQTT_PUB_DIFFUSOR_OFF "esp/sensorBoard/diffusor/off"
-#define MQTT_PUB_WINDOW_OPEN "esp/sensorBoard/window/open"
-#define MQTT_PUB_WINDOW_CLOSE "esp/sensorBoard/window/close"
-
-/*Test Topics*/
-#define MQTT_PUB_TEMP "esp/bme680/temperature"
-#define MQTT_PUB_HUM  "esp/bme680/humidity"
-#define MQTT_PUB_PRES "esp/bme680/pressure"
-#define MQTT_PUB_GAS  "esp/bme680/gas"
+#define MQTT_PUB_DIFFUSOR "esp/sensorBoard/diffusor"
+#define MQTT_PUB_WINDOW "esp/sensorBoard/window"
 
 
 // Helper functions declarations
@@ -331,27 +323,24 @@ void loop(){
     // Save the last time a new reading was published
     previousMills = currentMillis;
     
-    getBME680data();
-    
-    // Publish an MQTT message on topic esp/bme680/temperature
-    uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP, 1, true, String(temperature).c_str());
-    Serial.printf("Publishing on topic %s at QoS 1, packetId: %i", MQTT_PUB_TEMP, packetIdPub1);
-    Serial.printf("Message: %.2f \n", temperature);
+    getBME680data();    
 
-    // Publish an MQTT message on topic esp/bme680/humidity
-    uint16_t packetIdPub2 = mqttClient.publish(MQTT_PUB_HUM, 1, true, String(humidity).c_str());
-    Serial.printf("Publishing on topic %s at QoS 1, packetId %i: ", MQTT_PUB_HUM, packetIdPub2);
-    Serial.printf("Message: %.2f \n", humidity);
+    if (humidity < 50.0){
+      uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(1).c_str());
+      Serial.printf("Publishing on topic %s at QoS 1, packetId: %i", MQTT_PUB_DIFFUSOR, packetIdPub1);
+    } else if ( humidity > 60.0 ) {
+      uint16_t packetIdPub2 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(0).c_str());
+      Serial.printf("Publishing on topic %s at QoS 1, packetId %i: ", MQTT_PUB_DIFFUSOR, packetIdPub2);
+    }
 
-    // Publish an MQTT message on topic esp/bme680/pressure
-    uint16_t packetIdPub3 = mqttClient.publish(MQTT_PUB_PRES, 1, true, String(pressure).c_str());
-    Serial.printf("Publishing on topic %s at QoS 1, packetId %i: ", MQTT_PUB_PRES, packetIdPub3);
-    Serial.printf("Message: %.2f \n", pressure);
-
-    // Publish an MQTT message on topic esp/bme680/gas
-    uint16_t packetIdPub4 = mqttClient.publish(MQTT_PUB_GAS, 1, true, String(gasResistance).c_str());
-    Serial.printf("Publishing on topic %s at QoS 1, packetId %i: ", MQTT_PUB_GAS, packetIdPub4);
-    Serial.printf("Message: %.2f \n", gasResistance);
+    if ( iaqData > 80 || temperature > 25.0){
+      // Publish an MQTT message on topic MQTT_PUB_WINDOW
+      uint16_t packetIdPub3 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(1).c_str());
+      Serial.printf("Publishing on topic %s at QoS 1, packetId %i: ", MQTT_PUB_WINDOW, packetIdPub3);
+    } else {
+      uint16_t packetIdPub4 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(0).c_str());
+      Serial.printf("Publishing on topic %s at QoS 1, packetId %i: ", MQTT_PUB_WINDOW, packetIdPub4);
+    }
   }
 }
 
