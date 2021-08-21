@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-08-21T10:11:20.130Z" agent="5.0 (Windows)" etag="62bqOGe3FEm6pJv7B-Jf" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-21T11:29:45.702Z" agent="5.0 (Windows)" etag="A4E2UXEVMEahpS18YX0L" version="14.9.8" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="4796" dy="3284" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="3095" dy="2246" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -539,7 +539,7 @@
           <mxGeometry x="-1250" y="-920" width="200" height="50" as="geometry" />
         </mxCell>
         <mxCell id="XDBU9LnTNVnauPKzsRce-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-2080" y="-500" width="2360" height="1050" as="geometry" />
+          <mxGeometry x="-2070" y="-500" width="2360" height="1050" as="geometry" />
         </mxCell>
         <mxCell id="XDBU9LnTNVnauPKzsRce-3" value="" style="endArrow=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="XDBU9LnTNVnauPKzsRce-1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -586,7 +586,7 @@
         <mxCell id="XDBU9LnTNVnauPKzsRce-16" value="Humidity 40-60%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="-770" y="120" width="100" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="XDBU9LnTNVnauPKzsRce-17" value="Gute AQI" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="XDBU9LnTNVnauPKzsRce-17" value="Gute AQI &amp;gt;100" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="-770" y="150" width="100" height="20" as="geometry" />
         </mxCell>
         <mxCell id="XDBU9LnTNVnauPKzsRce-22" value="Diffusor aus&amp;amp;&amp;amp;Fenster zu" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
@@ -595,11 +595,68 @@
         <mxCell id="XDBU9LnTNVnauPKzsRce-23" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-1970" y="-260" width="340" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="XDBU9LnTNVnauPKzsRce-24" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="XDBU9LnTNVnauPKzsRce-24" value="&#xa;&lt;br&gt;&lt;br&gt;Außenluftqualität OK--&amp;gt; Auswertbar???&lt;br&gt;&lt;br&gt;&lt;br&gt;&#xa;&#xa;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-1970" y="-10" width="340" height="150" as="geometry" />
         </mxCell>
         <mxCell id="XDBU9LnTNVnauPKzsRce-25" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-1970" y="220" width="340" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-26" value="Winstärke &amp;gt;40 Km/h (Sturm)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-1940" y="-240" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-27" value="Außenluftqualität kritisch --&amp;gt; Auswertbar???" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-1940" y="-180" width="210" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-29" value="Außentemp&amp;lt;5°C || Außentemp &amp;gt;30°C" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-1940" y="-210" width="210" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-30" value="Nur notfalls lüften &amp;amp;&amp;amp; Diffusor verwendbar" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1430" y="-270" width="340" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-31" value="Außentemp 5-30°C" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-1950" width="210" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-32" value="Windstärke &amp;lt;40 Km/h (kein Sturm)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-1925" y="30" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-33" value="&amp;nbsp;Luftfeuchtigkeit &amp;lt;80%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-1940" y="90" width="210" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-34" value="Zu hohe Luftfeuchtigkeit &amp;gt;80%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-1940" y="-145" width="210" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-35" value="Außentemp 10-25°C" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-1950" y="240" width="210" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-36" value="Winstärke &amp;lt;20 Km/h (max frische Brise kein starker Wind)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-1915" y="270" width="255" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-37" value="&amp;nbsp;Luftfeuchtigkeit 40-60%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-1950" y="300" width="210" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-40" value="Außenluftqualität Gut" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-1950" y="330" width="210" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-42" value="Lüften Möglich &amp;amp;&amp;amp; Diffusor verwendbar" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1430" y="-10" width="340" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-43" value="&#xa;Lüften Möglich &amp;amp;&amp;amp; Diffusor verwendbar&#xa;&#xa;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1430" y="220" width="340" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-44" value="Wohntemp &amp;gt;23°C" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-770" y="-220" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-45" value="Schlaftemp &amp;gt;18°C" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-770" y="-195" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-46" value="Humidity &amp;lt;40 || &amp;gt;-60%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-770" y="-160" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-47" value="Gute AQI &amp;lt;100" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-770" y="-130" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-52" value="&#xa;If (Gute Außenbedingung )--&amp;gt; lüften&amp;amp;&amp;amp;Diffusor aus&#xa;&#xa;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="-245" width="340" height="150" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
