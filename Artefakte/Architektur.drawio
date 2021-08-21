@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-08-21T11:29:45.702Z" agent="5.0 (Windows)" etag="A4E2UXEVMEahpS18YX0L" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-21T11:34:00.573Z" agent="5.0 (Windows)" etag="JFXXITW7ARL9srb7wFW9" version="14.9.8" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="3095" dy="2246" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="3498" dy="2492" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -657,6 +657,12 @@
         </mxCell>
         <mxCell id="XDBU9LnTNVnauPKzsRce-52" value="&#xa;If (Gute Außenbedingung )--&amp;gt; lüften&amp;amp;&amp;amp;Diffusor aus&#xa;&#xa;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-280" y="-245" width="340" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-53" value="If (Mittlere Außenbedingung)--&amp;gt; kürzer lüften&amp;amp;&amp;amp; Diffusor aus &amp;amp;&amp;amp; nach Lüftintervall Diffusor an wenn nötig" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-250" y="-150" width="290" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XDBU9LnTNVnauPKzsRce-54" value="If (Schlechte Außenbedingung)--&amp;gt; NOTFALLS lüften&amp;amp;&amp;amp; Diffusor aus &amp;amp;&amp;amp; nach Lüftintervall Diffusor an wenn nötig" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-260" y="-220" width="290" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
