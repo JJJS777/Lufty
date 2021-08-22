@@ -25,20 +25,21 @@ Jeder ESP hat seine eigene README in der die Details beschreiben werden. In den 
 
 ## Benötigte Teile
 
-3x [ESP32] [1] Mikrocontroller oder vergleichbar
-1x [Raspberry Pi] [2] + Micro SD Karte
-1x [BME680-Grove-Sensor] [3]
-1x Servo-Motor für Fenster Prototyp
-1x [Diffusor][4]
-1x 100 ohm Resistor
-1x Project Board (Breadboard)
-2x [Optocoupler] [5] https://www.conrad.de/de/p/isocom-components-optokoppler-phototransistor-sfh615a-4x-dip-4-transistor-dc-183249.html
-Wire (10x M/M und 10x M/F Jumpwire)
++ 3x [ESP32][1] Mikrocontroller oder vergleichbar
++ 1x [Raspberry Pi][2] + Micro SD Karte
++ 1x [BME680-Grove-Sensor][3]
++ 1x Servo-Motor für Fenster Prototyp
++ 1x [Diffusor][4]
++ 1x 100 ohm Resistor
++ 1x Project Board (Breadboard)
++ 2x [Optocoupler][5]
++ Wire (10x M/M und 10x M/F Jumpwire)
 
 [1]: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html
 [2]: https://www.raspberrypi.org/products/raspberry-pi-4-model-b/
-[3] : https://wiki.seeedstudio.com/Grove-Temperature_Humidity_Pressure_Gas_Sensor_BME680/
+[3]: https://wiki.seeedstudio.com/Grove-Temperature_Humidity_Pressure_Gas_Sensor_BME680/
 [4]: https://www.conrad.de/de/p/boneco-u50-luftbefeuchter-schwarz-1-st-2316569.html
+[5]: https://www.conrad.de/de/p/isocom-components-optokoppler-phototransistor-sfh615a-4x-dip-4-transistor-dc-183249.html 
 
 ## Vorrausetzungen
 
