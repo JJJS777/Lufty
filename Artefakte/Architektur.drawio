@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-08-22T12:30:11.502Z" agent="5.0 (Windows)" etag="hPOhig9tLGFHZc-g17r4" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-22T12:36:42.894Z" agent="5.0 (Windows)" etag="Sx0zyxf9DNESBxCWxPB0" version="14.9.8" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="7415" dy="4505" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="4202" dy="2800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -616,7 +616,7 @@
         <mxCell id="XDBU9LnTNVnauPKzsRce-25" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-1970" y="220" width="340" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="XDBU9LnTNVnauPKzsRce-26" value="Winstärke &amp;gt;40 Km/h (Sturm)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="XDBU9LnTNVnauPKzsRce-26" value="Winstärke &amp;gt;60 Km/h (Sturm)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-1925" y="-240" width="160" height="20" as="geometry" />
         </mxCell>
         <mxCell id="XDBU9LnTNVnauPKzsRce-27" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;Außenluftqualität: AQI&amp;gt;150&lt;br&gt;&lt;br&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
@@ -631,11 +631,8 @@
         <mxCell id="XDBU9LnTNVnauPKzsRce-31" value="Außentemp 5-30°C" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-1970" width="210" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="XDBU9LnTNVnauPKzsRce-32" value="Windstärke &amp;lt;40 Km/h (kein Sturm)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="XDBU9LnTNVnauPKzsRce-32" value="Windstärke &amp;lt;60 Km/h (kein Sturm)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-1925" y="30" width="160" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="XDBU9LnTNVnauPKzsRce-33" value="&amp;nbsp;Luftfeuchtigkeit &amp;lt;80%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="-1965" y="90" width="210" height="20" as="geometry" />
         </mxCell>
         <mxCell id="XDBU9LnTNVnauPKzsRce-34" value="Zu hohe Luftfeuchtigkeit &amp;gt;80%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-1940" y="-145" width="210" height="20" as="geometry" />
@@ -643,7 +640,7 @@
         <mxCell id="XDBU9LnTNVnauPKzsRce-35" value="Außentemp 10-25°C" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-1960" y="240" width="210" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="XDBU9LnTNVnauPKzsRce-36" value="Winstärke &amp;lt;20 Km/h (max frische Brise kein starker Wind)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="XDBU9LnTNVnauPKzsRce-36" value="Winstärke &amp;lt;40 Km/h (max frische Brise kein starker Wind)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-1925" y="270" width="240" height="20" as="geometry" />
         </mxCell>
         <mxCell id="XDBU9LnTNVnauPKzsRce-37" value="&amp;nbsp;Luftfeuchtigkeit 40-60%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
