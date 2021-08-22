@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-08-22T16:42:03.121Z" agent="5.0 (Macintosh)" etag="SE1sftM5zn_J966SzoEB" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-22T16:42:43.107Z" agent="5.0 (Macintosh)" etag="CC1GX_TVk7U6N_4PbQ10" version="14.9.8" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel dx="4577" dy="3025" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -846,7 +846,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="B9qHMxrD-HFqW9p8vAvx-55" value="Bedingung &lt;br&gt;Außen: Bad" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="B9qHMxrD-HFqW9p8vAvx-9" source="B9qHMxrD-HFqW9p8vAvx-28" target="B9qHMxrD-HFqW9p8vAvx-53" edge="1">
+        <mxCell id="B9qHMxrD-HFqW9p8vAvx-55" value="Bedingung &lt;br&gt;Außen: !Good" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="B9qHMxrD-HFqW9p8vAvx-9" source="B9qHMxrD-HFqW9p8vAvx-28" target="B9qHMxrD-HFqW9p8vAvx-53" edge="1">
           <mxGeometry x="-0.4054" relative="1" as="geometry">
             <mxPoint x="365" y="620" as="sourcePoint" />
             <mxPoint as="offset" />
