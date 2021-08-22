@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-08-22T17:56:54.608Z" agent="5.0 (Macintosh)" etag="dWdcYIVvFQP_aG8SQxu0" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-22T18:09:14.301Z" agent="5.0 (Macintosh)" etag="4hg_fdxf6rQIpLcL2Ppw" version="14.9.8" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -773,7 +773,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="bwPkYq8E7ANFqFx1OJKg" name="Aktivitätsdiagramm">
-    <mxGraphModel dx="3080" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3080" dy="1964" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="MwLlSuZRGqhdZxkgWoQN-0" />
         <mxCell id="MwLlSuZRGqhdZxkgWoQN-1" parent="MwLlSuZRGqhdZxkgWoQN-0" />
@@ -894,7 +894,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="UUVRfyGZ_gjjwWJqkJXi-14" value="&lt;div&gt;aqiDraußen &amp;gt; aqiDrin &amp;amp;&amp;amp;&lt;br&gt;&lt;/div&gt;&lt;div&gt;wind &amp;lt; sturm&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;wie umgehen mit Sommer Winter extrem-temp?&lt;/div&gt;&lt;div&gt;z.b. 30 C Draußen und 30C drinn&lt;br&gt;im winmnter soll trotzdem kurz gelüftet werden&lt;br&gt;&lt;/div&gt;" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-9">
+        <mxCell id="UUVRfyGZ_gjjwWJqkJXi-14" value="&lt;div&gt;aqiDraußen &amp;gt; aqiDrin&lt;br&gt; &amp;amp;&amp;amp;&lt;br&gt;&lt;/div&gt;&lt;div&gt;wind &amp;lt; sturm&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;wie umgehen mit Sommer Winter extrem-temp?&lt;/div&gt;&lt;div&gt;z.b. 30 C Draußen und 30C drinn&lt;br&gt;im winmnter soll trotzdem kurz gelüftet werden&lt;br&gt;&lt;/div&gt;" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-9">
           <mxGeometry x="350" y="150" width="240" height="180" as="geometry" />
         </mxCell>
         <mxCell id="UUVRfyGZ_gjjwWJqkJXi-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="B9qHMxrD-HFqW9p8vAvx-9" source="UUVRfyGZ_gjjwWJqkJXi-20" target="B9qHMxrD-HFqW9p8vAvx-0">
@@ -924,6 +924,9 @@
         </mxCell>
         <mxCell id="UUVRfyGZ_gjjwWJqkJXi-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.002;entryY=0.108;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="B9qHMxrD-HFqW9p8vAvx-9" source="UUVRfyGZ_gjjwWJqkJXi-40" target="B9qHMxrD-HFqW9p8vAvx-4">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UUVRfyGZ_gjjwWJqkJXi-38" value="check hum" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-9">
+          <mxGeometry x="150" y="530" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-10" value="MQTT-Broker (Respi)" style="swimlane;html=1;startSize=20;" parent="B9qHMxrD-HFqW9p8vAvx-8" vertex="1">
           <mxGeometry x="620" y="20" width="220" height="2240" as="geometry" />
@@ -1068,8 +1071,11 @@
         <mxCell id="Ecmzk7Flj3fArr_SnKtm-10" value="Bedingung &lt;br&gt;Außen: !Good" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="MwLlSuZRGqhdZxkgWoQN-1">
           <mxGeometry x="-1167" y="670" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="UUVRfyGZ_gjjwWJqkJXi-38" value="check hum" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;" vertex="1" parent="MwLlSuZRGqhdZxkgWoQN-1">
-          <mxGeometry x="-170" y="510" width="140" height="40" as="geometry" />
+        <mxCell id="UUVRfyGZ_gjjwWJqkJXi-42" value="&amp;nbsp;delay = maxLüftungszeit" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" vertex="1" parent="MwLlSuZRGqhdZxkgWoQN-1">
+          <mxGeometry y="-120" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="UUVRfyGZ_gjjwWJqkJXi-43" value="wenn luftquali sehr schlecht lüftet er kurz" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" vertex="1" parent="MwLlSuZRGqhdZxkgWoQN-1">
+          <mxGeometry x="240" y="-120" width="240" height="100" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
