@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-08-22T11:02:04.160Z" agent="5.0 (Macintosh)" etag="OYLHAcINcG8Yd9CUK-xA" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-22T11:04:12.496Z" agent="5.0 (Macintosh)" etag="85hCieQVlC2GDwWy0B7s" version="14.9.8" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel dx="7232" dy="4880" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -668,7 +668,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="bwPkYq8E7ANFqFx1OJKg" name="Aktivitätsdiagramm">
-    <mxGraphModel dx="2097" dy="1325" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1258" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="MwLlSuZRGqhdZxkgWoQN-0" />
         <mxCell id="MwLlSuZRGqhdZxkgWoQN-1" parent="MwLlSuZRGqhdZxkgWoQN-0" />
@@ -807,14 +807,28 @@
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-11" value="Window-ESP" style="swimlane;html=1;startSize=20;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-8">
           <mxGeometry x="830" y="20" width="200" height="1690" as="geometry" />
         </mxCell>
-        <mxCell id="B9qHMxrD-HFqW9p8vAvx-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=classic;endFill=1;" edge="1" parent="B9qHMxrD-HFqW9p8vAvx-11" source="B9qHMxrD-HFqW9p8vAvx-79" target="B9qHMxrD-HFqW9p8vAvx-84">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="B9qHMxrD-HFqW9p8vAvx-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="B9qHMxrD-HFqW9p8vAvx-11" source="B9qHMxrD-HFqW9p8vAvx-79" target="B9qHMxrD-HFqW9p8vAvx-86">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="1060" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="B9qHMxrD-HFqW9p8vAvx-79" value="Fenster öffnen" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-11">
+        <mxCell id="B9qHMxrD-HFqW9p8vAvx-79" value="MQTT-MSG&lt;br&gt;auswerten" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-11">
           <mxGeometry x="30" y="985" width="140" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="B9qHMxrD-HFqW9p8vAvx-84" value="" style="shape=sumEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-11">
-          <mxGeometry x="85" y="1100" width="30" height="30" as="geometry" />
+        <mxCell id="B9qHMxrD-HFqW9p8vAvx-88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;" edge="1" parent="B9qHMxrD-HFqW9p8vAvx-11" source="B9qHMxrD-HFqW9p8vAvx-86" target="B9qHMxrD-HFqW9p8vAvx-87">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="B9qHMxrD-HFqW9p8vAvx-86" value="" style="rhombus;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-11">
+          <mxGeometry x="85" y="1060" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="B9qHMxrD-HFqW9p8vAvx-90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=classic;endFill=1;" edge="1" parent="B9qHMxrD-HFqW9p8vAvx-11" source="B9qHMxrD-HFqW9p8vAvx-87" target="B9qHMxrD-HFqW9p8vAvx-89">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="B9qHMxrD-HFqW9p8vAvx-87" value="Aktion ausführen" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-11">
+          <mxGeometry x="30" y="1120" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="B9qHMxrD-HFqW9p8vAvx-89" value="" style="shape=sumEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-11">
+          <mxGeometry x="85" y="1220" width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-64" value="Diffusor-ESP" style="swimlane;html=1;startSize=20;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-8">
           <mxGeometry x="1030" y="20" width="170" height="1690" as="geometry" />
