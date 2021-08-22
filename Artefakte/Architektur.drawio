@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-08-22T11:09:40.234Z" agent="5.0 (Macintosh)" etag="BotT-dq7VC7zNYdsyIJn" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-22T11:12:56.047Z" agent="5.0 (Macintosh)" etag="OrSs2uxNTz3SjJQ0X0t-" version="14.9.8" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel dx="7232" dy="4880" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -668,7 +668,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="bwPkYq8E7ANFqFx1OJKg" name="Aktivitätsdiagramm">
-    <mxGraphModel dx="1048" dy="663" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2097" dy="1325" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="MwLlSuZRGqhdZxkgWoQN-0" />
         <mxCell id="MwLlSuZRGqhdZxkgWoQN-1" parent="MwLlSuZRGqhdZxkgWoQN-0" />
@@ -789,6 +789,9 @@
         </mxCell>
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-91" value="&lt;div&gt;Warum sind Bedingungen schlecht?&lt;/div&gt;&lt;div&gt;Zu Kalt? zu War zu Nass? spielt das eine Rolle?&lt;br&gt;&lt;/div&gt;" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-9">
           <mxGeometry x="450" y="480" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="B9qHMxrD-HFqW9p8vAvx-104" value="hier muss noch was hin - was is wenn die Bedingungen sich verbesset haben weil fenster offen oder diffusor an? muss dann fenster geschlossen werden´?" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-9">
+          <mxGeometry x="40" y="430" width="120" height="180" as="geometry" />
         </mxCell>
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-10" value="MQTT-Broker (Respi)" style="swimlane;html=1;startSize=20;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-8">
           <mxGeometry x="620" y="20" width="220" height="1690" as="geometry" />
