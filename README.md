@@ -6,9 +6,9 @@ IoT-Projekt
 2. Benötigte Teile
 3. Vorrausetzungen
 4. MQTT
-  1. Kurze Erklärung?
-  2. Mosquitto-Broker auf Raspberry Pi einrichten
-5. ESP-Sensor-Board
+   1. Kurze Erklärung?
+   2. Mosquitto-Broker auf Raspberry Pi einrichten
+5. [ESP-Sensor-Board](../ESP-Sensor-Board/REASME.md)
 6. ESP-Aktor-Board-Diffusor
 7. ESP-Aktor-Board-Window
 8. Ausblick / Erweiterungsmöglichkeiten
