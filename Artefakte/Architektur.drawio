@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-08-22T18:09:14.301Z" agent="5.0 (Macintosh)" etag="4hg_fdxf6rQIpLcL2Ppw" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-22T18:34:55.739Z" agent="5.0 (Macintosh)" etag="m6tBWYgEiMzn37cQ2IV0" version="14.9.8" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -1076,6 +1076,12 @@
         </mxCell>
         <mxCell id="UUVRfyGZ_gjjwWJqkJXi-43" value="wenn luftquali sehr schlecht lüftet er kurz" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" vertex="1" parent="MwLlSuZRGqhdZxkgWoQN-1">
           <mxGeometry x="240" y="-120" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="UUVRfyGZ_gjjwWJqkJXi-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=240;entryDy=25;entryPerimeter=0;" edge="1" parent="MwLlSuZRGqhdZxkgWoQN-1" source="UUVRfyGZ_gjjwWJqkJXi-44" target="UUVRfyGZ_gjjwWJqkJXi-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UUVRfyGZ_gjjwWJqkJXi-44" value="&lt;div align=&quot;left&quot;&gt;aqiDraußen &amp;gt; aqiDrin &amp;amp;&amp;amp;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;wind &amp;lt; sturm&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;if( API-Temp &amp;lt; 10 &amp;amp;&amp;amp; aqiDrin &amp;gt; 50 ){ &lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span&gt;	&lt;/span&gt;fenster auf&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&amp;nbsp;} else if (&lt;div align=&quot;left&quot;&gt;aqiDraußen &amp;gt; aqiDrin &amp;amp;&amp;amp;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;wind &amp;lt; sturm)&lt;/div&gt; {&amp;nbsp; }&lt;br&gt;&lt;/div&gt;" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" vertex="1" parent="MwLlSuZRGqhdZxkgWoQN-1">
+          <mxGeometry x="570" y="-300" width="240" height="180" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
