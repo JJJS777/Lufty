@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-08-22T17:27:47.868Z" agent="5.0 (Macintosh)" etag="GQpl5g2cdXfdb7Z835RO" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-22T17:28:13.033Z" agent="5.0 (Macintosh)" etag="oi_Ey-bE4MEaV_OO-Jc0" version="14.9.8" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -857,9 +857,6 @@
         </mxCell>
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-68" value="" style="rhombus;" parent="B9qHMxrD-HFqW9p8vAvx-9" vertex="1">
           <mxGeometry x="205" y="180" width="30" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="B9qHMxrD-HFqW9p8vAvx-91" value="&lt;div&gt;Warum sind Bedingungen schlecht?&lt;/div&gt;&lt;div&gt;Zu Kalt? zu War zu Nass? spielt das eine Rolle?&lt;br&gt;&lt;/div&gt;" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;fillColor=#f8cecc;strokeColor=#b85450;" parent="B9qHMxrD-HFqW9p8vAvx-9" vertex="1">
-          <mxGeometry x="450" y="470" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="UUVRfyGZ_gjjwWJqkJXi-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="B9qHMxrD-HFqW9p8vAvx-9" source="UUVRfyGZ_gjjwWJqkJXi-0" target="UUVRfyGZ_gjjwWJqkJXi-3">
           <mxGeometry relative="1" as="geometry" />
