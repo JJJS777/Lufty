@@ -8,9 +8,9 @@ IoT-Projekt
 4. MQTT
    1. Kurze Erklärung?
    2. Mosquitto-Broker auf Raspberry Pi einrichten
-5. [ESP-Sensor-Board](../ESP-Sensor-Board/REASME.md)
-6. ESP-Aktor-Board-Diffusor
-7. ESP-Aktor-Board-Window
+5. [Sensor-Board](./ESP-Sensor-Board/README.md)
+6. [Aktor-Board-Diffusor](./ESP-Aktor-Board-Diffusor/README.md)
+7. [Aktor-Board-Window](./ESP-Aktor-Board-Window/README.md)
 8. Ausblick / Erweiterungsmöglichkeiten
 
 
@@ -21,3 +21,15 @@ Das Lufty-Projekt besteht aus drei ESP32, einem Raspberry Pi 4, einem BME680-Sen
 
 Hier möchten wir dir zeigen, wie du das Projekt bei dir zuhause selbst Umsetzen kannst.
 Jeder ESP hat seine eigene README in der die Details beschreiben werden. In den Ordner findest du auch den Code für die Entsprechenden ESP’s.
+
+## Benötigte Teile
+
+
+## Vorrausetzungen
+
+
+## MQTT
+### Mosquitto-Broker auf Raspberry Pi einrichten
+
+
+## Ausblick / Erweiterungsmöglichkeiten
