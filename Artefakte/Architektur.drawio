@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-08-22T17:28:13.033Z" agent="5.0 (Macintosh)" etag="oi_Ey-bE4MEaV_OO-Jc0" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-22T17:30:08.770Z" agent="5.0 (Macintosh)" etag="9UQpigg7SEo5cwrCIoxe" version="14.9.8" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -773,7 +773,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="bwPkYq8E7ANFqFx1OJKg" name="Aktivitätsdiagramm">
-    <mxGraphModel dx="3332" dy="935" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3691" dy="1136" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="MwLlSuZRGqhdZxkgWoQN-0" />
         <mxCell id="MwLlSuZRGqhdZxkgWoQN-1" parent="MwLlSuZRGqhdZxkgWoQN-0" />
@@ -906,7 +906,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="UUVRfyGZ_gjjwWJqkJXi-14" value="&lt;div&gt;aqiDraußen &amp;gt; aqiDrin&lt;/div&gt;&lt;div&gt;( tempDraußen &amp;gt; tempDrin&lt;/div&gt;&lt;div&gt;humDraußen &amp;gt; humDraußen )&lt;/div&gt;" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-9">
+        <mxCell id="UUVRfyGZ_gjjwWJqkJXi-14" value="&lt;div&gt;aqiDraußen &amp;gt; aqiDrin&lt;/div&gt;&lt;div&gt;tempDraußen &amp;gt; tempDrin&lt;/div&gt;&lt;div&gt;wind &amp;lt; sturm&lt;br&gt;&lt;/div&gt;" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="B9qHMxrD-HFqW9p8vAvx-9">
           <mxGeometry x="310" y="210" width="210" height="100" as="geometry" />
         </mxCell>
         <mxCell id="UUVRfyGZ_gjjwWJqkJXi-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="B9qHMxrD-HFqW9p8vAvx-9" source="UUVRfyGZ_gjjwWJqkJXi-20" target="B9qHMxrD-HFqW9p8vAvx-0">
