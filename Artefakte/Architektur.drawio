@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-08-22T12:45:52.974Z" agent="5.0 (Windows)" etag="gg6ZLwuGK_W65f2YYijn" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-22T15:49:56.344Z" agent="5.0 (Windows)" etag="g-tc0gAF1AU1LkwQx9gE" version="14.9.8" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="3788" dy="2474" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="4262" dy="2822" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -711,6 +711,9 @@
         </mxCell>
         <mxCell id="z_8KC2QwuToqvA3wkucU-21" value="If (humidity &amp;gt;60%)--&amp;gt; Diffusor Off " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="-250" y="-10" width="290" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="z_8KC2QwuToqvA3wkucU-23" value="&lt;b&gt;&lt;font style=&quot;font-size: 15px&quot;&gt;Quellen:&lt;/font&gt;&lt;/b&gt;&lt;br&gt;Wind:https://www.wetterkontor.de/de/bft_tabelle.html&lt;br&gt;&lt;div&gt;AQI:https://www.airnow.gov/aqi/aqi-basics/&lt;/div&gt;&lt;div&gt;Feuchtigkeit:https://luftbrise.de/luftfeuchtigkeit-draussen&lt;/div&gt;&lt;div&gt;Raumtemp: https://raumklima.eu/luftqualitaet/&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-2040" y="-600" width="320" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
