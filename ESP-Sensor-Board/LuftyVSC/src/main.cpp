@@ -2,7 +2,6 @@
 #include <Adafruit_I2CDevice.h>
 #include <Wire.h>
 #include <SPI.h>
-#include <DHT.h>
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <BlynkSimpleEsp32.h>
@@ -55,17 +54,20 @@ String openWeatherMapApiKey = "a07094aa292e8325eaf597b2f9ce6e44";
 String city = "Cologne";
 String countryCode = "DE";
 String unitsApi = "metric";
+/*lat und lon können auch aus erstem API Req. rausgeholt und verwendet werden, anstelle sie hart zu coden*/
+String latitude = "50.935173";
+String longitude = "6.953101";
 
 // THE DEFAULT TIMER IS SET TO 10 SECONDS FOR TESTING PURPOSES
 // For a final application, check the API call limits per hour/minute to avoid getting blocked/banned
 unsigned long lastTime = 0;
-unsigned long timerDelay = 60000;
+unsigned long timerDelay = 30000;
 
 //MQTT-Timer-Hilfsvariable die alle 10 sec die Anweisung an den Broker publiziert
 unsigned long previousMills = 0;
 const long interval = 10000;
 
-String jsonBuffer, output;
+String jsonBufferWeather, jsonBufferPollution, output;
 
 void getBME680data()
 {
@@ -83,6 +85,8 @@ void getBME680data()
 
   unsigned long time_trigger = millis();
   if (iaqSensor.run()) { // If new data is available
+    Serial.println("_____\n");
+    Serial.println("BME680-Sensor Daten\n");
     Serial.print(F("Raw-Temperature = "));
     Serial.print(rawTemperature);
     Serial.println(F(" °C"));
@@ -117,6 +121,8 @@ void getBME680data()
     Serial.print(F("Gas = "));
     Serial.print(gasResistance / 1000.0);
     Serial.println(F(" KOhms"));
+
+    Serial.println("_____\n");
 
     Serial.println();
   } else {
@@ -166,31 +172,46 @@ void decodingJSON(){
     if (WiFi.status() == WL_CONNECTED)
     {
       String serverPath = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&units=" + unitsApi + "&APPID=" + openWeatherMapApiKey;
+      String serverPathAirPollution = "http://api.openweathermap.org/data/2.5/air_pollution?lat=" + latitude + "&lon=" + longitude + "&appid=" + openWeatherMapApiKey;
 
       Serial.println("_____\n");
       Serial.println("API-Call\n");
 
       /* Sendet einen HTTP GET request uns speichert die Res. in der Variable jsonBuffer. The httpGETRequest() function makes a 
       request to OpenWeatherMap and it retrieves a string with a JSON object that contains all the information about the weather for your city.*/
-      jsonBuffer = httpGETRequest(serverPath.c_str());
-      //Serial.println(jsonBuffer);
+      jsonBufferWeather = httpGETRequest(serverPath.c_str());
+      jsonBufferPollution = httpGETRequest(serverPathAirPollution.c_str());
       
-      JSONVar myObject = JSON.parse(jsonBuffer);
+      JSONVar myObjectWeather = JSON.parse(jsonBufferWeather);
+      JSONVar myObjectPollution = JSON.parse(jsonBufferPollution);
 
       // JSON.typeof(jsonVar) can be used to get the type of the var
-      if (JSON.typeof(myObject) == "undefined")
+      if (JSON.typeof(myObjectWeather) == "undefined")
       {
-        Serial.println("Parsing input failed!");
+        Serial.println("Parsing Weather-Input failed!");
         return;
       }
 
-      double apiTemp = myObject["main"]["temp"];
+      if (JSON.typeof(myObjectPollution) == "undefined"){
+        Serial.println("Parsing Pollution-Input failed!");
+        return;
+      }
+
+      /*Außentemperatur aus API Req. in Variable speichern*/
+      double apiTemp = myObjectWeather["main"]["temp"];
+
+      /*Air Quality Index aus API Req. in Variable speichern -> Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.*/
+      int aqiApi = myObjectPollution["coord"].length();
+
 
       Serial.println("\n\nDaten aus Open-WeatherMap:");
       Serial.print("Temperatur aus API: ");
       Serial.print(apiTemp);
       Serial.println("°C");
-      Serial.println("_____\n\n");
+      Serial.print("Air Quality Index aus API: ");
+      Serial.println(myObjectPollution.length());
+      Serial.println(aqiApi);
+      Serial.println("\n_____\n\n");
     }
     else
     {
@@ -327,19 +348,19 @@ void loop(){
 
     if (humidity < 50.0){
       uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(1).c_str());
-      Serial.printf("Publishing on topic %s at QoS 1, packetId: %i", MQTT_PUB_DIFFUSOR, packetIdPub1);
+      Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub1);
     } else if ( humidity > 60.0 ) {
       uint16_t packetIdPub2 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(0).c_str());
-      Serial.printf("Publishing on topic %s at QoS 1, packetId %i: ", MQTT_PUB_DIFFUSOR, packetIdPub2);
+      Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub2);
     }
 
     if ( iaqData > 80 || temperature > 25.0){
       // Publish an MQTT message on topic MQTT_PUB_WINDOW
       uint16_t packetIdPub3 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(1).c_str());
-      Serial.printf("Publishing on topic %s at QoS 1, packetId %i: ", MQTT_PUB_WINDOW, packetIdPub3);
+      Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub3);
     } else {
       uint16_t packetIdPub4 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(0).c_str());
-      Serial.printf("Publishing on topic %s at QoS 1, packetId %i: ", MQTT_PUB_WINDOW, packetIdPub4);
+      Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub4);
     }
   }
 }
