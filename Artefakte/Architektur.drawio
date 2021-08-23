@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-08-23T07:49:15.909Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36 OPR/78.0.4093.147" etag="_wnbSqgSP2rV52n7MWsK" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-23T07:49:56.806Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36 OPR/78.0.4093.147" etag="St28CNMGd8gnJ1CXEXs3" version="14.9.8" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel dx="3028" dy="2183" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -773,7 +773,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="bwPkYq8E7ANFqFx1OJKg" name="Aktivitätsdiagramm">
-    <mxGraphModel dx="2482" dy="1652" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3034" dy="1974" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="MwLlSuZRGqhdZxkgWoQN-0" />
         <mxCell id="MwLlSuZRGqhdZxkgWoQN-1" parent="MwLlSuZRGqhdZxkgWoQN-0" />
@@ -1110,9 +1110,6 @@
         </mxCell>
         <mxCell id="Ecmzk7Flj3fArr_SnKtm-7" value="" style="whiteSpace=wrap;html=1;aspect=fixed;gradientColor=none;fillColor=none;" parent="MwLlSuZRGqhdZxkgWoQN-1" vertex="1">
           <mxGeometry x="-987" y="260" width="135" height="135" as="geometry" />
-        </mxCell>
-        <mxCell id="Ecmzk7Flj3fArr_SnKtm-8" value="Bedingung &lt;br&gt;Innen: Good" style="text;whiteSpace=wrap;html=1;" parent="MwLlSuZRGqhdZxkgWoQN-1" vertex="1">
-          <mxGeometry x="-200" y="220" width="210" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Ecmzk7Flj3fArr_SnKtm-9" value="Bedingung &lt;br&gt;Außen: Good" style="text;whiteSpace=wrap;html=1;" parent="MwLlSuZRGqhdZxkgWoQN-1" vertex="1">
           <mxGeometry x="-1164.5" y="460" width="100" height="40" as="geometry" />
