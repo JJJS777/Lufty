@@ -41,8 +41,8 @@ const char *password = "quack1QUACK4quack1";
 const char auth[] = "h14JLgNFT8QLSKFXGJ9c9z9sSv5Lm8TX";
 
 //Globale Variable
-float rawTemperature, temperature, rawHumidity, humidity, pressure, iaqData, iaqAccuracy, staticIaq, gasResistance, co2Equivalent, breathVocEquivalent;
-int ledPin = 14;
+float rawTemperature, temperature, rawHumidity, humidity, pressure, iaqData, staticIaq, gasResistance, co2Equivalent, breathVocEquivalent;
+int iaqAccuracy;
 
 BlynkTimer timer;
 
@@ -87,6 +87,7 @@ void getBME680data()
   unsigned long time_trigger = millis();
   if (iaqSensor.run()) { // If new data is available
     Serial.println("_____\n");
+    Serial.println(time_trigger);
     Serial.println("BME680-Sensor Daten\n");
     Serial.print(F("Raw-Temperature = "));
     Serial.print(rawTemperature);
@@ -336,35 +337,35 @@ void loop(){
   Blynk.run();
   timer.run();
 
-  //getBME680data();
-  decodingJSON();
+  getBME680data();
+  //decodingJSON();
 
-  unsigned long currentMillis = millis();
-  // Every X number of seconds (interval = 10 seconds) 
-  // it publishes a new MQTT message
-  if (currentMillis - previousMills >= interval) {
-    // Save the last time a new reading was published
-    previousMills = currentMillis;
+  // unsigned long currentMillis = millis();
+  // // Every X number of seconds (interval = 10 seconds) 
+  // // it publishes a new MQTT message
+  // if (currentMillis - previousMills >= interval) {
+  //   // Save the last time a new reading was published
+  //   previousMills = currentMillis;
     
-    getBME680data();    
+  //   getBME680data();    
 
-    if (humidity < 50.0){
-      uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(1).c_str());
-      Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub1);
-    } else if ( humidity > 60.0 ) {
-      uint16_t packetIdPub2 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(0).c_str());
-      Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub2);
-    }
+  //   if (humidity < 50.0){
+  //     uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(1).c_str());
+  //     Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub1);
+  //   } else if ( humidity > 60.0 ) {
+  //     uint16_t packetIdPub2 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(0).c_str());
+  //     Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub2);
+  //   }
 
-    if ( iaqData > 80 || temperature > 25.0){
-      // Publish an MQTT message on topic MQTT_PUB_WINDOW
-      uint16_t packetIdPub3 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(1).c_str());
-      Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub3);
-    } else {
-      uint16_t packetIdPub4 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(0).c_str());
-      Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub4);
-    }
-  }
+  //   if ( iaqData > 80 || temperature > 25.0){
+  //     // Publish an MQTT message on topic MQTT_PUB_WINDOW
+  //     uint16_t packetIdPub3 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(1).c_str());
+  //     Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub3);
+  //   } else {
+  //     uint16_t packetIdPub4 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(0).c_str());
+  //     Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub4);
+  //   }
+  // }
 }
 
 
