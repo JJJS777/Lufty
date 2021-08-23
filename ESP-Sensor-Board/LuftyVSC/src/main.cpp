@@ -49,6 +49,7 @@ BlynkTimer timer;
 /*OpenWeatherMap.org*/
 // Your Domain name with URL path or IP address with path
 String openWeatherMapApiKey = "a07094aa292e8325eaf597b2f9ce6e44";
+String weatherbitAirQualityApiKey = "8039659f67584d818415250bf91dfb17";
 
 // Replace with your country code and city
 String city = "Cologne";
@@ -171,16 +172,16 @@ void decodingJSON(){
     // Check WiFi connection status
     if (WiFi.status() == WL_CONNECTED)
     {
-      String serverPath = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&units=" + unitsApi + "&APPID=" + openWeatherMapApiKey;
-      String serverPathAirPollution = "http://api.openweathermap.org/data/2.5/air_pollution?lat=" + latitude + "&lon=" + longitude + "&appid=" + openWeatherMapApiKey;
+      String serverPathWeather = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&units=" + unitsApi + "&APPID=" + openWeatherMapApiKey;
+      String serverPathAirQuality = "https://api.weatherbit.io/v2.0/current/airquality?lat=" + latitude + "&lon=" + longitude + "&key=" + weatherbitAirQualityApiKey;
 
       Serial.println("_____\n");
       Serial.println("API-Call\n");
 
       /* Sendet einen HTTP GET request uns speichert die Res. in der Variable jsonBuffer. The httpGETRequest() function makes a 
       request to OpenWeatherMap and it retrieves a string with a JSON object that contains all the information about the weather for your city.*/
-      jsonBufferWeather = httpGETRequest(serverPath.c_str());
-      jsonBufferPollution = httpGETRequest(serverPathAirPollution.c_str());
+      jsonBufferWeather = httpGETRequest(serverPathWeather.c_str());
+      jsonBufferPollution = httpGETRequest(serverPathAirQuality.c_str());
       
       JSONVar myObjectWeather = JSON.parse(jsonBufferWeather);
       JSONVar myObjectPollution = JSON.parse(jsonBufferPollution);
@@ -210,7 +211,8 @@ void decodingJSON(){
       Serial.println("°C");
       Serial.print("Air Quality Index aus API: ");
       Serial.println(myObjectPollution.length());
-      Serial.println(aqiApi);
+      Serial.println(myObjectPollution);
+      //Serial.println(aqiApi);
       Serial.println("\n_____\n\n");
     }
     else
