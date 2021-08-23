@@ -62,7 +62,7 @@ String longitude = "6.953101";
 // THE DEFAULT TIMER IS SET TO 10 SECONDS FOR TESTING PURPOSES
 // For a final application, check the API call limits per hour/minute to avoid getting blocked/banned
 unsigned long lastTime = 0;
-unsigned long timerDelay = 30000;
+unsigned long timerDelay = 600000;
 
 //MQTT-Timer-Hilfsvariable die alle 10 sec die Anweisung an den Broker publiziert
 unsigned long previousMills = 0;
@@ -201,8 +201,8 @@ void decodingJSON(){
       /*Außentemperatur aus API Req. in Variable speichern*/
       double apiTemp = myObjectWeather["main"]["temp"];
 
-      /*Air Quality Index aus API Req. in Variable speichern -> Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.*/
-      int aqiApi = myObjectPollution["coord"].length();
+      /*Air Quality Index aus API Req. in Variable speichern*/
+      int aqiApi = myObjectPollution["data"][0]["aqi"];
 
 
       Serial.println("\n\nDaten aus Open-WeatherMap:");
@@ -210,9 +210,9 @@ void decodingJSON(){
       Serial.print(apiTemp);
       Serial.println("°C");
       Serial.print("Air Quality Index aus API: ");
-      Serial.println(myObjectPollution.length());
+      Serial.println(aqiApi);
+      Serial.println();
       Serial.println(myObjectPollution);
-      //Serial.println(aqiApi);
       Serial.println("\n_____\n\n");
     }
     else
