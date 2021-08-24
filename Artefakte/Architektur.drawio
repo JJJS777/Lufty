@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-08-24T07:48:32.384Z" agent="5.0 (Macintosh)" etag="aiHKDrHnrcqK9jv6Gqc_" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-24T07:48:51.049Z" agent="5.0 (Macintosh)" etag="6j-ehTw6mNM6cD0gNaKH" version="14.9.8" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
     <mxGraphModel dx="3146" dy="2315" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -628,8 +628,10 @@
         <mxCell id="UUVRfyGZ_gjjwWJqkJXi-0" value="&lt;div&gt;aqiDraußen &amp;gt; aqiDrin&lt;br&gt;&amp;amp;&amp;amp;&lt;br&gt;&lt;/div&gt;&lt;div&gt;wind &amp;lt; sturm&lt;/div&gt;&lt;div&gt;&amp;amp;&amp;amp;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp;fenster nicht geblockt&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;" parent="B9qHMxrD-HFqW9p8vAvx-9" vertex="1">
           <mxGeometry x="150" y="240" width="140" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="YbMCshPmiJ-kDCHWKlvB-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.502;entryY=-0.05;entryDx=0;entryDy=0;entryPerimeter=0;" parent="B9qHMxrD-HFqW9p8vAvx-9" source="UUVRfyGZ_gjjwWJqkJXi-5" target="YbMCshPmiJ-kDCHWKlvB-0" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="YbMCshPmiJ-kDCHWKlvB-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="B9qHMxrD-HFqW9p8vAvx-9" source="UUVRfyGZ_gjjwWJqkJXi-5" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="523" y="448" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="UUVRfyGZ_gjjwWJqkJXi-5" value="MQTT-MSG&lt;br&gt;/window/{open}" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;" parent="B9qHMxrD-HFqW9p8vAvx-9" vertex="1">
           <mxGeometry x="470" y="360" width="105" height="40" as="geometry" />
