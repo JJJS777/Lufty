@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-08-24T07:45:06.033Z" agent="5.0 (Windows)" etag="UuSNuOxHZviQolv6CItw" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-24T07:48:32.384Z" agent="5.0 (Macintosh)" etag="aiHKDrHnrcqK9jv6Gqc_" version="14.9.8" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="4837" dy="3303" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="3146" dy="2315" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -554,7 +554,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="bwPkYq8E7ANFqFx1OJKg" name="Aktivitätsdiagramm">
-    <mxGraphModel dx="4581" dy="1943" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="4096" dy="1682" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="MwLlSuZRGqhdZxkgWoQN-0" />
         <mxCell id="MwLlSuZRGqhdZxkgWoQN-1" parent="MwLlSuZRGqhdZxkgWoQN-0" />
@@ -660,7 +660,7 @@
         <mxCell id="YbMCshPmiJ-kDCHWKlvB-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="B9qHMxrD-HFqW9p8vAvx-9" source="YbMCshPmiJ-kDCHWKlvB-0" target="YbMCshPmiJ-kDCHWKlvB-35" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="YbMCshPmiJ-kDCHWKlvB-0" value="Temperatur Draußen &lt;br&gt;grenzwertig (außerhalb von 5°c bis 30°c)" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;" parent="B9qHMxrD-HFqW9p8vAvx-9" vertex="1">
+        <mxCell id="YbMCshPmiJ-kDCHWKlvB-0" value="Temperatur Draußen &lt;br&gt;grenzwertig ( 5 ≥ temp ≥ 30 )" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;" parent="B9qHMxrD-HFqW9p8vAvx-9" vertex="1">
           <mxGeometry x="366.25" y="450" width="230" height="40" as="geometry" />
         </mxCell>
         <mxCell id="YbMCshPmiJ-kDCHWKlvB-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="B9qHMxrD-HFqW9p8vAvx-9" source="YbMCshPmiJ-kDCHWKlvB-8" target="YbMCshPmiJ-kDCHWKlvB-9" edge="1">
@@ -1146,23 +1146,23 @@
     </mxGraphModel>
   </diagram>
   <diagram id="FVtWYqMrh9NGkvf-fmVn" name="Kommunikationsdiagramm">
-    <mxGraphModel dx="1846" dy="1122" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1426" dy="778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="eVNNBtCcll8Z-r2CayTo-0" />
         <mxCell id="eVNNBtCcll8Z-r2CayTo-1" parent="eVNNBtCcll8Z-r2CayTo-0" />
-        <mxCell id="bO-F13z6633doV8jWszJ-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="eVNNBtCcll8Z-r2CayTo-1" source="bO-F13z6633doV8jWszJ-0" edge="1">
+        <mxCell id="bO-F13z6633doV8jWszJ-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="eVNNBtCcll8Z-r2CayTo-1" source="bO-F13z6633doV8jWszJ-0">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="20" y="145" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="bO-F13z6633doV8jWszJ-0" value="Object" style="html=1;" parent="eVNNBtCcll8Z-r2CayTo-1" vertex="1">
+        <mxCell id="bO-F13z6633doV8jWszJ-0" value="Object" style="html=1;" vertex="1" parent="eVNNBtCcll8Z-r2CayTo-1">
           <mxGeometry x="120" y="120" width="110" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="ENnpeAAsthDSgba8O1Vm" name="Sequenzdiagramm">
-    <mxGraphModel dx="1846" dy="1122" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1426" dy="778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="heqVXqJGcNfpQko4QrdR-0" />
         <mxCell id="heqVXqJGcNfpQko4QrdR-1" parent="heqVXqJGcNfpQko4QrdR-0" />
