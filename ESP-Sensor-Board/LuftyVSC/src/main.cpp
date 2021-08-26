@@ -15,13 +15,11 @@
 //   #include "freertos/timers.h"
 // }
 
-
 #define BLYNK_PRINT Serialear
 #define MQTT_HOST IPAddress(192, 168, 141, 99)
 #define MQTT_PORT 1883
 #define MQTT_PUB_DIFFUSOR "esp/sensorBoard/diffusor"
 #define MQTT_PUB_WINDOW "esp/sensorBoard/window"
-
 
 // Helper functions declarations
 void checkIaqSensorStatus(void);
@@ -41,9 +39,10 @@ const char *password = "quack1QUACK4quack1";
 const char auth[] = "h14JLgNFT8QLSKFXGJ9c9z9sSv5Lm8TX";
 
 //Globale Variable
-float rawTemperature, temperature, rawHumidity, humidity, pressure, iaqData, iaqAccuracy, staticIaq, gasResistance, co2Equivalent, breathVocEquivalent;
 int ledPin = 14;
-
+float rawTemperature, temperature, rawHumidity, humidity, pressure, iaqData, iaqAccuracy, staticIaq, gasResistance, co2Equivalent, breathVocEquivalent;
+double apiTemp, windspeed;
+int aqiApi;
 BlynkTimer timer;
 
 /*OpenWeatherMap.org*/
@@ -85,7 +84,8 @@ void getBME680data()
   breathVocEquivalent = iaqSensor.breathVocEquivalent;
 
   unsigned long time_trigger = millis();
-  if (iaqSensor.run()) { // If new data is available
+  if (iaqSensor.run())
+  { // If new data is available
     Serial.println("_____\n");
     Serial.println("BME680-Sensor Daten\n");
     Serial.print(F("Raw-Temperature = "));
@@ -126,7 +126,9 @@ void getBME680data()
     Serial.println("_____\n");
 
     Serial.println();
-  } else {
+  }
+  else
+  {
     checkIaqSensorStatus();
   }
 
@@ -166,7 +168,8 @@ String httpGETRequest(const char *serverName)
   return payload;
 }
 
-void decodingJSON(){
+void decodingJSON()
+{
   if ((millis() - lastTime) > timerDelay)
   {
     // Check WiFi connection status
@@ -182,7 +185,7 @@ void decodingJSON(){
       request to OpenWeatherMap and it retrieves a string with a JSON object that contains all the information about the weather for your city.*/
       jsonBufferWeather = httpGETRequest(serverPathWeather.c_str());
       jsonBufferPollution = httpGETRequest(serverPathAirQuality.c_str());
-      
+
       JSONVar myObjectWeather = JSON.parse(jsonBufferWeather);
       JSONVar myObjectPollution = JSON.parse(jsonBufferPollution);
 
@@ -193,17 +196,20 @@ void decodingJSON(){
         return;
       }
 
-      if (JSON.typeof(myObjectPollution) == "undefined"){
+      if (JSON.typeof(myObjectPollution) == "undefined")
+      {
         Serial.println("Parsing Pollution-Input failed!");
         return;
       }
 
       /*Außentemperatur aus API Req. in Variable speichern*/
-      double apiTemp = myObjectWeather["main"]["temp"];
+      apiTemp = myObjectWeather["main"]["temp"];
 
       /*Air Quality Index aus API Req. in Variable speichern*/
-      int aqiApi = myObjectPollution["data"][0]["aqi"];
+      aqiApi = myObjectPollution["data"][0]["aqi"];
 
+      /*Außenwindgeschwindigkeit aus API Req. in Variable speichern*/
+      windspeed = myObjectWeather["wind"]["speed"];
 
       Serial.println("\n\nDaten aus Open-WeatherMap:");
       Serial.print("Temperatur aus API: ");
@@ -224,7 +230,8 @@ void decodingJSON(){
 }
 
 /* WiFi Connection: Callback-Fkt, wird asynch ausgeführt */
-void connectToWifi(){
+void connectToWifi()
+{
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED)
   {
@@ -234,45 +241,52 @@ void connectToWifi(){
 }
 
 /*Callback-Fkt, wird asynch ausgeführt*/
-void connectToMqtt(){
+void connectToMqtt()
+{
   Serial.println("Connecting to MQTT Broker ...");
   mqttClient.connect();
 }
 
 /*WiFiEventHandler Verwaltet die WiFi-Events: Callback-Fkt, wird asynch ausgeführt*/
-void WiFiEventHandler( WiFiEvent_t event ){
+void WiFiEventHandler(WiFiEvent_t event)
+{
   Serial.printf("[WiFi-event] event: %d\n", event);
-  switch( event ){
-    case SYSTEM_EVENT_STA_GOT_IP:
-      Serial.print("Connected to WiFi network with IP Address: ");
-      Serial.println(WiFi.localIP());
-      connectToMqtt();
-      break;
-    case SYSTEM_EVENT_STA_DISCONNECTED:
-      Serial.println("Lost WiFi connection ...");
-      xTimerStop(mqttReconnectTimer, 0);
-      xTimerStart(wifiReconnectTimer, 0);
-      break;
+  switch (event)
+  {
+  case SYSTEM_EVENT_STA_GOT_IP:
+    Serial.print("Connected to WiFi network with IP Address: ");
+    Serial.println(WiFi.localIP());
+    connectToMqtt();
+    break;
+  case SYSTEM_EVENT_STA_DISCONNECTED:
+    Serial.println("Lost WiFi connection ...");
+    xTimerStop(mqttReconnectTimer, 0);
+    xTimerStart(wifiReconnectTimer, 0);
+    break;
   }
 }
 
 /*The onMqttConnect() function runs after starting a session with the broker : Callback-Fkt, wird asynch ausgeführt*/
-void onMqttConnect( bool sessionPresent ){
+void onMqttConnect(bool sessionPresent)
+{
   Serial.println("Connected to MQTT.");
   Serial.print("Session present: ");
   Serial.println(sessionPresent);
 }
 
 /*Wenn ESP32 die verbindung zum MQTT-Broker verliert wird onMqttDisconnect aufgerufen: Callback-Fkt, wird asynch ausgeführt*/
-void onMqttDisconnect( AsyncMqttClientDisconnectReason reason ){
+void onMqttDisconnect(AsyncMqttClientDisconnectReason reason)
+{
   Serial.println("Disconnected from MQTT.");
-  if (WiFi.isConnected()) { 
+  if (WiFi.isConnected())
+  {
     xTimerStart(mqttReconnectTimer, 0);
   }
 }
 
 /*onMqttPublish wird aufgerufen, wenn eine MSG auf einem MQTT-Topic publiziert wird: Callback-Fkt, wird asynch ausgeführt*/
-void onMqttPublish(uint16_t packetId){
+void onMqttPublish(uint16_t packetId)
+{
   Serial.println("Publish acknowledged.");
   Serial.print("  packetId: ");
   Serial.println(packetId);
@@ -280,43 +294,52 @@ void onMqttPublish(uint16_t packetId){
 
 /****** ANWENDUNGSLOGIK ******/
 
-void closeWindow(){
+void closeWindow()
+{
   // Publish an MQTT message on topic esp/sensorBoard/window/close
-    uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP, MQTT_QoS, true, String(temperature).c_str());
-    Serial.printf("Publishing on topic %s at %i, packetId: %i", MQTT_PUB_TEMP, MQTT_QoS, packetIdPub1);
-    Serial.printf("Message: closing Window...");
+  uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP, MQTT_QoS, true, String(temperature).c_str());
+  Serial.printf("Publishing on topic %s at %i, packetId: %i", MQTT_PUB_TEMP, MQTT_QoS, packetIdPub1);
+  Serial.printf("Message: closing Window...");
 }
 
-void checkConditions (){
-  if( badConditionsInside && badConditionsOutside ){
+void checkConditions()
+{
+  if (badConditionsInside && badConditionsOutside)
+  {
     closeWindow();
     deffusorOn();
-  } else if ( badConditionsInside && goodConditionsOutside ){
+  }
+  else if (badConditionsInside && goodConditionsOutside)
+  {
     openWindow();
     diffusorOff();
-  } else {
+  }
+  else
+  {
     msgUser();
   }
-
 }
 
-
-void diffusorControle() {
-
+void diffusorControle()
+{
 }
-
-
 
 /****** ANWENDUNGSLOGIK ENDE ******/
 
-
-void setup(){
+void setup()
+{
+    // put your main code here, to run repeatedly:
+  /*Blynk*/
+  Blynk.run();
+  timer.run();
+    unsigned long currentMillis = millis();
+  unsigned long window_unblock_time = currentMillis;
   // put your setup code here, to run once:
   Serial.begin(9600);
 
   /*The next two lines create timers that will allow both the MQTT broker and Wi-Fi connection to reconnect, in case the connection is lost.*/
-  mqttReconnectTimer = xTimerCreate("mqttTimer", pdMS_TO_TICKS(2000), pdFALSE, (void*)0, reinterpret_cast<TimerCallbackFunction_t>(connectToMqtt));
-  wifiReconnectTimer = xTimerCreate("wifiTimer", pdMS_TO_TICKS(2000), pdFALSE, (void*)0, reinterpret_cast<TimerCallbackFunction_t>(connectToWifi));
+  mqttReconnectTimer = xTimerCreate("mqttTimer", pdMS_TO_TICKS(2000), pdFALSE, (void *)0, reinterpret_cast<TimerCallbackFunction_t>(connectToMqtt));
+  wifiReconnectTimer = xTimerCreate("wifiTimer", pdMS_TO_TICKS(2000), pdFALSE, (void *)0, reinterpret_cast<TimerCallbackFunction_t>(connectToWifi));
 
   /*Zuweisung einer Callback-Fkt: wenn der ESP sich mit dem WiFi verbindet wird die WiFiEventHandler-Fkt aufgerufen*/
   WiFi.onEvent(WiFiEventHandler);
@@ -338,7 +361,7 @@ void setup(){
   /*Blynk*/
   Blynk.config(auth);
   Blynk.connect();
-  
+
   /*BME680 w/ BSEC*/
   Wire.begin();
   iaqSensor.begin(BME680_I2C_ADDR_PRIMARY, Wire);
@@ -359,68 +382,90 @@ void setup(){
 
   iaqSensor.updateSubscription(sensorList, 10, BSEC_SAMPLE_RATE_LP);
   checkIaqSensorStatus();
-
 }
 
-void loop(){
-  // put your main code here, to run repeatedly:
-  /*Blynk*/
-  Blynk.run();
-  timer.run();
-
-  //getBME680data();
+void loop()
+{
+  getBME680data();
   decodingJSON();
 
-  unsigned long currentMillis = millis();
-  // Every X number of seconds (interval = 10 seconds) 
+  // Every X number of seconds (interval = 10 seconds)
   // it publishes a new MQTT message
-  if (currentMillis - previousMills >= interval) {
+  if (currentMillis - previousMills >= interval)
+  {
     // Save the last time a new reading was published
     previousMills = currentMillis;
-    
-    getBME680data();    
 
-    if (humidity < 50.0){
-      uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(1).c_str());
-      Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub1);
-    } else if ( humidity > 60.0 ) {
+    if (aqiApi < iaqData && windspeed < 60 && window_unblock_time <= currentMillis)
+    {
+      //Diffusor OFF
       uint16_t packetIdPub2 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(0).c_str());
       Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub2);
-    }
-
-    if ( iaqData > 80 || temperature > 25.0){
-      // Publish an MQTT message on topic MQTT_PUB_WINDOW
+      //Window OPEN
       uint16_t packetIdPub3 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(1).c_str());
       Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub3);
-    } else {
+      //Grenzwertige Temp Fall
+      if (apiTemp <= 5 || apiTemp >= 30)
+      {
+        Delay(5000);
+        // Window CLOSE
+        uint16_t packetIdPub4 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(0).c_str());
+        Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub4);
+        //Block fenster für 2 stunden
+        window_unblock_time = millis() + 7200000;
+      }
+    }
+    else
+    {
+      // Window CLOSE
       uint16_t packetIdPub4 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(0).c_str());
       Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub4);
+      if (humidity <= 40)
+      {
+        //DIFFUSOR ON
+        uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(1).c_str());
+        Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub1);
+      }
+      if (humidity >= 60)
+      {
+        //DIFFUSOR OFF
+        uint16_t packetIdPub2 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(0).c_str());
+        Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub2);
+      }
     }
   }
 }
 
-
 // Helper function definitions
+
 void checkIaqSensorStatus(void)
 {
-  if (iaqSensor.status != BSEC_OK) {
-    if (iaqSensor.status < BSEC_OK) {
+  if (iaqSensor.status != BSEC_OK)
+  {
+    if (iaqSensor.status < BSEC_OK)
+    {
       output = "BSEC error code : " + String(iaqSensor.status);
       Serial.println(output);
       for (;;)
         errLeds(); /* Halt in case of failure */
-    } else {
+    }
+    else
+    {
       output = "BSEC warning code : " + String(iaqSensor.status);
       Serial.println(output);
     }
   }
-  if (iaqSensor.bme680Status != BME680_OK) {
-    if (iaqSensor.bme680Status < BME680_OK) {
+  if (iaqSensor.bme680Status != BME680_OK)
+  {
+    if (iaqSensor.bme680Status < BME680_OK)
+    {
       output = "BME680 error code : " + String(iaqSensor.bme680Status);
       Serial.println(output);
       for (;;)
         errLeds(); /* Halt in case of failure */
-    } else {
+    }
+    else
+    {
       output = "BME680 warning code : " + String(iaqSensor.bme680Status);
       Serial.println(output);
     }
