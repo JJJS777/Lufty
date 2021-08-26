@@ -66,6 +66,8 @@ unsigned long timerDelay = 600000;
 //MQTT-Timer-Hilfsvariable die alle 10 sec die Anweisung an den Broker publiziert
 unsigned long previousMills = 0;
 const long interval = 10000;
+// time to unblock window
+unsigned long window_unblock_time = 0;
 
 String jsonBufferWeather, jsonBufferPollution, output;
 
@@ -328,12 +330,6 @@ void diffusorControle()
 
 void setup()
 {
-    // put your main code here, to run repeatedly:
-  /*Blynk*/
-  Blynk.run();
-  timer.run();
-    unsigned long currentMillis = millis();
-  unsigned long window_unblock_time = currentMillis;
   // put your setup code here, to run once:
   Serial.begin(9600);
 
@@ -386,8 +382,15 @@ void setup()
 
 void loop()
 {
+  // put your main code here, to run repeatedly:
+  /*Blynk*/
+  Blynk.run();
+  timer.run();
+
   getBME680data();
   decodingJSON();
+
+  unsigned long currentMillis = millis();
 
   // Every X number of seconds (interval = 10 seconds)
   // it publishes a new MQTT message
@@ -408,8 +411,8 @@ void loop()
       if (apiTemp <= 5 || apiTemp >= 30)
       {
         Delay(5000);
-        // Window CLOSE
-        uint16_t packetIdPub4 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(0).c_str());
+            // Window CLOSE
+            uint16_t packetIdPub4 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(0).c_str());
         Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub4);
         //Block fenster für 2 stunden
         window_unblock_time = millis() + 7200000;
