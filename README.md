@@ -35,20 +35,49 @@ Jeder ESP hat seine eigene README in der die Details beschreiben werden. In den 
 + 2x [Optocoupler][5]
 + Wire (10x M/M und 10x M/F Jumpwire)
 
+## 3. Vorrausetzungen
+
+## 4. Anwendungslogik und Funktionsweise
+### Architekturmodell
+![alt text][Architekturmodell]
+
+### Aktivitätsmodell
+![alt text][Aktivitätsmodell]
+
+## 5. MQTT
+### Mosquitto-Broker auf Raspberry Pi einrichten
+Für das Projekt nutzen wir einen [Mosquitto-Broker][6], der auf einem Raspberry Pi 4 installiert ist.
+Ihr könnt für euer Projekt einen beliebigen Broker verwenden. Zur besseren skalierbarkeit des Projektes ist auch ein Cloud-Broker denkbar. 
+
+Das installieren und einrichten des MQTT-Brokers geht recht schnell: 
+```shell
+pi@raspberry:~ $ sudo apt update
+pi@raspberry:~ $ sudo apt install -y mosquitto mosquitto-clients
+```
+mit **Y** und **Enter** bestätigst du die Installation. Um den Broker nach dem neustart automatisch zu starten musst du folgendes eingeben
+```shell
+pi@raspberry:~ $ sudo systemctl enable mosquitto.service
+```
+
+Durch das eingeben von ```pi@raspberry:~ $ hostname -I ``` findest du die IP-Adresse deines Raspberry Pi herraus. Diese Benötigst du später bei der konfiguration des Clients.
+
+
+### MQTT auf Client
+Wie du die MQTT Clients konfigurierst zeigen wir dir Beispielhaft am ESP-Sensor. 
+
+1. [Einzubinden der benötigten Bibliotheken](./ESP-Sensor-Board/README.md#mqtt-libraries)
+2. [Anpassen der Variablen und Arbeiten mit MQTT](./ESP-Sensor-Board/README.md#mqtt) 
+
+## 9. Ausblick / Erweiterungsmöglichkeiten
+
+
+
+
 [1]: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html
 [2]: https://www.raspberrypi.org/products/raspberry-pi-4-model-b/
 [3]: https://wiki.seeedstudio.com/Grove-Temperature_Humidity_Pressure_Gas_Sensor_BME680/
 [4]: https://www.conrad.de/de/p/boneco-u50-luftbefeuchter-schwarz-1-st-2316569.html
 [5]: https://www.conrad.de/de/p/isocom-components-optokoppler-phototransistor-sfh615a-4x-dip-4-transistor-dc-183249.html 
-
-## 3. Vorrausetzungen
-
-## 4. Anwendungslogik und Funktionsweise
-### Architekturmodell
-### Aktivitätsmodell
-
-## 5. MQTT
-### Mosquitto-Broker auf Raspberry Pi einrichten
-### MQTT auf Client
-
-## 9. Ausblick / Erweiterungsmöglichkeiten
+[6]: https://mosquitto.org/
+[Architekturmodell]:https://github.com/JJJS777/Lufty/blob/main/Artefakte/Architektur-Architekturdiagramm.png
+[Aktivitätsmodell]:https://github.com/JJJS777/Lufty/blob/main/Artefakte/Architektur-Aktivit%C3%A4tsdiagramm.png
