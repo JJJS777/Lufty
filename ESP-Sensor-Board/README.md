@@ -54,8 +54,22 @@ Damit wir die gemessenen Werte im AQI zusammenfassen können, benötigen wir die
 Um die Bibliothek einzubinden sucht einfach in PlatformIO unter _Libraries_ nach **BSEC** und fügt sie eurem Projekt hinzu.
 
 #### Blynk Libraries
+Wir möchten uns später die Messwerte auf einem Smartphone anzeigen lassen. Dies realisieren wir mit der [Blynk-App][7]. Um diese nutzen zu können müssen wir die dazugehörige Bibliothek in PlatformIO einbinden. Dabei geht ihr wie bereits weiter oben beschrieben vor, nur sucht ihr jetzt nach **Blynk**.
+
+Mit der Blynk-App ist es auch möglich die Komponenten anzusteuern. Denkbar ist z.B. das An und Aus schalten des Diffusors oder das öffnen und schließen des Fensters mithilfe der App. Dies haben wir in diesem Projekt aber nicht gemacht.  
+
 #### Arduino_JSON Library
-	
+In dem Projekt werden wir über zwei unterschiedliche API's Wetter und Luftqualitätsdaten abfragen. Auf Basis der API-Daten, welche die Bedingungen außerhalb des Zimmers repräsentieren, und der Sensordaten werden wir später unsere Anwendungslogik aufbauen.
+
+Damit wir mit den API-Daten arbeiten können benötigen wir die **Arduino_JSON-Bibliotheken**. Diese bindet ihr gebau wie die anderen Bibliotheken ein.
+
+#### API's
+In dem Projekt arbeiten wir mit zwei API's, die uns Informationen über das Wetter und die Luftqualität in Form des bereits erwänten AQI liefern.
+Wir haben uns für die [Open-Weather-Map-API][8] und die [Weather-Bit-API][9] entschieden, aber ihr könnt eine AOI euerer wahö verwenden, dass vorgehen ist analog.
+Open-Weather-Map-API liefert uns aktuelle Daten über Temeratur, Luftfeuchtigkeit und Wind, aber ihr könnt noch einige Parameter mehr auslesen. Weather-Bit liefert uns den aktuellen AQI.
+
+Als erstes müsst ihr euch bei beiden Anbietern einen Account anlegen, dieser ist für unseren Projektumpfang Kostenlos. Wenn ihr einen Account angelegt habt könnt ihr euch einen API-Key generieren. Den Key hinterlegt ihr an entsprechender stelle in der main.cpp.
+
 ### Hardware
 + ESP32 ([Grove System][2])
 + BME680 ([Grove System][2])
@@ -68,3 +82,6 @@ Um die Bibliothek einzubinden sucht einfach in PlatformIO unter _Libraries_ nach
 [4]:https://github.com/me-no-dev/AsyncTCP
 [5]:https://en.wikipedia.org/wiki/Air_quality_index
 [6]:https://www.bosch-sensortec.com/software-tools/software/bsec/
+[7]:https://blynk.io/en/getting-started
+[8]:https://openweathermap.org/current
+[9]:https://www.weatherbit.io/api/airquality-current
