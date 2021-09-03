@@ -3,7 +3,7 @@
 ## Vorrausetzungen
 ### Software
 #### Visual Studio Code mit PlatformIO oder Arduino IDE
-Wir haben für unser Projekt [PlatformIO][1] für VSC verwendet. Als erstes müsst ihr dafür in VSC den Plug-In für PlatformIO installieren. 
+Wir haben für unser Projekt den [PlatformIO Plug-In][1] für VSC verwendet. Als erstes müsst ihr dafür in VSC PlatformIO installieren. 
 Danach könnt ihr ein Projekt in PlatformIO anlegen. Euer Projekt-Setup wird in der platformio.ini-Datei gespeichert. Hier ist als Beispiel der Inhalt unserer Datei:
 
 ```
