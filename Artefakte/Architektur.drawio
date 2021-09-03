@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-08-26T08:26:19.553Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36 OPR/78.0.4093.147" etag="m721PPXd7SHCI_Rocin1" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-09-03T12:09:02.169Z" agent="5.0 (Windows)" etag="LezE3_lV88yqErMKn-Ab" version="15.0.6" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="9727" dy="6091" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="5845" dy="3495" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -554,12 +554,12 @@
     </mxGraphModel>
   </diagram>
   <diagram id="bwPkYq8E7ANFqFx1OJKg" name="Aktivitätsdiagramm">
-    <mxGraphModel dx="3998" dy="1572" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="5391" dy="1026" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="MwLlSuZRGqhdZxkgWoQN-0" />
         <mxCell id="MwLlSuZRGqhdZxkgWoQN-1" parent="MwLlSuZRGqhdZxkgWoQN-0" />
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-8" value="s" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;" parent="MwLlSuZRGqhdZxkgWoQN-1" vertex="1">
-          <mxGeometry x="20" width="1210" height="2260" as="geometry" />
+          <mxGeometry x="20" width="1320" height="2260" as="geometry" />
         </mxCell>
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=classic;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="B9qHMxrD-HFqW9p8vAvx-8" source="B9qHMxrD-HFqW9p8vAvx-80" target="B9qHMxrD-HFqW9p8vAvx-79" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -568,7 +568,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-9" value="Sensor-ESP" style="swimlane;html=1;startSize=20;" parent="B9qHMxrD-HFqW9p8vAvx-8" vertex="1">
-          <mxGeometry y="20" width="620" height="2240" as="geometry" />
+          <mxGeometry y="20" width="730" height="2240" as="geometry" />
         </mxCell>
         <mxCell id="YbMCshPmiJ-kDCHWKlvB-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="B9qHMxrD-HFqW9p8vAvx-9" source="B9qHMxrD-HFqW9p8vAvx-0" target="B9qHMxrD-HFqW9p8vAvx-18" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -764,8 +764,14 @@
             <mxPoint y="-4" as="offset" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="UUVRfyGZ_gjjwWJqkJXi-42" value="&amp;nbsp;delay = maxLüftungszeit" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" parent="B9qHMxrD-HFqW9p8vAvx-9" vertex="1">
+          <mxGeometry x="466.25" y="30" width="153.75" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="UUVRfyGZ_gjjwWJqkJXi-43" value="Bei sehr schlechter Luftqualität wird kurz gelüftet" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" parent="B9qHMxrD-HFqW9p8vAvx-9" vertex="1">
+          <mxGeometry x="466.25" y="120" width="173.75" height="70" as="geometry" />
+        </mxCell>
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-10" value="MQTT-Broker (Respi)" style="swimlane;html=1;startSize=20;" parent="B9qHMxrD-HFqW9p8vAvx-8" vertex="1">
-          <mxGeometry x="620" y="20" width="220" height="2240" as="geometry" />
+          <mxGeometry x="730" y="20" width="220" height="2240" as="geometry" />
         </mxCell>
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=classic;endFill=1;" parent="B9qHMxrD-HFqW9p8vAvx-10" source="B9qHMxrD-HFqW9p8vAvx-65" target="B9qHMxrD-HFqW9p8vAvx-76" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -807,7 +813,7 @@
           <mxGeometry x="51.25" y="960" width="112.5" height="40" as="geometry" />
         </mxCell>
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-11" value="Window-ESP" style="swimlane;html=1;startSize=20;" parent="B9qHMxrD-HFqW9p8vAvx-8" vertex="1">
-          <mxGeometry x="840" y="20" width="200" height="2240" as="geometry" />
+          <mxGeometry x="950" y="20" width="200" height="2240" as="geometry" />
         </mxCell>
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="B9qHMxrD-HFqW9p8vAvx-11" source="B9qHMxrD-HFqW9p8vAvx-79" target="B9qHMxrD-HFqW9p8vAvx-86" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -833,7 +839,7 @@
           <mxGeometry x="85" y="1647.5" width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-64" value="Diffusor-ESP" style="swimlane;html=1;startSize=20;" parent="B9qHMxrD-HFqW9p8vAvx-8" vertex="1">
-          <mxGeometry x="1040" y="20" width="170" height="2240" as="geometry" />
+          <mxGeometry x="1150" y="20" width="170" height="2240" as="geometry" />
         </mxCell>
         <mxCell id="B9qHMxrD-HFqW9p8vAvx-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=classic;endFill=1;" parent="B9qHMxrD-HFqW9p8vAvx-64" source="B9qHMxrD-HFqW9p8vAvx-96" target="B9qHMxrD-HFqW9p8vAvx-97" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -906,12 +912,6 @@
         </mxCell>
         <mxCell id="Ecmzk7Flj3fArr_SnKtm-10" value="Bedingung &lt;br&gt;Außen: !Good" style="text;whiteSpace=wrap;html=1;" parent="MwLlSuZRGqhdZxkgWoQN-1" vertex="1">
           <mxGeometry x="-510" y="620" width="100" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="UUVRfyGZ_gjjwWJqkJXi-42" value="&amp;nbsp;delay = maxLüftungszeit" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" parent="MwLlSuZRGqhdZxkgWoQN-1" vertex="1">
-          <mxGeometry y="-120" width="180" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="UUVRfyGZ_gjjwWJqkJXi-43" value="wenn luftquali sehr schlecht lüftet er kurz" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" parent="MwLlSuZRGqhdZxkgWoQN-1" vertex="1">
-          <mxGeometry x="240" y="-120" width="240" height="100" as="geometry" />
         </mxCell>
         <mxCell id="zvuvsDEJlpIaPhlCfGsa-0" value="&#xa;Diffusor an&#xa;&#xa;" style="rounded=0;whiteSpace=wrap;html=1;" parent="MwLlSuZRGqhdZxkgWoQN-1" vertex="1">
           <mxGeometry x="-3120" y="100" width="2360" height="1050" as="geometry" />
