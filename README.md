@@ -15,7 +15,7 @@ IoT-Projekt
 9. Ausblick / Erweiterungsmöglichkeiten
 
 
-## Einführung
+## Projektübersicht
 Lufty ermöglicht euch für jeden Raum beste Luftqualität zu erreichen.
 
 Das Lufty-Projekt besteht aus drei ESP32, einem Raspberry Pi 4, einem BME680-Sensor zu messen der Luftqualität in Innenräumen, einem Servo-Motor zum Fenster öffnen und einem Diffusor zum Luftfeuchtigkeit erhöhen. 
