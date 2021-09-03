@@ -77,7 +77,44 @@ Als erstes müsst ihr euch bei beiden Anbietern einen Account anlegen, dieser is
 ## Wie der Code funktioniert
 in diesem Teil möchten wir kurz darauf eingehen wie der Code in der main.cpp funktioniert und welche variablen ihr ggf. noch anpassen müsst. 
 
-....
+### WiFi
+
+```cpp
+const char *ssid = "REPLACE_WITH_YOUR_SSID";
+const char *password = "REPLACE_WITH_YOUR_PASSWORD";
+```
+
+### MQTT
+```cpp
+#define MQTT_HOST IPAddress(xxx, xxx, xxx, xxx)
+#define MQTT_PORT 1883
+#define MQTT_PUB_DIFFUSOR "esp/sensorBoard/diffusor"
+#define MQTT_PUB_WINDOW "esp/sensorBoard/window"
+```
+
+### API
+```cpp
+String openWeatherMapApiKey = "REPLACE_WITH_YOUR_API_KEY";
+String weatherbitAirQualityApiKey = "REPLACE_WITH_YOUR_API_KEY";
+
+// Replace with your country code and city
+String city = "Cologne";
+String countryCode = "DE";
+String unitsApi = "metric";
+/*lat und lon können auch aus erstem API Req. rausgeholt und verwendet werden, anstelle sie hart zu coden*/
+String latitude = "50";
+String longitude = "6";
+```
+### Blynk
+```cpp
+39 const char auth[] = "REPLACE_WITH_YOUR_BLYNK_AUTH_TOKEN";
+
+
+139 Blynk.virtualWrite(V5, humidity);
+140 Blynk.virtualWrite(V6, temperature);
+```
+
+
 
 [1]:https://docs.platformio.org/en/latest/what-is-platformio.html
 [2]:https://wiki.seeedstudio.com/Grove_System/
