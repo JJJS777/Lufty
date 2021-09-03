@@ -75,6 +75,9 @@ Als erstes müsst ihr euch bei beiden Anbietern einen Account anlegen, dieser is
 + BME680 ([Grove System][2])
 
 ## Wie der Code funktioniert
+in diesem Teil möchten wir kurz darauf eingehen wie der Code in der main.cpp funktioniert und welche variablen ihr ggf. noch anpassen müsst. 
+
+....
 
 [1]:https://docs.platformio.org/en/latest/what-is-platformio.html
 [2]:https://wiki.seeedstudio.com/Grove_System/
