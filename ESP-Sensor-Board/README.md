@@ -1,7 +1,7 @@
 # Sensor-ESP
 
 ## Vorrausetzungen
-+ Visual Studio Code mit PlatformIO oder Arduino DIE
++ Visual Studio Code mit PlatformIO oder Arduino IDE
 + MQTT Libraries
 + BME680 Sensor Libraries
 + BSEC-Arduino-library für BME680
