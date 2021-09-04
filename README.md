@@ -117,3 +117,4 @@ Wie du die MQTT Clients konfigurierst zeigen wir dir Beispielhaft am ESP-Sensor.
 [6]: https://mosquitto.org/
 [Architekturmodell]:https://github.com/JJJS777/Lufty/blob/main/Artefakte/Architektur-Architekturdiagramm.png
 [Aktivitätsmodell]:https://github.com/JJJS777/Lufty/blob/main/Artefakte/Architektur-Aktivit%C3%A4tsdiagramm.png
+[logo]:
