@@ -1,5 +1,5 @@
-# Lufty
-IoT-Projekt
+# Lufty IoT-Projekt2021
+![alt text][logo]
 
 
 ## Inhalt
@@ -117,4 +117,4 @@ Wie du die MQTT Clients konfigurierst zeigen wir dir Beispielhaft am ESP-Sensor.
 [6]: https://mosquitto.org/
 [Architekturmodell]:https://github.com/JJJS777/Lufty/blob/main/Artefakte/Architektur-Architekturdiagramm.png
 [Aktivitätsmodell]:https://github.com/JJJS777/Lufty/blob/main/Artefakte/Architektur-Aktivit%C3%A4tsdiagramm.png
-[logo]:
+[logo]:https://github.com/JJJS777/Lufty/blob/main/Artefakte/341e316e-742d-4b23-a379-6eae5d3b70f6.jpeg
