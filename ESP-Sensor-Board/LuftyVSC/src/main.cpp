@@ -1,5 +1,3 @@
-/*Fkt die im Loop aufgerufen werden, benötigen keine eigenen Delay und Fkt, die in Setup aufgerufen werden benötigen ggf. delay*/
-
 #include <Arduino.h>
 #include <Adafruit_I2CDevice.h>
 #include <Wire.h>
@@ -11,7 +9,6 @@
 #include <HTTPClient.h>
 #include <AsyncMqttClient.h>
 #include "bsec.h"
-//#include "Adafruit_BME680.h" -> Benötigt?
 
 extern "C" {
   #include "freertos/FreeRTOS.h"
@@ -67,9 +64,6 @@ String unitsApi = "metric";
 String latitude = "50.935173";
 String longitude = "6.953101";
 
-//MQTT-Timer-Hilfsvariable die alle 60 sec die Anweisung an den Broker publiziert
-//unsigned long previousMills = 0;
-//const long interval = 60000;
 // time to unblock window
 //unsigned long window_unblock_time = 0;
 
