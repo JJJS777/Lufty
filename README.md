@@ -1,18 +1,22 @@
 # Lufty
 IoT-Projekt
 
+
 ## Inhalt
 1. Projektübersicht
 2. Benötigte Teile
 3. Vorrausetzungen
+   1. Sensor-ESP
+   2. Diffusor-ESP
+   3. Window-ESP
+   4. Raspberry Pi 4
 4. Anwendungslogik und Funktionsweise
-5. MQTT
+   1. Architekturmodell
+   2. Aktivitätsdiagram
+6. MQTT
    1. MQTT auf Client
    2. Mosquitto-Broker auf Raspberry Pi einrichten
-6. [Sensor-Board](./ESP-Sensor-Board/README.md)
-7. [Aktor-Board-Diffusor](./ESP-Aktor-Board-Diffusor/README.md)
-8. [Aktor-Board-Window](./ESP-Aktor-Board-Window/README.md)
-9. Ausblick / Erweiterungsmöglichkeiten
+7. Ausblick / Erweiterungsmöglichkeiten
 
 
 ## 1. Projektübersicht
@@ -23,8 +27,8 @@ Das Lufty-Projekt besteht aus drei ESP32, einem Raspberry Pi 4, einem BME680-Sen
 Hier möchten wir dir zeigen, wie du das Projekt bei dir zuhause selbst Umsetzen kannst.
 Jeder ESP hat seine eigene README in der die Details beschreiben werden. In den Ordner findest du auch den Code für die Entsprechenden ESP’s.
 
-## 2. Benötigte Teile
 
+## 2. Benötigte Teile
 + 3x [ESP32][1] Mikrocontroller oder vergleichbar
 + 1x [Raspberry Pi][2] + Micro SD Karte
 + 1x [BME680-Grove-Sensor][3]
@@ -35,14 +39,45 @@ Jeder ESP hat seine eigene README in der die Details beschreiben werden. In den 
 + 2x [Optocoupler][5]
 + Wire (10x M/M und 10x M/F Jumpwire)
 
+
 ## 3. Vorrausetzungen
+### Allgemein
+#### Visual Studio Code mit PlatformIO oder Arduino IDE
+
+Wir haben für unser Projekt den PlatformIO Plug-In für VSC verwendet. Als erstes müsst ihr dafür in VSC PlatformIO installieren. Danach könnt ihr ein Projekt in PlatformIO anlegen. Euer Projekt-Setup wird in der platformio.ini-Datei gespeichert. Für jedes Projekt wird eine eigene platformio.ini-Datei mit den jeweiligen Abhängikeiten angelegt. Hier ist als Beispiel der Inhalt unserer Datei:
+
+```
+[env:nodemcu-32s]
+platform = espressif32
+board = nodemcu-32s
+framework = arduino
+```
+
+Am besten legt ihr für jeden ESP ein eigenes Projekt in PlatformIO an, da ihr für die unterschiedlichen ESP`s nicht immer alle bzw. die gleichen Abhängikeiten benötigt.
+
+
+### ESP-Spezifisch
+In dem Projekt haben wir für jeden ESP einen eignenen Ordner mit dem Source-Code, den dazugehörigen Dateien im /lib Folder und den jeweiligen platformio.ini-Datei angelegt. Die ESP-Spezifischen Vorrausetzungen und konfigurationen findet ihr in den README-Dateien in den entsprechenden Ordnern
+
+#### Sensor-ESP
+[hier geht es zur README des Sensor-Board](./ESP-Sensor-Board/README.md)
+
+#### Diffusor ESP
+[hier geht es zur README des Diffusor-Board](./ESP-Aktor-Board-Diffusor/README.md)
+
+#### Window ESP
+[hier geht es zur README des Window-Board](./ESP-Aktor-Board-Window/README.md)
+
+
 
 ## 4. Anwendungslogik und Funktionsweise
 ### Architekturmodell
 ![alt text][Architekturmodell]
 
-### Aktivitätsmodell
+
+### Aktivitätsdiagram
 ![alt text][Aktivitätsmodell]
+
 
 ## 5. MQTT
 ### Mosquitto-Broker auf Raspberry Pi einrichten
@@ -68,7 +103,8 @@ Wie du die MQTT Clients konfigurierst zeigen wir dir Beispielhaft am ESP-Sensor.
 1. [Einzubinden der benötigten Bibliotheken](./ESP-Sensor-Board/README.md#mqtt-libraries)
 2. [Anpassen der Variablen und Arbeiten mit MQTT](./ESP-Sensor-Board/README.md#mqtt) 
 
-## 9. Ausblick / Erweiterungsmöglichkeiten
+
+## 6. Ausblick / Erweiterungsmöglichkeiten
 
 
 
