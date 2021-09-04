@@ -1,3 +1,5 @@
+/*Fkt die im Loop aufgerufen werden, benötigen keine eigenen Delay und Fkt, die in Setup aufgerufen werden benötigen ggf. delay*/
+
 #include <Arduino.h>
 #include <Adafruit_I2CDevice.h>
 #include <Wire.h>
@@ -9,7 +11,7 @@
 #include <HTTPClient.h>
 #include <AsyncMqttClient.h>
 #include "bsec.h"
-#include "Adafruit_BME680.h"
+//#include "Adafruit_BME680.h" -> Benötigt?
 
 extern "C" {
   #include "freertos/FreeRTOS.h"
@@ -19,6 +21,7 @@ extern "C" {
 #define BLYNK_PRINT Serialear
 #define MQTT_HOST IPAddress(192, 168, 141, 99)
 #define MQTT_PORT 1883
+#define MQTT_QoS 1
 #define MQTT_PUB_DIFFUSOR "esp/sensorBoard/diffusor"
 #define MQTT_PUB_WINDOW "esp/sensorBoard/window"
 
@@ -43,6 +46,12 @@ const char auth[] = "h14JLgNFT8QLSKFXGJ9c9z9sSv5Lm8TX";
 float rawTemperature, temperature, rawHumidity, humidity, pressure, iaqData, staticIaq, gasResistance, co2Equivalent, breathVocEquivalent;
 double apiTemp, windspeed;
 int aqiApi, iaqAccuracy;
+
+// THE DEFAULT TIMER IS SET TO 60 SECONDS FOR TESTING PURPOSES
+// For a final application, check the API call limits per hour/minute to avoid getting blocked/banned
+unsigned long previousMillis = 0;   // Stores last time temperature was published
+const long interval = 60000;        // Interval at which to publish sensor readings
+
 BlynkTimer timer;
 
 /*OpenWeatherMap.org*/
@@ -58,16 +67,11 @@ String unitsApi = "metric";
 String latitude = "50.935173";
 String longitude = "6.953101";
 
-// THE DEFAULT TIMER IS SET TO 10 SECONDS FOR TESTING PURPOSES
-// For a final application, check the API call limits per hour/minute to avoid getting blocked/banned
-unsigned long lastTime = 0;
-unsigned long timerDelay = 600000;
-
 //MQTT-Timer-Hilfsvariable die alle 60 sec die Anweisung an den Broker publiziert
-unsigned long previousMills = 0;
-const long interval = 60000;
+//unsigned long previousMills = 0;
+//const long interval = 60000;
 // time to unblock window
-unsigned long window_unblock_time = 0;
+//unsigned long window_unblock_time = 0;
 
 String jsonBufferWeather, jsonBufferPollution, output;
 
@@ -85,7 +89,6 @@ void getBME680data()
   co2Equivalent = iaqSensor.co2Equivalent;
   breathVocEquivalent = iaqSensor.breathVocEquivalent;
 
-  unsigned long time_trigger = millis();
   if (iaqSensor.run())
   { // If new data is available
     Serial.println("_____\n");
@@ -128,17 +131,16 @@ void getBME680data()
     Serial.println("_____\n");
 
     Serial.println();
+
+    // Sending Data to Blynk - You can send any value at any time.
+    // Please don't send more that 10 values per second.
+    Blynk.virtualWrite(V5, humidity);
+    Blynk.virtualWrite(V6, temperature);
   }
   else
   {
     checkIaqSensorStatus();
   }
-
-  // You can send any value at any time.
-  // Please don't send more that 10 values per second.
-  Blynk.virtualWrite(V5, humidity);
-  Blynk.virtualWrite(V6, temperature);
-  delay(2000);
 }
 
 String httpGETRequest(const char *serverName)
@@ -172,74 +174,60 @@ String httpGETRequest(const char *serverName)
 
 void decodingJSON()
 {
-  if ((millis() - lastTime) > timerDelay)
+  String serverPathWeather = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&units=" + unitsApi + "&APPID=" + openWeatherMapApiKey;
+  String serverPathAirQuality = "https://api.weatherbit.io/v2.0/current/airquality?lat=" + latitude + "&lon=" + longitude + "&key=" + weatherbitAirQualityApiKey;
+
+  Serial.println("_____\n");
+  Serial.println("API-Call\n");
+
+  /* Sendet einen HTTP GET request uns speichert die Res. in der Variable jsonBuffer. The httpGETRequest() function makes a 
+    request to OpenWeatherMap and it retrieves a string with a JSON object that contains all the information about the weather for your city.*/
+  jsonBufferWeather = httpGETRequest(serverPathWeather.c_str());
+  jsonBufferPollution = httpGETRequest(serverPathAirQuality.c_str());
+
+  JSONVar myObjectWeather = JSON.parse(jsonBufferWeather);
+  JSONVar myObjectPollution = JSON.parse(jsonBufferPollution);
+
+  // JSON.typeof(jsonVar) can be used to get the type of the var
+  if (JSON.typeof(myObjectWeather) == "undefined")
   {
-    // Check WiFi connection status
-    if (WiFi.status() == WL_CONNECTED)
-    {
-      String serverPathWeather = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&units=" + unitsApi + "&APPID=" + openWeatherMapApiKey;
-      String serverPathAirQuality = "https://api.weatherbit.io/v2.0/current/airquality?lat=" + latitude + "&lon=" + longitude + "&key=" + weatherbitAirQualityApiKey;
-
-      Serial.println("_____\n");
-      Serial.println("API-Call\n");
-
-      /* Sendet einen HTTP GET request uns speichert die Res. in der Variable jsonBuffer. The httpGETRequest() function makes a 
-      request to OpenWeatherMap and it retrieves a string with a JSON object that contains all the information about the weather for your city.*/
-      jsonBufferWeather = httpGETRequest(serverPathWeather.c_str());
-      jsonBufferPollution = httpGETRequest(serverPathAirQuality.c_str());
-
-      JSONVar myObjectWeather = JSON.parse(jsonBufferWeather);
-      JSONVar myObjectPollution = JSON.parse(jsonBufferPollution);
-
-      // JSON.typeof(jsonVar) can be used to get the type of the var
-      if (JSON.typeof(myObjectWeather) == "undefined")
-      {
-        Serial.println("Parsing Weather-Input failed!");
-        return;
-      }
-
-      if (JSON.typeof(myObjectPollution) == "undefined")
-      {
-        Serial.println("Parsing Pollution-Input failed!");
-        return;
-      }
-
-      /*Außentemperatur aus API Req. in Variable speichern*/
-      apiTemp = myObjectWeather["main"]["temp"];
-
-      /*Air Quality Index aus API Req. in Variable speichern*/
-      aqiApi = myObjectPollution["data"][0]["aqi"];
-
-      /*Außenwindgeschwindigkeit aus API Req. in Variable speichern*/
-      windspeed = myObjectWeather["wind"]["speed"];
-
-      Serial.println("\n\nDaten aus Open-WeatherMap:");
-      Serial.print("Temperatur aus API: ");
-      Serial.print(apiTemp);
-      Serial.println("°C");
-      Serial.print("Air Quality Index aus API: ");
-      Serial.println(aqiApi);
-      Serial.println();
-      Serial.println(myObjectPollution);
-      Serial.println("\n_____\n\n");
-    }
-    else
-    {
-      Serial.println("WiFi Disconnected");
-    }
-    lastTime = millis();
+    Serial.println("Parsing Weather-Input failed!");
+    return;
   }
+
+  if (JSON.typeof(myObjectPollution) == "undefined")
+  {
+    Serial.println("Parsing Pollution-Input failed!");
+    return;
+  }
+
+  /*Außentemperatur aus API Req. in Variable speichern*/
+  apiTemp = myObjectWeather["main"]["temp"];
+
+  /*Air Quality Index aus API Req. in Variable speichern*/
+  aqiApi = myObjectPollution["data"][0]["aqi"];
+
+  /*Außenwindgeschwindigkeit aus API Req. in Variable speichern*/
+  windspeed = myObjectWeather["wind"]["speed"];
+
+  Serial.println("\n\nDaten aus Open-WeatherMap:");
+  Serial.print("Temperatur aus API: ");
+  Serial.print(apiTemp);
+  Serial.println("°C");
+  Serial.print("Air Quality Index aus API: ");
+  Serial.println(aqiApi);
+  Serial.print("Windspeed aus API: ");
+  Serial.println(windspeed);
+  Serial.println();
+  //Serial.println(myObjectPollution);
+  Serial.println("\n_____\n\n");
 }
 
 /* WiFi Connection: Callback-Fkt, wird asynch ausgeführt */
 void connectToWifi()
 {
+  Serial.println("Connecting to WiFi..");
   WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED)
-  {
-    delay(500);
-    Serial.println("Connecting to WiFi..");
-  }
 }
 
 /*Callback-Fkt, wird asynch ausgeführt*/
@@ -296,41 +284,36 @@ void onMqttPublish(uint16_t packetId)
 
 /****** ANWENDUNGSLOGIK ******/
 
-// void closeWindow()
-// {
-//   // Publish an MQTT message on topic esp/sensorBoard/window/close
-//   uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP, MQTT_QoS, true, String(temperature).c_str());
-//   Serial.printf("Publishing on topic %s at %i, packetId: %i", MQTT_PUB_TEMP, MQTT_QoS, packetIdPub1);
-//   Serial.printf("Message: closing Window...");
-// }
+void closeWindow()
+{
+  uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_WINDOW, MQTT_QoS, true, String(0).c_str());
+  Serial.printf("Publishing on topic %s at %i, packetId %i: \n", MQTT_PUB_WINDOW, MQTT_QoS, packetIdPub);
+  Serial.printf("Message: closing Window...\n\n");
+}
 
-// void checkConditions()
-// {
-//   if (badConditionsInside && badConditionsOutside)
-//   {
-//     closeWindow();
-//     deffusorOn();
-//   }
-//   else if (badConditionsInside && goodConditionsOutside)
-//   {
-//     openWindow();
-//     diffusorOff();
-//   }
-//   else
-//   {
-//     msgUser();
-//   }
-// }
+void openWindow(){
+  uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_WINDOW, MQTT_QoS, true, String(1).c_str());
+  Serial.printf("Publishing on topic %s at %i, packetId %i: \n", MQTT_PUB_WINDOW, MQTT_QoS, packetIdPub);
+  Serial.printf("Message: opening Window...\n\n");
+}
 
-// void diffusorControle()
-// {
-// }
+void diffusorOn(){
+  uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_DIFFUSOR, MQTT_QoS, true, String().c_str());
+  Serial.printf("Publishing on topic %s at %i, packetId: %i \n", MQTT_PUB_DIFFUSOR, MQTT_QoS, packetIdPub);
+  Serial.printf("Message: switching Diffusor on...\n\n");
+}
+
+void diffusorOff(){
+  uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_DIFFUSOR, MQTT_QoS, true, String(0).c_str());
+  Serial.printf("Publishing on topic %s at %i, packetId: %i \n", MQTT_PUB_DIFFUSOR, MQTT_QoS, packetIdPub);
+  Serial.printf("Message: switching Diffusor off...\n\n");
+}
 
 /****** ANWENDUNGSLOGIK ENDE ******/
 
+// put your setup code here, to run once:
 void setup()
 {
-  // put your setup code here, to run once:
   Serial.begin(9600);
 
   /*The next two lines create timers that will allow both the MQTT broker and Wi-Fi connection to reconnect, in case the connection is lost.*/
@@ -377,72 +360,34 @@ void setup()
   checkIaqSensorStatus();
 }
 
+
+// put your main code here, to run repeatedly:
 void loop()
 {
-  // put your main code here, to run repeatedly:
-  /*Blynk*/
-  Blynk.run();
-  timer.run();
-
-  getBME680data();
-  decodingJSON();
+  // /*Blynk*/
+  // Blynk.run();
+  // timer.run();
 
   unsigned long currentMillis = millis();
-
-  // Every X number of seconds (interval = 10 seconds)
-  // it publishes a new MQTT message
-  if (currentMillis - previousMills >= interval)
-  {
+  // Every X number of seconds it publishes a new MQTT message
+  if (currentMillis - previousMillis >= interval) {
     // Save the last time a new reading was published
-    previousMills = currentMillis;
+    previousMillis = currentMillis;
 
-    if (aqiApi < iaqData && windspeed < 60 && window_unblock_time <= currentMillis)
-    {
-      //Diffusor OFF
-      uint16_t packetIdPub2 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(0).c_str());
-      Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub2);
-      //Window OPEN
-      uint16_t packetIdPub3 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(1).c_str());
-      Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub3);
-      //Grenzwertige Temp Fall
-      if (apiTemp <= 5 || apiTemp >= 30)
-      {
-        delay(5000);
-            // Window CLOSE
-            uint16_t packetIdPub4 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(0).c_str());
-        Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub4);
-        //Block fenster für 2 stunden
-        window_unblock_time = millis() + 7200000;
-      }
-    }
-    else
-    {
-      // Window CLOSE
-      uint16_t packetIdPub4 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(0).c_str());
-      Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub4);
-      if (humidity <= 40)
-      {
-        //DIFFUSOR ON
-        uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(1).c_str());
-        Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub1);
-      }
-      if (humidity >= 60)
-      {
-        //DIFFUSOR OFF
-        uint16_t packetIdPub2 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(0).c_str());
-        Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub2);
-      }
-    }
+    Serial.println(currentMillis);
+    getBME680data();
+    decodingJSON();
+    openWindow();
+    closeWindow();
+
+  } else {
+    checkIaqSensorStatus();
   }
-
-  checkIaqSensorStatus();
-
 }
 
 
 
 // Helper function definitions
-
 void checkIaqSensorStatus(void)
 {
   if (iaqSensor.status != BSEC_OK)
