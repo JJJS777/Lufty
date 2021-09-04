@@ -9,11 +9,12 @@
 #include <HTTPClient.h>
 #include <AsyncMqttClient.h>
 #include "bsec.h"
+#include "Adafruit_BME680.h"
 
-// extern "C" {
-//   #include "freertos/FreeRTOS.h"
-//   #include "freertos/timers.h"
-// }
+extern "C" {
+  #include "freertos/FreeRTOS.h"
+  #include "freertos/timers.h"
+}
 
 #define BLYNK_PRINT Serialear
 #define MQTT_HOST IPAddress(192, 168, 141, 99)
@@ -21,11 +22,11 @@
 #define MQTT_PUB_DIFFUSOR "esp/sensorBoard/diffusor"
 #define MQTT_PUB_WINDOW "esp/sensorBoard/window"
 
-// Helper functions declarations
+// Helper functions declarations used by BSEC
 void checkIaqSensorStatus(void);
 void errLeds(void);
 
-// Erzeugen eine Instanz der Klasse Bsec
+// Create an instance of the class Bsec
 Bsec iaqSensor;
 
 // Erzeugen eine Instanz der Klasse AsyncMqttClient namens mqttClient um die MQTT clients zu verwalten
@@ -39,10 +40,9 @@ const char *password = "quack1QUACK4quack1";
 const char auth[] = "h14JLgNFT8QLSKFXGJ9c9z9sSv5Lm8TX";
 
 //Globale Variable
-int ledPin = 14;
-float rawTemperature, temperature, rawHumidity, humidity, pressure, iaqData, iaqAccuracy, staticIaq, gasResistance, co2Equivalent, breathVocEquivalent;
+float rawTemperature, temperature, rawHumidity, humidity, pressure, iaqData, staticIaq, gasResistance, co2Equivalent, breathVocEquivalent;
 double apiTemp, windspeed;
-int aqiApi;
+int aqiApi, iaqAccuracy;
 BlynkTimer timer;
 
 /*OpenWeatherMap.org*/
@@ -63,9 +63,9 @@ String longitude = "6.953101";
 unsigned long lastTime = 0;
 unsigned long timerDelay = 600000;
 
-//MQTT-Timer-Hilfsvariable die alle 10 sec die Anweisung an den Broker publiziert
+//MQTT-Timer-Hilfsvariable die alle 60 sec die Anweisung an den Broker publiziert
 unsigned long previousMills = 0;
-const long interval = 10000;
+const long interval = 60000;
 // time to unblock window
 unsigned long window_unblock_time = 0;
 
@@ -296,35 +296,35 @@ void onMqttPublish(uint16_t packetId)
 
 /****** ANWENDUNGSLOGIK ******/
 
-void closeWindow()
-{
-  // Publish an MQTT message on topic esp/sensorBoard/window/close
-  uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP, MQTT_QoS, true, String(temperature).c_str());
-  Serial.printf("Publishing on topic %s at %i, packetId: %i", MQTT_PUB_TEMP, MQTT_QoS, packetIdPub1);
-  Serial.printf("Message: closing Window...");
-}
+// void closeWindow()
+// {
+//   // Publish an MQTT message on topic esp/sensorBoard/window/close
+//   uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP, MQTT_QoS, true, String(temperature).c_str());
+//   Serial.printf("Publishing on topic %s at %i, packetId: %i", MQTT_PUB_TEMP, MQTT_QoS, packetIdPub1);
+//   Serial.printf("Message: closing Window...");
+// }
 
-void checkConditions()
-{
-  if (badConditionsInside && badConditionsOutside)
-  {
-    closeWindow();
-    deffusorOn();
-  }
-  else if (badConditionsInside && goodConditionsOutside)
-  {
-    openWindow();
-    diffusorOff();
-  }
-  else
-  {
-    msgUser();
-  }
-}
+// void checkConditions()
+// {
+//   if (badConditionsInside && badConditionsOutside)
+//   {
+//     closeWindow();
+//     deffusorOn();
+//   }
+//   else if (badConditionsInside && goodConditionsOutside)
+//   {
+//     openWindow();
+//     diffusorOff();
+//   }
+//   else
+//   {
+//     msgUser();
+//   }
+// }
 
-void diffusorControle()
-{
-}
+// void diffusorControle()
+// {
+// }
 
 /****** ANWENDUNGSLOGIK ENDE ******/
 
@@ -343,8 +343,6 @@ void setup()
   /*Zuweisung weiterer Callback-Fkt'en. Die zugewiesen Fkt werden automatisch aufgerufen, sobald diese Benötigt werden*/
   mqttClient.onConnect(onMqttConnect);
   mqttClient.onDisconnect(onMqttDisconnect);
-  //mqttClient.onSubscribe(onMqttSubscribe);
-  //mqttClient.onUnsubscribe(onMqttUnsubscribe);
   mqttClient.onPublish(onMqttPublish);
   mqttClient.setServer(MQTT_HOST, MQTT_PORT);
 
@@ -375,7 +373,6 @@ void setup()
       BSEC_OUTPUT_SENSOR_HEAT_COMPENSATED_TEMPERATURE,
       BSEC_OUTPUT_SENSOR_HEAT_COMPENSATED_HUMIDITY,
   };
-
   iaqSensor.updateSubscription(sensorList, 10, BSEC_SAMPLE_RATE_LP);
   checkIaqSensorStatus();
 }
@@ -410,7 +407,7 @@ void loop()
       //Grenzwertige Temp Fall
       if (apiTemp <= 5 || apiTemp >= 30)
       {
-        Delay(5000);
+        delay(5000);
             // Window CLOSE
             uint16_t packetIdPub4 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(0).c_str());
         Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub4);
@@ -437,7 +434,12 @@ void loop()
       }
     }
   }
+
+  checkIaqSensorStatus();
+
 }
+
+
 
 // Helper function definitions
 
