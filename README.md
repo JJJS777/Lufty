@@ -106,7 +106,12 @@ Wie du die MQTT Clients konfigurierst zeigen wir dir Beispielhaft am ESP-Sensor.
 
 ## 6. Ausblick / Erweiterungsmöglichkeiten
 
-
+### Cloud MQTT Broker:
+Um das system portabler und effitienter zu machen ist es sinnvol das MQTT Broker zu deployen und auf einem Cloud laufen zu lassen. damit verbraucht man weniger material und die Installation und portabilität des Systems wird einfacher und schneller.
+### Das System in mehreren Raüme aufsetzen:
+Die Grundidde von Lufty war es, kleine Zimmern (wie zb. Schlafzimmer oder Wohnzimmer) gut zu beluften. Allerdings gibt es sehr viele grössere möglichgeiten wo das Konzept eine wichtige Role spielen kann. Größere Zimmer bzw. Gebäude könnten auch von Lufty profitieren. Dafür aber müssen erwiterungen zur System hinzugefügt werden und zwar mehr Aktoren und Sensoren damit Lufty alle Fenster steurt, alle Zimmer befeuschtet und die richtige messwerte abliest für eine genauere Präzision.
+### Optimale Lüftung auch bei extremen Temperatur:
+Unser Lösung für die luftung bei extremen Temperaturen (unter 5°c oder über 30°c) war es das Fenster kurzeitig (5min) zu öffnen und für eine Weile(2stunden) zu blockieren damit die Temperatur des Zimmers angenehm bleibt. Das ist natürlich keine optimale Lösung da es kann manchmal zu Fälle kommen, wo die Luft Qualität im Zimmer schlecht ist und das Fenster ist blockiert.Eine bessere Lösung wäre noch ein paar aktoren im System zu haben, und zwar eine Klimaanlage und ein Heizungsgerät. Lufty kann schon die innere und außere Temperaturwerte herausfinden und mit den neuen Aktoren wird es einfacher gleichzeitig die Luftqualität und die Temperatur angenehm zu halten. Dafür ist es natürlich auch erforderlich ein paar zeile in unser Programmlogik zu ändern.
 
 
 [1]: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html
