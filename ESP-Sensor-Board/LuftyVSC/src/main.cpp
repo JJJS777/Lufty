@@ -47,7 +47,7 @@ int aqiApi, iaqAccuracy;
 // THE DEFAULT TIMER IS SET TO 60 SECONDS FOR TESTING PURPOSES
 // For a final application, check the API call limits per hour/minute to avoid getting blocked/banned
 unsigned long previousMillis = 0;   // Stores last time temperature was published
-const long interval = 1000;        // Interval at which to publish sensor readings
+const long interval = 60000;        // Interval at which to publish sensor readings
 
 BlynkTimer timer;
 
@@ -358,28 +358,29 @@ void setup()
 // put your main code here, to run repeatedly:
 void loop()
 {
-  // /*Blynk*/
-  // Blynk.run();
-  // timer.run();
+  getBME680data();
 
   unsigned long currentMillis = millis();
   // Every X number of seconds it publishes a new MQTT message
-  if (currentMillis - previousMillis >= interval) {
+  if (currentMillis - previousMillis >= interval)
+  {
     // Save the last time a new reading was published
     previousMillis = currentMillis;
 
     Serial.println(currentMillis);
-    getBME680data();
+    /*Blynk*/
+    Blynk.run();
+    timer.run();
     // decodingJSON();
-    // openWindow();
-    // closeWindow();
 
-  } else {
+    openWindow();
+    closeWindow();
+  }
+  else
+  {
     checkIaqSensorStatus();
   }
 }
-
-
 
 // Helper function definitions
 void checkIaqSensorStatus(void)
