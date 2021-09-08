@@ -47,7 +47,7 @@ int aqiApi, iaqAccuracy;
 // THE DEFAULT TIMER IS SET TO 60 SECONDS FOR TESTING PURPOSES
 // For a final application, check the API call limits per hour/minute to avoid getting blocked/banned
 unsigned long previousMillis = 0;   // Stores last time temperature was published
-const long interval = 60000;        // Interval at which to publish sensor readings
+const long interval = 1000;        // Interval at which to publish sensor readings
 
 BlynkTimer timer;
 
@@ -111,7 +111,7 @@ void getBME680data()
     Serial.print(iaqData);
     Serial.println();
 
-    /*IAQ Accuracy (begins at 0 after start up, goes to 1 after a few minutes and 
+    /*IAQ Accuracy (begins at 0 after start up, goes to 1 after a 5 min with intervall set to 1000 and 
     reaches 3 when the sensor is calibrated). The initial value of the IAQ index is 25.00. 
     and it stays that way for a good while. Only after several minutes does the IAQ value starts to drift. */
     Serial.print(F("Genauigkeit des Index of Air Quality = "));
@@ -370,9 +370,9 @@ void loop()
 
     Serial.println(currentMillis);
     getBME680data();
-    decodingJSON();
-    openWindow();
-    closeWindow();
+    // decodingJSON();
+    // openWindow();
+    // closeWindow();
 
   } else {
     checkIaqSensorStatus();
