@@ -65,7 +65,7 @@ String latitude = "50.935173";
 String longitude = "6.953101";
 
 // time to unblock window
-//unsigned long window_unblock_time = 0;
+unsigned long window_unblock_time = 0;
 
 String jsonBufferWeather, jsonBufferPollution, output;
 
@@ -354,7 +354,6 @@ void setup()
   checkIaqSensorStatus();
 }
 
-
 // put your main code here, to run repeatedly:
 void loop()
 {
@@ -362,22 +361,35 @@ void loop()
 
   unsigned long currentMillis = millis();
   // Every X number of seconds it publishes a new MQTT message
-  if (currentMillis - previousMillis >= interval)
-  {
+  if (currentMillis - previousMillis >= interval){
     // Save the last time a new reading was published
     previousMillis = currentMillis;
-
     Serial.println(currentMillis);
+
     /*Blynk*/
     Blynk.run();
     timer.run();
-    // decodingJSON();
+    decodingJSON();
 
-    openWindow();
-    closeWindow();
-  }
-  else
-  {
+    if (aqiApi < iaqData && windspeed < 60 && window_unblock_time <= currentMillis){
+      diffusorOff();
+      openWindow();
+      //Grenzwertige Temp Fall
+      if (apiTemp <= 5 || apiTemp >= 30) {
+        delay(5000);
+        closeWindow();
+        //Block fenster für 2 stunden
+        window_unblock_time = millis() + 7200000;
+      }
+    } else {
+      closeWindow();
+      if (humidity <= 40) {
+        diffusorOn();
+      } if (humidity >= 60) {
+        diffusorOff();
+      }
+    }
+  } else {
     checkIaqSensorStatus();
   }
 }
