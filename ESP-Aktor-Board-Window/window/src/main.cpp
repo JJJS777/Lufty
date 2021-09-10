@@ -8,6 +8,11 @@
 #include <AsyncMqttClient.h>
 
 
+extern "C" {
+	#include "freertos/FreeRTOS.h"
+	#include "freertos/timers.h"
+}
+
 #define MQTT_HOST IPAddress(192, 168, 141, 99)
 #define MQTT_PORT 1883
 #define MQTT_QoS 1
@@ -15,14 +20,15 @@
 
 char mqttCommandMsg = 'c'; //ggf. zu lokaler variable machen
 static const int servoPin = 16;
+int posDegrees = 0;
 const char *ssid = "Duckn3t";
 const char *password = "quack1QUACK4quack1";
 
 //MQTT-Timer-Hilfsvariable die alle 10 sec die Anweisung an den Broker publiziert
 unsigned long previousMills = 0;
-const long interval = 60000;
+const long interval = 1000;
 
-Servo servo1;
+Servo myservo;
 
 // Erzeugen eine Instanz der Klasse AsyncMqttClient namens mqttClient um die MQTT clients zu verwalten
 // Timer Instanzen verwalten das wieder verbinden mit MQTT Broke und Router
@@ -73,6 +79,9 @@ void onMqttConnect(bool sessionPresent)
     Serial.println("Connected to MQTT.");
     Serial.print("Session present: ");
     Serial.println(sessionPresent);
+    /*Bei Broker auf Topic Subscriben*/
+    uint16_t packetIdSubWindow = mqttClient.subscribe(MQTT_SUB_WINDOW, MQTT_QoS);
+    Serial.println(packetIdSubWindow);
 }
 
 /*Wenn ESP32 die verbindung zum MQTT-Broker verliert wird onMqttDisconnect aufgerufen: Callback-Fkt, wird asynch ausgeführt*/
@@ -110,24 +119,35 @@ void onMqttPublish(uint16_t packetId)
 
 void window_open()
 {
-    for (int posDegrees = 0; posDegrees <= 180; posDegrees++)
-    {
-        servo1.write(posDegrees);
+    Serial.printf("\nwindow_open wurde aufgerufen, aktuelle Position Servo: %i\n" ,posDegrees);
+    if (posDegrees >= 180){
+        Serial.println("Fenster ist bereits offen!");
+    } else {
+         for (posDegrees = 0; posDegrees < 180; posDegrees += 1) {    
+            myservo.write(posDegrees); 
+        }
+        Serial.println("\n... Fenster öffnet sich ...\n");
     }
-    Serial.println("... Fenster öffnet sich ...");
-    delay(1000);
+    Serial.printf("\nwindow_open wurde ausgeführt, aktuelle Position Servo: %i\n\n" ,posDegrees);
+    // delay(10000);
 }
 
 void window_close()
 {
-    for (int posDegrees = 180; posDegrees >= 0; posDegrees--)
-    {
-        servo1.write(posDegrees);
+    Serial.printf("\nwindow_close wurde aufgerufen, aktuelle Position Servo: %i\n" ,posDegrees);
+    if (posDegrees == 0){
+        Serial.println("Fenster ist bereits geschlossen!");
+    } else {
+        for (posDegrees = 180; posDegrees > 0; posDegrees -= 1) {
+            myservo.write(posDegrees);
+        }
     }
-    Serial.println("... Fenster schließt sich ... ");
-    delay(1000);
+    Serial.println("\n... Fenster schließt sich ...\n");
+    Serial.printf("\nwindow_open wurde ausgeführt, aktuelle Position Servo: %i\n\n" ,posDegrees);
+    // delay(10000);
 }
 
+/*MQTT MSH auslesen und darauf regieren*/
 void onMqttMessage(char *topic, char *payload, AsyncMqttClientMessageProperties properties, size_t len, size_t index, size_t total)
 {
     for (size_t i = 0; i < len; ++i)
@@ -137,6 +157,9 @@ void onMqttMessage(char *topic, char *payload, AsyncMqttClientMessageProperties 
 
     if(mqttCommandMsg == '1'){ window_open(); }
     if(mqttCommandMsg == '0'){ window_close(); }
+
+    unsigned long currentMillis = millis();
+    Serial.printf("Timestamp, wenn onMqttMessage aufgerufen wird: %i\n", currentMillis);
 }
 
 
@@ -144,7 +167,8 @@ void onMqttMessage(char *topic, char *payload, AsyncMqttClientMessageProperties 
 void setup()
 {
     Serial.begin(9600); //ggf. anpassen
-    servo1.attach(servoPin);
+    myservo.attach(servoPin);
+    myservo.write(posDegrees);
 
     /*The next two lines create timers that will allow both the MQTT broker and Wi-Fi connection to reconnect, in case the connection is lost.*/
     mqttReconnectTimer = xTimerCreate("mqttTimer", pdMS_TO_TICKS(2000), pdFALSE, (void *)0, reinterpret_cast<TimerCallbackFunction_t>(connectToMqtt));
@@ -158,22 +182,11 @@ void setup()
     mqttClient.onDisconnect(onMqttDisconnect);
     mqttClient.onSubscribe(onMqttSubscribe);
     mqttClient.onUnsubscribe(onMqttUnsubscribe);
+    mqttClient.onMessage(onMqttMessage);
     mqttClient.setServer(MQTT_HOST, MQTT_PORT);
 
     /*mit WiFi verbindne durch das aufrufen der connectToWifi-Fkt*/
     connectToWifi();
 }
 
-void loop()
-{
-    unsigned long currentMillis = millis();
-    // Every X number of seconds (interval = 10 seconds)
-    if (currentMillis - previousMills >= interval)
-    {
-        // Save the last time a new reading was published
-        previousMills = currentMillis;
-        uint16_t packetIdSubWindow = mqttClient.subscribe(MQTT_SUB_WINDOW, MQTT_QoS);
-        Serial.println(packetIdSubWindow);
-        mqttClient.onMessage(onMqttMessage);
-    }
-}
+void loop(){ }

@@ -10,24 +10,23 @@
 #include <AsyncMqttClient.h>
 #include "bsec.h"
 
-// extern "C" {
-//   #include "freertos/FreeRTOS.h"
-//   #include "freertos/timers.h"
-// }
-
+extern "C" {
+  #include "freertos/FreeRTOS.h"
+  #include "freertos/timers.h"
+}
 
 #define BLYNK_PRINT Serialear
 #define MQTT_HOST IPAddress(192, 168, 141, 99)
 #define MQTT_PORT 1883
+#define MQTT_QoS 1
 #define MQTT_PUB_DIFFUSOR "esp/sensorBoard/diffusor"
 #define MQTT_PUB_WINDOW "esp/sensorBoard/window"
 
-
-// Helper functions declarations
+// Helper functions declarations used by BSEC
 void checkIaqSensorStatus(void);
 void errLeds(void);
 
-// Erzeugen eine Instanz der Klasse Bsec
+// Create an instance of the class Bsec
 Bsec iaqSensor;
 
 // Erzeugen eine Instanz der Klasse AsyncMqttClient namens mqttClient um die MQTT clients zu verwalten
@@ -42,7 +41,13 @@ const char auth[] = "h14JLgNFT8QLSKFXGJ9c9z9sSv5Lm8TX";
 
 //Globale Variable
 float rawTemperature, temperature, rawHumidity, humidity, pressure, iaqData, staticIaq, gasResistance, co2Equivalent, breathVocEquivalent;
-int iaqAccuracy;
+double apiTemp, windspeed;
+int aqiApi, iaqAccuracy;
+
+// THE DEFAULT TIMER IS SET TO 60 SECONDS FOR TESTING PURPOSES
+// For a final application, check the API call limits per hour/minute to avoid getting blocked/banned
+unsigned long previousMillis = 0;   // Stores last time temperature was published
+const long interval = 60000;        // Interval at which to publish sensor readings
 
 BlynkTimer timer;
 
@@ -59,14 +64,8 @@ String unitsApi = "metric";
 String latitude = "50.935173";
 String longitude = "6.953101";
 
-// THE DEFAULT TIMER IS SET TO 10 SECONDS FOR TESTING PURPOSES
-// For a final application, check the API call limits per hour/minute to avoid getting blocked/banned
-unsigned long lastTime = 0;
-unsigned long timerDelay = 600000;
-
-//MQTT-Timer-Hilfsvariable die alle 10 sec die Anweisung an den Broker publiziert
-unsigned long previousMills = 0;
-const long interval = 10000;
+// time to unblock window
+unsigned long window_unblock_time = 0;
 
 String jsonBufferWeather, jsonBufferPollution, output;
 
@@ -84,8 +83,8 @@ void getBME680data()
   co2Equivalent = iaqSensor.co2Equivalent;
   breathVocEquivalent = iaqSensor.breathVocEquivalent;
 
-  unsigned long time_trigger = millis();
-  if (iaqSensor.run()) { // If new data is available
+  if (iaqSensor.run())
+  { // If new data is available
     Serial.println("_____\n");
     Serial.println(time_trigger);
     Serial.println("BME680-Sensor Daten\n");
@@ -113,7 +112,7 @@ void getBME680data()
     Serial.print(iaqData);
     Serial.println();
 
-    /*IAQ Accuracy (begins at 0 after start up, goes to 1 after a few minutes and 
+    /*IAQ Accuracy (begins at 0 after start up, goes to 1 after a 5 min with intervall set to 1000 and 
     reaches 3 when the sensor is calibrated). The initial value of the IAQ index is 25.00. 
     and it stays that way for a good while. Only after several minutes does the IAQ value starts to drift. */
     Serial.print(F("Genauigkeit des Index of Air Quality = "));
@@ -127,15 +126,17 @@ void getBME680data()
     Serial.println("_____\n");
 
     Serial.println();
-  } else {
+
+    // Sending Data to Blynk - You can send any value at any time.
+    // Please don't send more that 10 values per second.
+    Blynk.virtualWrite(V5, humidity);
+    Blynk.virtualWrite(V6, temperature);
+    Blynk.virtualWrite(V7, iaqData);
+  }
+  else
+  {
     checkIaqSensorStatus();
   }
-
-  // You can send any value at any time.
-  // Please don't send more that 10 values per second.
-  Blynk.virtualWrite(V5, humidity);
-  Blynk.virtualWrite(V6, temperature);
-  delay(2000);
 }
 
 String httpGETRequest(const char *serverName)
@@ -167,125 +168,153 @@ String httpGETRequest(const char *serverName)
   return payload;
 }
 
-void decodingJSON(){
-  if ((millis() - lastTime) > timerDelay)
+void decodingJSON()
+{
+  String serverPathWeather = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&units=" + unitsApi + "&APPID=" + openWeatherMapApiKey;
+  String serverPathAirQuality = "https://api.weatherbit.io/v2.0/current/airquality?lat=" + latitude + "&lon=" + longitude + "&key=" + weatherbitAirQualityApiKey;
+
+  Serial.println("_____\n");
+  Serial.println("API-Call\n");
+
+  /* Sendet einen HTTP GET request uns speichert die Res. in der Variable jsonBuffer. The httpGETRequest() function makes a 
+    request to OpenWeatherMap and it retrieves a string with a JSON object that contains all the information about the weather for your city.*/
+  jsonBufferWeather = httpGETRequest(serverPathWeather.c_str());
+  jsonBufferPollution = httpGETRequest(serverPathAirQuality.c_str());
+
+  JSONVar myObjectWeather = JSON.parse(jsonBufferWeather);
+  JSONVar myObjectPollution = JSON.parse(jsonBufferPollution);
+
+  // JSON.typeof(jsonVar) can be used to get the type of the var
+  if (JSON.typeof(myObjectWeather) == "undefined")
   {
-    // Check WiFi connection status
-    if (WiFi.status() == WL_CONNECTED)
-    {
-      String serverPathWeather = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&units=" + unitsApi + "&APPID=" + openWeatherMapApiKey;
-      String serverPathAirQuality = "https://api.weatherbit.io/v2.0/current/airquality?lat=" + latitude + "&lon=" + longitude + "&key=" + weatherbitAirQualityApiKey;
-
-      Serial.println("_____\n");
-      Serial.println("API-Call\n");
-
-      /* Sendet einen HTTP GET request uns speichert die Res. in der Variable jsonBuffer. The httpGETRequest() function makes a 
-      request to OpenWeatherMap and it retrieves a string with a JSON object that contains all the information about the weather for your city.*/
-      jsonBufferWeather = httpGETRequest(serverPathWeather.c_str());
-      jsonBufferPollution = httpGETRequest(serverPathAirQuality.c_str());
-      
-      JSONVar myObjectWeather = JSON.parse(jsonBufferWeather);
-      JSONVar myObjectPollution = JSON.parse(jsonBufferPollution);
-
-      // JSON.typeof(jsonVar) can be used to get the type of the var
-      if (JSON.typeof(myObjectWeather) == "undefined")
-      {
-        Serial.println("Parsing Weather-Input failed!");
-        return;
-      }
-
-      if (JSON.typeof(myObjectPollution) == "undefined"){
-        Serial.println("Parsing Pollution-Input failed!");
-        return;
-      }
-
-      /*Außentemperatur aus API Req. in Variable speichern*/
-      double apiTemp = myObjectWeather["main"]["temp"];
-
-      /*Air Quality Index aus API Req. in Variable speichern*/
-      int aqiApi = myObjectPollution["data"][0]["aqi"];
-
-
-      Serial.println("\n\nDaten aus Open-WeatherMap:");
-      Serial.print("Temperatur aus API: ");
-      Serial.print(apiTemp);
-      Serial.println("°C");
-      Serial.print("Air Quality Index aus API: ");
-      Serial.println(aqiApi);
-      Serial.println();
-      Serial.println(myObjectPollution);
-      Serial.println("\n_____\n\n");
-    }
-    else
-    {
-      Serial.println("WiFi Disconnected");
-    }
-    lastTime = millis();
+    Serial.println("Parsing Weather-Input failed!");
+    return;
   }
+
+  if (JSON.typeof(myObjectPollution) == "undefined")
+  {
+    Serial.println("Parsing Pollution-Input failed!");
+    return;
+  }
+
+  /*Außentemperatur aus API Req. in Variable speichern*/
+  apiTemp = myObjectWeather["main"]["temp"];
+
+  /*Air Quality Index aus API Req. in Variable speichern*/
+  aqiApi = myObjectPollution["data"][0]["aqi"];
+
+  /*Außenwindgeschwindigkeit aus API Req. in Variable speichern*/
+  windspeed = myObjectWeather["wind"]["speed"];
+
+  Serial.println("\n\nDaten aus Open-WeatherMap:");
+  Serial.print("Temperatur aus API: ");
+  Serial.print(apiTemp);
+  Serial.println("°C");
+  Serial.print("Air Quality Index aus API: ");
+  Serial.println(aqiApi);
+  Serial.print("Windspeed aus API: ");
+  Serial.println(windspeed);
+  Serial.println();
+  //Serial.println(myObjectPollution);
+  Serial.println("\n_____\n\n");
 }
 
 /* WiFi Connection: Callback-Fkt, wird asynch ausgeführt */
-void connectToWifi(){
+void connectToWifi()
+{
+  Serial.println("Connecting to WiFi..");
   WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED)
-  {
-    delay(500);
-    Serial.println("Connecting to WiFi..");
-  }
 }
 
 /*Callback-Fkt, wird asynch ausgeführt*/
-void connectToMqtt(){
+void connectToMqtt()
+{
   Serial.println("Connecting to MQTT Broker ...");
   mqttClient.connect();
 }
 
 /*WiFiEventHandler Verwaltet die WiFi-Events: Callback-Fkt, wird asynch ausgeführt*/
-void WiFiEventHandler( WiFiEvent_t event ){
+void WiFiEventHandler(WiFiEvent_t event)
+{
   Serial.printf("[WiFi-event] event: %d\n", event);
-  switch( event ){
-    case SYSTEM_EVENT_STA_GOT_IP:
-      Serial.print("Connected to WiFi network with IP Address: ");
-      Serial.println(WiFi.localIP());
-      connectToMqtt();
-      break;
-    case SYSTEM_EVENT_STA_DISCONNECTED:
-      Serial.println("Lost WiFi connection ...");
-      xTimerStop(mqttReconnectTimer, 0);
-      xTimerStart(wifiReconnectTimer, 0);
-      break;
+  switch (event)
+  {
+  case SYSTEM_EVENT_STA_GOT_IP:
+    Serial.print("Connected to WiFi network with IP Address: ");
+    Serial.println(WiFi.localIP());
+    connectToMqtt();
+    break;
+  case SYSTEM_EVENT_STA_DISCONNECTED:
+    Serial.println("Lost WiFi connection ...");
+    xTimerStop(mqttReconnectTimer, 0);
+    xTimerStart(wifiReconnectTimer, 0);
+    break;
   }
 }
 
 /*The onMqttConnect() function runs after starting a session with the broker : Callback-Fkt, wird asynch ausgeführt*/
-void onMqttConnect( bool sessionPresent ){
+void onMqttConnect(bool sessionPresent)
+{
   Serial.println("Connected to MQTT.");
   Serial.print("Session present: ");
   Serial.println(sessionPresent);
 }
 
 /*Wenn ESP32 die verbindung zum MQTT-Broker verliert wird onMqttDisconnect aufgerufen: Callback-Fkt, wird asynch ausgeführt*/
-void onMqttDisconnect( AsyncMqttClientDisconnectReason reason ){
+void onMqttDisconnect(AsyncMqttClientDisconnectReason reason)
+{
   Serial.println("Disconnected from MQTT.");
-  if (WiFi.isConnected()) { 
+  if (WiFi.isConnected())
+  {
     xTimerStart(mqttReconnectTimer, 0);
   }
 }
 
 /*onMqttPublish wird aufgerufen, wenn eine MSG auf einem MQTT-Topic publiziert wird: Callback-Fkt, wird asynch ausgeführt*/
-void onMqttPublish(uint16_t packetId){
+void onMqttPublish(uint16_t packetId)
+{
   Serial.println("Publish acknowledged.");
   Serial.print("  packetId: ");
   Serial.println(packetId);
 }
 
-void setup(){
-  // put your setup code here, to run once:
+/****** ANWENDUNGSLOGIK ******/
+
+void closeWindow()
+{
+  uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_WINDOW, MQTT_QoS, true, String(0).c_str());
+  Serial.printf("Publishing on topic %s at %i, packetId %i: \n", MQTT_PUB_WINDOW, MQTT_QoS, packetIdPub);
+  Serial.printf("Message: closing Window...\n\n");
+}
+
+void openWindow(){
+  uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_WINDOW, MQTT_QoS, true, String(1).c_str());
+  Serial.printf("Publishing on topic %s at %i, packetId %i: \n", MQTT_PUB_WINDOW, MQTT_QoS, packetIdPub);
+  Serial.printf("Message: opening Window...\n\n");
+}
+
+void diffusorOn(){
+  uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_DIFFUSOR, MQTT_QoS, true, String().c_str());
+  Serial.printf("Publishing on topic %s at %i, packetId: %i \n", MQTT_PUB_DIFFUSOR, MQTT_QoS, packetIdPub);
+  Serial.printf("Message: switching Diffusor on...\n\n");
+}
+
+void diffusorOff(){
+  uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_DIFFUSOR, MQTT_QoS, true, String(0).c_str());
+  Serial.printf("Publishing on topic %s at %i, packetId: %i \n", MQTT_PUB_DIFFUSOR, MQTT_QoS, packetIdPub);
+  Serial.printf("Message: switching Diffusor off...\n\n");
+}
+
+/****** ANWENDUNGSLOGIK ENDE ******/
+
+// put your setup code here, to run once:
+void setup()
+{
   Serial.begin(9600);
 
   /*The next two lines create timers that will allow both the MQTT broker and Wi-Fi connection to reconnect, in case the connection is lost.*/
-  mqttReconnectTimer = xTimerCreate("mqttTimer", pdMS_TO_TICKS(2000), pdFALSE, (void*)0, reinterpret_cast<TimerCallbackFunction_t>(connectToMqtt));
-  wifiReconnectTimer = xTimerCreate("wifiTimer", pdMS_TO_TICKS(2000), pdFALSE, (void*)0, reinterpret_cast<TimerCallbackFunction_t>(connectToWifi));
+  mqttReconnectTimer = xTimerCreate("mqttTimer", pdMS_TO_TICKS(2000), pdFALSE, (void *)0, reinterpret_cast<TimerCallbackFunction_t>(connectToMqtt));
+  wifiReconnectTimer = xTimerCreate("wifiTimer", pdMS_TO_TICKS(2000), pdFALSE, (void *)0, reinterpret_cast<TimerCallbackFunction_t>(connectToWifi));
 
   /*Zuweisung einer Callback-Fkt: wenn der ESP sich mit dem WiFi verbindet wird die WiFiEventHandler-Fkt aufgerufen*/
   WiFi.onEvent(WiFiEventHandler);
@@ -293,8 +322,6 @@ void setup(){
   /*Zuweisung weiterer Callback-Fkt'en. Die zugewiesen Fkt werden automatisch aufgerufen, sobald diese Benötigt werden*/
   mqttClient.onConnect(onMqttConnect);
   mqttClient.onDisconnect(onMqttDisconnect);
-  //mqttClient.onSubscribe(onMqttSubscribe);
-  //mqttClient.onUnsubscribe(onMqttUnsubscribe);
   mqttClient.onPublish(onMqttPublish);
   mqttClient.setServer(MQTT_HOST, MQTT_PORT);
 
@@ -307,7 +334,7 @@ void setup(){
   /*Blynk*/
   Blynk.config(auth);
   Blynk.connect();
-  
+
   /*BME680 w/ BSEC*/
   Wire.begin();
   iaqSensor.begin(BME680_I2C_ADDR_PRIMARY, Wire);
@@ -325,73 +352,79 @@ void setup(){
       BSEC_OUTPUT_SENSOR_HEAT_COMPENSATED_TEMPERATURE,
       BSEC_OUTPUT_SENSOR_HEAT_COMPENSATED_HUMIDITY,
   };
-
   iaqSensor.updateSubscription(sensorList, 10, BSEC_SAMPLE_RATE_LP);
   checkIaqSensorStatus();
-
 }
 
-void loop(){
-  // put your main code here, to run repeatedly:
-  /*Blynk*/
-  Blynk.run();
-  timer.run();
-
+// put your main code here, to run repeatedly:
+void loop()
+{
   getBME680data();
-  //decodingJSON();
 
-  // unsigned long currentMillis = millis();
-  // // Every X number of seconds (interval = 10 seconds) 
-  // // it publishes a new MQTT message
-  // if (currentMillis - previousMills >= interval) {
-  //   // Save the last time a new reading was published
-  //   previousMills = currentMillis;
-    
-  //   getBME680data();    
+  unsigned long currentMillis = millis();
+  // Every X number of seconds it publishes a new MQTT message
+  if (currentMillis - previousMillis >= interval){
+    // Save the last time a new reading was published
+    previousMillis = currentMillis;
+    Serial.println(currentMillis);
 
-  //   if (humidity < 50.0){
-  //     uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(1).c_str());
-  //     Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub1);
-  //   } else if ( humidity > 60.0 ) {
-  //     uint16_t packetIdPub2 = mqttClient.publish(MQTT_PUB_DIFFUSOR, 1, true, String(0).c_str());
-  //     Serial.printf("Publishing on topic %s at QoS 1, packetId: %i \n", MQTT_PUB_DIFFUSOR, packetIdPub2);
-  //   }
+    /*Blynk*/
+    Blynk.run();
+    timer.run();
+    decodingJSON();
 
-  //   if ( iaqData > 80 || temperature > 25.0){
-  //     // Publish an MQTT message on topic MQTT_PUB_WINDOW
-  //     uint16_t packetIdPub3 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(1).c_str());
-  //     Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub3);
-  //   } else {
-  //     uint16_t packetIdPub4 = mqttClient.publish(MQTT_PUB_WINDOW, 1, true, String(0).c_str());
-  //     Serial.printf("Publishing on topic %s at QoS 1, packetId %i: \n", MQTT_PUB_WINDOW, packetIdPub4);
-  //   }
-  // }
+    if (aqiApi < iaqData && windspeed < 60 && window_unblock_time <= currentMillis){
+      diffusorOff();
+      openWindow();
+      //Grenzwertige Temp Fall
+      if (apiTemp <= 5 || apiTemp >= 30) {
+        delay(5000);
+        closeWindow();
+        //Block fenster für 2 stunden
+        window_unblock_time = millis() + 7200000;
+      }
+    } else {
+      closeWindow();
+      if (humidity <= 40) {
+        diffusorOn();
+      } if (humidity >= 60) {
+        diffusorOff();
+      }
+    }
+  } else {
+    checkIaqSensorStatus();
+  }
 }
-
 
 // Helper function definitions
 void checkIaqSensorStatus(void)
 {
-  if (iaqSensor.status != BSEC_OK) {
-    if (iaqSensor.status < BSEC_OK) {
+  if (iaqSensor.status != BSEC_OK)
+  {
+    if (iaqSensor.status < BSEC_OK)
+    {
       output = "BSEC error code : " + String(iaqSensor.status);
       Serial.println(output);
       for (;;)
         errLeds(); /* Halt in case of failure */
-    } else {
+    }
+    else
+    {
       output = "BSEC warning code : " + String(iaqSensor.status);
       Serial.println(output);
     }
   }
-  
-
-  if (iaqSensor.bme680Status != BME680_OK) {
-    if (iaqSensor.bme680Status < BME680_OK) {
+  if (iaqSensor.bme680Status != BME680_OK)
+  {
+    if (iaqSensor.bme680Status < BME680_OK)
+    {
       output = "BME680 error code : " + String(iaqSensor.bme680Status);
       Serial.println(output);
       for (;;)
         errLeds(); /* Halt in case of failure */
-    } else {
+    }
+    else
+    {
       output = "BME680 warning code : " + String(iaqSensor.bme680Status);
       Serial.println(output);
     }
