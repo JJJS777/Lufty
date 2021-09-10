@@ -16,8 +16,10 @@ extern "C" {
 }
 
 #define BLYNK_PRINT Serialear
-#define MQTT_HOST IPAddress(192, 168, 141, 99)
-#define MQTT_PORT 1883
+#define MQTT_HOST "018873c5a363430b834be6c1227f201e.s2.eu.hivemq.cloud"
+#define MQTT_PORT 8884
+#define MQTT_USER "lufty"
+#define MQTT_PWD "gp9hibtj9msT3pQKtKP"
 #define MQTT_QoS 1
 #define MQTT_PUB_DIFFUSOR "esp/sensorBoard/diffusor"
 #define MQTT_PUB_WINDOW "esp/sensorBoard/window"
@@ -71,6 +73,8 @@ String jsonBufferWeather, jsonBufferPollution, output;
 
 void getBME680data()
 {
+  unsigned long time_trigger = millis();
+
   rawTemperature = iaqSensor.rawTemperature;
   temperature = iaqSensor.temperature;
   rawHumidity = iaqSensor.rawHumidity;
@@ -323,10 +327,11 @@ void setup()
   mqttClient.onConnect(onMqttConnect);
   mqttClient.onDisconnect(onMqttDisconnect);
   mqttClient.onPublish(onMqttPublish);
-  mqttClient.setServer(MQTT_HOST, MQTT_PORT);
+  
 
   /*MQTT-Broker Authentifizierung: wenn der MQTT-Broker auth benötigt*/
-  mqttClient.setCredentials("REPlACE_WITH_YOUR_USER", "REPLACE_WITH_YOUR_PASSWORD");
+  mqttClient.setCredentials(MQTT_USER, MQTT_PWD);
+  mqttClient.setServer(MQTT_HOST, MQTT_PORT);
 
   /*mit WiFi verbindne durch das aufrufen der connectToWifi-Fkt*/
   connectToWifi();
