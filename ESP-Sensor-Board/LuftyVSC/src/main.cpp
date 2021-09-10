@@ -71,6 +71,8 @@ String jsonBufferWeather, jsonBufferPollution, output;
 
 void getBME680data()
 {
+  unsigned long time_trigger = millis();
+
   rawTemperature = iaqSensor.rawTemperature;
   temperature = iaqSensor.temperature;
   rawHumidity = iaqSensor.rawHumidity;
