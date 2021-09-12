@@ -131,6 +131,7 @@ void getBME680data()
 
     // Sending Data to Blynk - You can send any value at any time.
     // Please don't send more that 10 values per second.
+    Blynk.virtualWrite(V4, iaqAccuracy);
     Blynk.virtualWrite(V5, humidity);
     Blynk.virtualWrite(V6, temperature);
     Blynk.virtualWrite(V7, iaqData);
