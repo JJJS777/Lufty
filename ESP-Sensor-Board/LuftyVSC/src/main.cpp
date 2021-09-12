@@ -219,6 +219,10 @@ void decodingJSON()
   Serial.println();
   //Serial.println(myObjectPollution);
   Serial.println("\n_____\n\n");
+
+  Blynk.virtualWrite(V8, apiTemp);
+  Blynk.virtualWrite(V9, aqiApi);
+  Blynk.virtualWrite(V10, windspeed);
 }
 
 /* WiFi Connection: Callback-Fkt, wird asynch ausgeführt */
