@@ -90,25 +90,14 @@ void getBME680data()
     Serial.println("_____\n");
     Serial.println(time_trigger);
     Serial.println("BME680-Sensor Daten\n");
-    Serial.print(F("Raw-Temperature = "));
-    Serial.print(rawTemperature);
-    Serial.println(F(" °C"));
 
     Serial.print(F("Temperature = "));
     Serial.print(temperature);
     Serial.println(F(" °C"));
 
-    Serial.print(F("Raw-Humidity = "));
-    Serial.print(rawHumidity);
-    Serial.println(F(" %"));
-
     Serial.print(F("Humidity = "));
     Serial.print(humidity);
     Serial.println(F(" %"));
-
-    Serial.print(F("Pressure = "));
-    Serial.print(pressure / 100.0);
-    Serial.println(F(" hPa"));
 
     Serial.print(F("Index of Air Quality = "));
     Serial.print(iaqData);
@@ -120,10 +109,6 @@ void getBME680data()
     Serial.print(F("Genauigkeit des Index of Air Quality = "));
     Serial.print(iaqAccuracy);
     Serial.println();
-
-    Serial.print(F("Gas = "));
-    Serial.print(gasResistance / 1000.0);
-    Serial.println(F(" KOhms"));
 
     Serial.println("_____\n");
 
