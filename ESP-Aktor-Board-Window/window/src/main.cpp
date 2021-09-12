@@ -150,16 +150,21 @@ void window_close()
 /*MQTT MSH auslesen und darauf regieren*/
 void onMqttMessage(char *topic, char *payload, AsyncMqttClientMessageProperties properties, size_t len, size_t index, size_t total)
 {
+    unsigned long currentMillis = millis();
+
     for (size_t i = 0; i < len; ++i)
     {
         mqttCommandMsg = *payload;
     }
 
-    if(mqttCommandMsg == '1'){ window_open(); }
-    if(mqttCommandMsg == '0'){ window_close(); }
-
-    unsigned long currentMillis = millis();
-    Serial.printf("Timestamp, wenn onMqttMessage aufgerufen wird: %i\n", currentMillis);
+    if(mqttCommandMsg == '1'){
+        Serial.printf("MSG empfangen Timestamp: %i | Befehlt: Fenster auf.\n", currentMillis); 
+        window_open(); 
+    }
+    if(mqttCommandMsg == '0'){ 
+        window_close(); 
+        Serial.printf("MSG empfangen Timestamp: %i | Befehlt: Fenster zu.\n", currentMillis);
+    }
 }
 
 
