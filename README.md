@@ -34,9 +34,8 @@ Jeder ESP hat eine eigene README, in der alle Details für das jeweilige ESP-Boa
 + 1x [BME680-Grove-Sensor][3]
 + 1x Servo-Motor für Fenster Prototyp
 + 1x [Diffusor][4]
-+ 1x 100 ohm Resistor
-+ 1x Project Board (Breadboard)
-+ 2x [Optocoupler][5]
++ 2x Project Board (Breadboard)
++ 1x [Optocoupler][5]
 + Wire (10x M/M und 10x M/F Jumpwire)
 
 
