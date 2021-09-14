@@ -2,7 +2,7 @@
 
 Inhalt
 --------
-1. [Vorrausetzungen][10]
+1. Vorrausetzungen
    1. Software
       1. PlatformIO für VSC
       2. Libraries
@@ -11,10 +11,11 @@ Inhalt
    3. Hardware
 2. Wie der Code funktioniert
 
-[10]:Vorrausetzungen
+
+Vorrausetzungen
 ----------------
 ### Software
-#### Visual Studio Code mit PlatformIO oder Arduino IDE
+#### 1. Visual Studio Code mit PlatformIO oder Arduino IDE
 Wir haben für unser Projekt den [PlatformIO Plug-In][1] für VSC verwendet. Als erstes müsst ihr dafür in VSC PlatformIO installieren. 
 Danach könnt ihr ein Projekt in PlatformIO anlegen. Euer Projekt-Setup wird in der platformio.ini-Datei gespeichert. Hier ist als Beispiel der Inhalt unserer Datei:
 
@@ -34,7 +35,7 @@ lib_deps =
 
 Als nächstes müsst Ihr die benötigten Bibliotheken installieren....
 
-#### Libraries
+#### 2. Libraries
 ##### MQTT Libraries
 Der MQTT-Broker muss auf dem Raspberry Pi oder in der Cloud implementiert werden. Hier zeigen wir, wie ihr einen MQTT-Client auf dem ESP32 implementiert. 
 Damit der Sensor-ESP auf ein Topic publishen kann benötigen wir folgende Bibliotheken:
@@ -76,12 +77,17 @@ In dem Projekt werden wir über zwei unterschiedliche API's Wetter und Luftquali
 
 Damit wir mit den API-Daten arbeiten können benötigen wir die **Arduino_JSON-Bibliotheken**. Diese bindet ihr genau wie die anderen Bibliotheken ein.
 
-#### API's
+#### 3. API's
 In dem Projekt arbeiten wir mit zwei API's, die uns Informationen über das Wetter und die Luftqualität in Form des bereits erwähnt AQI liefern.
 Wir haben uns für die [Open-Weather-Map-API][8] und die [Weather-Bit-API][9] entschieden, aber ihr könnt eine API eurer Wahl verwenden, dass vorgehen ist analog.
 Open-Weather-Map-API liefert uns aktuelle Daten über Temperatur, Luftfeuchtigkeit und Wind, aber ihr könnt noch einige Parameter mehr auslesen. Weather-Bit liefert uns den aktuellen AQI.
 
 Als erstes müsst ihr euch bei beiden Anbietern einen Account anlegen, dieser ist für unseren Projektumfang Kostenlos. Wenn ihr einen Account angelegt habt, könnt ihr euch einen API-Key generieren. Den Key hinterlegt ihr an entsprechender stelle in der main.cpp.
+
+#### 4.  Blynk Mobile App
+Zum Visualisieren der Mess- und API-Daten nutzen wir die Mobile-App von [Blynk][10]. Alternativ könnt ihr auch den [Web-Client][11] verwenden. Wir zeigen euch exemplarisch an der Mobile-App wie ihr diese mit eurem Sensor-ESP verbinden könnt. Blynk erfüllt in unserem Projekt zwei Ziele, zum einen wollen wir die Daten Visualisiert haben, um zu überprüfen ob die Anwendungslogik richtig funktioniert und zum anderen soll es perfektivisch möglich sein, die Aktoren (Window-ESP, Diffusor-ESP) mit Blynk anzusteuern.
+Als erstes müsst ihr euch bei Blynk einen Account anlegen. Für unsere Zwecke reicht der kostenlose Plan. In eurem Account könnt ihr ein neues Projekt anlegen, dafür Klickt ihr einfach auf das „+“-Symbol in der Übersicht. Gebt eurem Projekt einen Namen, legt euer Gerät fest, wenn Ihr eine ESP32 habt wie wir, wählt ESP23 DEV Board aus. Im Letzten Schritt legt ihr die Art der Verbindung fest, wir haben uns für WiFi entschieden. Sobald ihr euer Projekt angelegt habt, bekommt ihr eine Email mit dem Authentifizierungs-Token. Jedes Projekt hat einen eigenen Token. 
+
 
 ### Hardware
 + ESP32 ([Grove System][2])
@@ -139,3 +145,5 @@ String longitude = "6";
 [7]:https://blynk.io/en/getting-started
 [8]:https://openweathermap.org/current
 [9]:https://www.weatherbit.io/api/airquality-current
+[10]:https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android
+[11]:https://docs.blynk.io/en/blynk.console/console-overview
