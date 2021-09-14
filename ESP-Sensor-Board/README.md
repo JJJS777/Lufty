@@ -82,13 +82,13 @@ In dem Projekt arbeiten wir mit zwei API's, die uns Informationen über das Wett
 Wir haben uns für die [Open-Weather-Map-API][8] und die [Weather-Bit-API][9] entschieden, aber ihr könnt eine API eurer Wahl verwenden, dass vorgehen ist analog.
 Open-Weather-Map-API liefert uns aktuelle Daten über Temperatur, Luftfeuchtigkeit und Wind, aber ihr könnt noch einige Parameter mehr auslesen. Weather-Bit liefert uns den aktuellen AQI.
 
-Als erstes müsst ihr euch bei beiden Anbietern einen Account anlegen, dieser ist für unseren Projektumfang Kostenlos. Wenn ihr einen Account angelegt habt, könnt ihr euch einen API-Key generieren. Den Key hinterlegt ihr an entsprechender stelle in der main.cpp.
+Als erstes müsst ihr euch bei beiden Anbietern einen Account anlegen, dieser ist für unseren Projektumfang kostenlos. Wenn ihr einen Account angelegt habt, könnt ihr euch einen API-Key generieren. Den Key hinterlegt ihr an entsprechender stelle in der main.cpp. Wichtig: Behaltet eure API-Key immer für euch und teilt sie mit keinem außerhalb von eurem Projekt Projekts 
 
 #### 4.  Blynk Mobile App
 Zum Visualisieren der Mess- und API-Daten nutzen wir die Mobile-App von [Blynk][10]. Alternativ könnt ihr auch den [Web-Client][11] verwenden. Wir zeigen euch exemplarisch an der Mobile-App wie ihr diese mit eurem Sensor-ESP verbinden könnt. Blynk erfüllt in unserem Projekt zwei Ziele, zum einen wollen wir die Daten Visualisiert haben, um zu überprüfen ob die Anwendungslogik richtig funktioniert und zum anderen soll es perfektivisch möglich sein, die Aktoren (Window-ESP, Diffusor-ESP) mit Blynk anzusteuern.
 Als erstes müsst ihr euch bei Blynk einen Account anlegen. Für unsere Zwecke reicht der kostenlose Plan. In eurem Account könnt ihr ein neues Projekt anlegen, dafür Klickt ihr einfach auf das „+“-Symbol in der Übersicht. Gebt eurem Projekt einen Namen, legt euer Gerät fest, wenn Ihr eine ESP32 habt wie wir, wählt ESP23 DEV Board aus. Im Letzten Schritt legt ihr die Art der Verbindung fest, wir haben uns für WiFi entschieden. Sobald ihr euer Projekt angelegt habt, bekommt ihr eine Email mit dem Authentifizierungs-Token. Jedes Projekt hat einen eigenen Token. 
 Mit Blynk könnt ihr eure Daten auf unterschiedlichste Weise visualisieren.
-Dafür stehen euch in eurem Projekt in der Widget Box unterschiedlichen Displays zur Verfügung. Wir verwenden für unser Projekt den Gauge-Display. In den Settings zu dem Gauge-Display tragt ihr einen Namen oder den Wert, den ihr mit dem Display anzeigen wollt ein (z.B. Temperatur). Als nächstes tragt ihr euren Virtuellen Input-Pin ein. Der Pin muss später zu dem Pin passen, den ihr im Code für den Wert definiert habt. Neben dem Input-Pin legt ihr den Wertbereich fest, innerhalb derer sich die Messung bewegen soll. Für die Luftfeuchtigkeit tragt ihr z.B. 0 – 100 (%) ein. Unter „Label“ legt ihr die Maßeinheit für den Input-Pin fest, also am Beispiel von Luftfeuchtigkeit „%“. Im Letzten Schritt legt ihr fest, wie die Messwerte aktualisiert werden sollen. „Push“ bedeutet, dass der ESP die neuen Messungen an die App immer dann übermittelt, wenn neue vorliegen. Das ist unsere favorisierte Variante. Alternativ werden euch Sekunden, Minuten und Stunden-Werte zur Auswahl gegeben. Wählt ihr z.B. 1 min aus, dann fragt die App beim ESP als 60 sec nach, ob neue Werte Vorliegen. 
+Dafür stehen euch in eurem Projekt in der Widget Box unterschiedlichen Displays zur Verfügung. Wir verwenden für unser Projekt den Gauge-Display. In den Settings zu dem Gauge-Display tragt ihr einen Namen oder den Wert, den ihr mit dem Display anzeigen wollt, ein (z.B. Luftfeuchtigkeit). Als nächstes tragt ihr euren Virtuellen Input-Pin ein. Der Pin muss später zu dem Pin passen, den ihr im Code für den Wert definiert habt. Wir verwenden für dieses Beispiel den Virtuellen Input-Pin V5. Neben dem Input-Pin legt ihr den Wertbereich fest, innerhalb derer sich die Messung bewegen soll. Für die Luftfeuchtigkeit tragt ihr z.B. 0 – 100 (%) ein. Unter „Label“ legt ihr die Maßeinheit für den Input-Pin fest, also am Beispiel von Luftfeuchtigkeit „%“. Im Letzten Schritt legt ihr fest, wie die Messwerte aktualisiert werden sollen. „Push“ bedeutet, dass der ESP die neuen Messungen an die App immer dann übermittelt, wenn neue vorliegen. Das ist unsere favorisierte Variante. Alternativ werden euch Sekunden, Minuten und Stunden-Werte zur Auswahl gegeben. Wählt ihr z.B. 1 min aus, dann fragt die App beim ESP als 60 sec nach, ob neue Werte Vorliegen. 
 
 
 
@@ -129,10 +129,13 @@ String latitude = "50";
 String longitude = "6";
 ```
 ### Blynk
+Hier tragt ihr euren Authentifizierungs-Token ein, den ihr zuvor per Email bekommen habt:
 ```cpp
 39 const char auth[] = "REPLACE_WITH_YOUR_BLYNK_AUTH_TOKEN";
+```
 
-
+Wie im oberen Abschnitt bereits erwähnt, definiert ihr wie folgt die Pins, an die die Messdaten geschickt werden sollen. Die Methode Blynk.virtualWrite() nimmt als erstes Argument den Pin und als zweites die Variable, in der ihr den Messwert gespeichert habt. In Unserem Fall heißt die Variable humidity und der entsprechende Messwert soll auf Pin V5 angezeigt werden. 
+```cpp
 139 Blynk.virtualWrite(V5, humidity);
 140 Blynk.virtualWrite(V6, temperature);
 ```
