@@ -2,7 +2,7 @@
 
 Inhalt
 --------
-1. [Vorrausetzungen][1]
+1. [Vorrausetzungen][10]
    1. Software
       1. PlatformIO für VSC
       2. Libraries
@@ -11,7 +11,7 @@ Inhalt
    3. Hardware
 2. Wie der Code funktioniert
 
-Vorrausetzungen[1]
+[10]:Vorrausetzungen
 ----------------
 ### Software
 #### Visual Studio Code mit PlatformIO oder Arduino IDE
