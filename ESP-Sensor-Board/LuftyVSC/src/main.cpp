@@ -265,9 +265,7 @@ void onMqttDisconnect(AsyncMqttClientDisconnectReason reason)
 /*onMqttPublish wird aufgerufen, wenn eine MSG auf einem MQTT-Topic publiziert wird: Callback-Fkt, wird asynch ausgeführt*/
 void onMqttPublish(uint16_t packetId)
 {
-  Serial.println("Publish acknowledged.");
-  Serial.print("  packetId: ");
-  Serial.println(packetId);
+  Serial.printf("\nPublish acknowledged | packetId: %i \n", packetId);
 }
 
 /****** ANWENDUNGSLOGIK ******/
@@ -275,26 +273,26 @@ void onMqttPublish(uint16_t packetId)
 void closeWindow()
 {
   uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_WINDOW, MQTT_QoS, true, String(0).c_str());
-  Serial.printf("Publishing on topic %s at %i, packetId %i: \n", MQTT_PUB_WINDOW, MQTT_QoS, packetIdPub);
-  Serial.printf("Message: closing Window...\n\n");
+  Serial.printf("Publishing on topic %s at QoS %i, packetId %i: \n", MQTT_PUB_WINDOW, MQTT_QoS, packetIdPub);
+  Serial.printf("\nMessage: closing Window...\n\n");
 }
 
 void openWindow(){
   uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_WINDOW, MQTT_QoS, true, String(1).c_str());
-  Serial.printf("Publishing on topic %s at %i, packetId %i: \n", MQTT_PUB_WINDOW, MQTT_QoS, packetIdPub);
-  Serial.printf("Message: opening Window...\n\n");
+  Serial.printf("Publishing on topic %s at QoS %i, packetId %i: \n", MQTT_PUB_WINDOW, MQTT_QoS, packetIdPub);
+  Serial.printf("\nMessage: opening Window...\n\n");
 }
 
 void diffusorOn(){
   uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_DIFFUSOR, MQTT_QoS, true, String().c_str());
-  Serial.printf("Publishing on topic %s at %i, packetId: %i \n", MQTT_PUB_DIFFUSOR, MQTT_QoS, packetIdPub);
-  Serial.printf("Message: switching Diffusor on...\n\n");
+  Serial.printf("Publishing on topic %s at QoS %i, packetId: %i \n", MQTT_PUB_DIFFUSOR, MQTT_QoS, packetIdPub);
+  Serial.printf("\nMessage: switching Diffusor on...\n\n");
 }
 
 void diffusorOff(){
   uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_DIFFUSOR, MQTT_QoS, true, String(0).c_str());
-  Serial.printf("Publishing on topic %s at %i, packetId: %i \n", MQTT_PUB_DIFFUSOR, MQTT_QoS, packetIdPub);
-  Serial.printf("Message: switching Diffusor off...\n\n");
+  Serial.printf("Publishing on topic %s at QoS %i, packetId: %i \n", MQTT_PUB_DIFFUSOR, MQTT_QoS, packetIdPub);
+  Serial.printf("\nMessage: switching Diffusor off...\n\n");
 }
 
 /****** ANWENDUNGSLOGIK ENDE ******/
