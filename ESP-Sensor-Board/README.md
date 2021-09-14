@@ -1,6 +1,18 @@
 # Sensor-ESP
 
-## Vorrausetzungen
+Inhalt
+--------
+1. [Vorrausetzungen][1]
+   1. Software
+      1. PlatformIO für VSC
+      2. Libraries
+      3. API
+      4. Blynk Mobile App
+   3. Hardware
+2. Wie der Code funktioniert
+
+Vorrausetzungen[1]
+----------------
 ### Software
 #### Visual Studio Code mit PlatformIO oder Arduino IDE
 Wir haben für unser Projekt den [PlatformIO Plug-In][1] für VSC verwendet. Als erstes müsst ihr dafür in VSC PlatformIO installieren. 
@@ -22,7 +34,8 @@ lib_deps =
 
 Als nächstes müsst Ihr die benötigten Bibliotheken installieren....
 
-#### MQTT Libraries
+#### Libraries
+##### MQTT Libraries
 Der MQTT-Broker muss auf dem Raspberry Pi oder in der Cloud implementiert werden. Hier zeigen wir, wie ihr einen MQTT-Client auf dem ESP32 implementiert. 
 Damit der Sensor-ESP auf ein Topic publishen kann benötigen wir folgende Bibliotheken:
 
@@ -40,7 +53,7 @@ Damit der Sensor-ESP auf ein Topic publishen kann benötigen wir folgende Biblio
 
 Diese Bibliotheken müsst ihr auf allen ESP's installieren. 
 
-#### BME680 Sensor Libraries
+##### BME680 Sensor Libraries
 Damit ihr Werte von dem Sensor auslesen könnt, benötigt ihr zwei Bibliotheken
 
 1. Adafruit_BME680 library
@@ -48,17 +61,17 @@ Damit ihr Werte von dem Sensor auslesen könnt, benötigt ihr zwei Bibliotheken
 
 Sucht nach **adafruit bme680** und **Adafruit Unified Sensor** in PlatformIO unter _Libraries_ und fügt die Bibliotheken eurem Projekt hinzu.
 
-#### BSEC-Arduino-library für BME680
+##### BSEC-Arduino-library für BME680
 In diesem Projekt arbeiten wir mit dem [Air Quality Index (AQI oder IAQ)][5]. Der AQI fasst die vom BME680 gemessenen Gase zu einem Index zusammen. Der Index wird uns später helfen die Luftqualität besser einschätzen zu können und die Luftqualität drinnen und draußen vergleiche zu können. 
 Damit wir die gemessenen Werte im AQI zusammenfassen können, benötigen wir die BSEC-Bibliothek von [Bosch Sensortec Environment Cluster][6]. 
 Um die Bibliothek einzubinden, sucht einfach in PlatformIO unter _Libraries_ nach **BSEC** und fügt sie eurem Projekt hinzu.
 
-#### Blynk Libraries
+##### Blynk Libraries
 Wir möchten uns später die Messwerte auf einem Smartphone anzeigen lassen. Dies realisieren wir mit der [Blynk-App][7]. Um diese nutzen zu können müssen wir die dazugehörige Bibliothek in PlatformIO einbinden. Dabei geht ihr wie bereits weiter oben beschrieben vor, nur sucht ihr jetzt nach **Blynk**.
 
 Mit der Blynk-App ist es auch möglich die Komponenten anzusteuern. Denkbar ist z.B. das An und Aus schalten des Diffusors oder das Öffnen und Schließen des Fensters mithilfe der App. Dies haben wir in diesem Projekt aber nicht umgesetzt.  
 
-#### Arduino_JSON Library
+##### Arduino_JSON Library
 In dem Projekt werden wir über zwei unterschiedliche API's Wetter und Luftqualitätsdaten abfragen. Auf Basis der API-Daten, welche die Bedingungen außerhalb des Zimmers repräsentieren, und der Sensordaten werden wir später unsere Anwendungslogik aufbauen.
 
 Damit wir mit den API-Daten arbeiten können benötigen wir die **Arduino_JSON-Bibliotheken**. Diese bindet ihr genau wie die anderen Bibliotheken ein.
@@ -74,7 +87,8 @@ Als erstes müsst ihr euch bei beiden Anbietern einen Account anlegen, dieser is
 + ESP32 ([Grove System][2])
 + BME680 ([Grove System][2])
 
-## Wie der Code funktioniert
+Wie der Code funktioniert
+-------------------------
 in diesem Teil möchten wir kurz darauf eingehen wie der Code in der main.cpp funktioniert und welche variablen ihr ggf. noch anpassen müsst. 
 
 ### WiFi
