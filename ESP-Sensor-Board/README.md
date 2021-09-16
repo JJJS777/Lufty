@@ -140,7 +140,7 @@ Hier tragt ihr euren Authentifizierungs-Token ein, den ihr zuvor per Email bekom
 39 const char auth[] = "REPLACE_WITH_YOUR_BLYNK_AUTH_TOKEN";
 ```
 
-Wie im oberen Abschnitt bereits erwähnt, definiert ihr wie folgt die Pins, an die die Messdaten geschickt werden sollen. Die Methode Blynk.virtualWrite() nimmt als erstes Argument den Pin und als zweites die Variable, in der ihr den Messwert gespeichert habt. In Unserem Fall heißt die Variable humidity und der entsprechende Messwert soll auf Pin V5 angezeigt werden. 
+Wie im oberen Abschnitt bereits erwähnt, definiert ihr wie folgt die Pins, an die die Messdaten geschickt werden sollen. Die Methode ```Blynk.virtualWrite()``` nimmt als erstes Argument den Pin und als zweites die Variable, in der ihr den Messwert gespeichert habt. In Unserem Fall heißt die Variable ```humidity``` und der entsprechende Messwert soll auf Pin ```V5``` angezeigt werden. 
 ```cpp
 139 Blynk.virtualWrite(V5, humidity);
 140 Blynk.virtualWrite(V6, temperature);
