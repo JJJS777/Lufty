@@ -59,7 +59,7 @@ board = nodemcu-32s
 framework = arduino
 ```
 
-Am besten legt ihr für jedes ESP ein eigenes Projekt in PlatformIO an, da ihr für die unterschiedlichen ESPs nicht immer alle bzw. die gleichen Abhängikeiten benötigt.
+Am besten legt ihr für jeden ESP ein eigenes Projekt in PlatformIO an, da ihr für die unterschiedlichen ESPs nicht immer alle bzw. die gleichen Abhängikeiten benötigt.
 
 
 ### ESP-Spezifisch
