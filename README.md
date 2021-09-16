@@ -3,7 +3,7 @@
 
 
 ## Inhalt
-1. [Projektübersicht](#1.Projektübersicht)
+1. [Projektübersicht](#1.-Projektübersicht)
    1. Szenario - ToDo
    3. Projektziel - ToDo
 2. Benötigte Teile
@@ -26,7 +26,7 @@
 6. Ausblick / Erweiterungsmöglichkeiten
 
 
-## 1.Projektübersicht
+## 1. Projektübersicht
 Lufty ermöglicht, dass in jedem Raum eine bessere Luftqualität vorhanden ist duch ein automatisches Lüftungssystem.
 
 Das Lufty-Projekt besteht aus drei ESP32, einem Raspberry Pi 4, einem BME680-Sensor zum Messen der Luftqualität in Innenräumen, einen Servo-Motor zum öffnen eines Fensters und einen Diffusor zum um die Luftfeuchtigkeit zu erhöhen. 
