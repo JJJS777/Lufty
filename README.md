@@ -6,16 +6,16 @@
 1. [Projektübersicht](#1-projektübersicht)
    1. Szenario - ToDo
    3. Projektziel - ToDo
-2. [Benötigte Teile](#benoetigte-teile)
-3. [Vorrausetzungen]
+2. [Benötigte Teile](#2-benötigte-teile)
+3. [Vorrausetzungen](#3-vorrausetzungen)
    1. Sensor-ESP
    2. Diffusor-ESP
    3. Window-ESP
    4. Raspberry Pi 4
-4. [Anwendungslogik und Funktionsweise]
+4. [Anwendungslogik und Funktionsweise](#4-anwendungslogik-und-funktionsweise)
    1. Architekturmodell
    2. Aktivitätsdiagram
-5. [Installation]
+5. [Installation](#5-installation)
    1. Allgemein
    2. Sensor-ESP
    3. Diffusor-ESP
@@ -23,7 +23,7 @@
    5. MQTT-Setup
       1. MQTT auf Client
       2. Mosquitto-Broker auf Raspberry Pi einrichten
-6. [Ausblick / Erweiterungsmöglichkeiten]
+6. [Ausblick / Erweiterungsmöglichkeiten](#6-ausblick / Erweiterungsmöglichkeiten)
 
 
 ## 1. Projektübersicht
