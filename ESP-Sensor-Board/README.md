@@ -84,9 +84,9 @@ Open-Weather-Map-API liefert uns aktuelle Daten über Temperatur, Luftfeuchtigke
 
 Als erstes müsst ihr euch bei beiden Anbietern einen Account anlegen, dieser ist für unseren Projektumfang kostenlos. Wenn ihr einen Account angelegt habt, könnt ihr euch einen API-Key generieren. Den Key hinterlegt ihr an entsprechender stelle in der main.cpp. Wichtig: Behaltet eure API-Key immer für euch und teilt sie mit keinem außerhalb von eurem Projekt Projekts 
 
-#### 4.  Blynk Mobile App
-Zum Visualisieren der Mess- und API-Daten nutzen wir die Mobile-App von [Blynk][10]. Alternativ könnt ihr auch den [Web-Client][11] verwenden. Wir zeigen euch exemplarisch an der Mobile-App wie ihr diese mit eurem Sensor-ESP verbinden könnt. Blynk erfüllt in unserem Projekt zwei Ziele, zum einen wollen wir die Daten Visualisiert haben, um zu überprüfen ob die Anwendungslogik richtig funktioniert und zum anderen soll es perspektivisch möglich sein, die Aktoren (Window-ESP, Diffusor-ESP) mit Blynk anzusteuern.
-Als erstes müsst ihr euch bei Blynk einen Account anlegen. Für unsere Zwecke reicht der kostenlose Plan. In eurem Account könnt ihr ein neues Projekt anlegen, dafür klickt ihr einfach auf das „+“-Symbol in der Übersicht. Gebt eurem Projekt einen Namen, legt euer Gerät fest, wenn Ihr eine ESP32 habt wie wir, wählt ESP23 DEV Board aus. Im Letzten Schritt legt ihr die Art der Verbindung fest, wir haben uns für WiFi entschieden. Sobald ihr euer Projekt angelegt habt, bekommt ihr eine Email mit dem Authentifizierungs-Token. Jedes Projekt hat einen eigenen Token. 
+#### 4. Blynk Mobile App
+Zum Visualisieren der Mess- und API-Daten nutzen wir die Mobile-App von [Blynk][10]. Alternativ könnt ihr auch den [Web-Client][11] verwenden. Wir zeigen euch exemplarisch an der Mobile-App wie ihr diese mit eurem Sensor-ESP verbinden könnt. Blynk erfüllt in unserem Projekt zwei Ziele, zum einen wollen wir die Daten Visualisiert haben, um zu überprüfen ob die Anwendungslogik richtig funktioniert und zum anderen soll es perfektivisch möglich sein, die Aktoren (Window-ESP, Diffusor-ESP) mit Blynk anzusteuern.
+Als erstes müsst ihr euch bei Blynk einen Account anlegen. Für unsere Zwecke reicht der kostenlose Plan. In eurem Account könnt ihr ein neues Projekt anlegen, dafür Klickt ihr einfach auf das „+“-Symbol in der Übersicht. Gebt eurem Projekt einen Namen, legt euer Gerät fest, wenn Ihr eine ESP32 habt wie wir, wählt ESP23 DEV Board aus. Im Letzten Schritt legt ihr die Art der Verbindung fest, wir haben uns für WiFi entschieden. Sobald ihr euer Projekt angelegt habt, bekommt ihr eine Email mit dem Authentifizierungs-Token. Jedes Projekt hat einen eigenen Token. 
 Mit Blynk könnt ihr eure Daten auf unterschiedlichste Weise visualisieren.
 Dafür stehen euch in eurem Projekt in der Widget Box unterschiedlichen Displays zur Verfügung. Wir verwenden für unser Projekt den Gauge-Display. In den Settings zu dem Gauge-Display tragt ihr einen Namen oder den Wert, den ihr mit dem Display anzeigen wollt, ein (z.B. Luftfeuchtigkeit). Als nächstes tragt ihr euren Virtuellen Input-Pin ein. Der Pin muss später zu dem Pin passen, den ihr im Code für den Wert definiert habt. Wir verwenden für dieses Beispiel den Virtuellen Input-Pin V5. Neben dem Input-Pin legt ihr den Wertbereich fest, innerhalb derer sich die Messung bewegen soll. Für die Luftfeuchtigkeit tragt ihr z.B. 0 – 100 (%) ein. Unter „Label“ legt ihr die Maßeinheit für den Input-Pin fest, also am Beispiel von Luftfeuchtigkeit „%“. Im Letzten Schritt legt ihr fest, wie die Messwerte aktualisiert werden sollen. „Push“ bedeutet, dass der ESP die neuen Messungen an die App immer dann übermittelt, wenn neue vorliegen. Das ist unsere favorisierte Variante. Alternativ werden euch Sekunden, Minuten und Stunden-Werte zur Auswahl gegeben. Wählt ihr z.B. 1 min aus, dann fragt die App beim ESP als 60 sec nach, ob neue Werte Vorliegen. 
 
@@ -98,24 +98,30 @@ Dafür stehen euch in eurem Projekt in der Widget Box unterschiedlichen Displays
 
 Wie der Code funktioniert
 -------------------------
-in diesem Teil möchten wir kurz darauf eingehen wie der Code in der main.cpp funktioniert und welche variablen ihr ggf. noch anpassen müsst. 
+In diesem Teil möchten wir kurz darauf eingehen, wie der Code in der ```main.cpp``` funktioniert und welche variablen ihr ggf. noch anpassen müsst. 
+Nachdem du das Repository geklont hast navigiere in den Ordner ``` Lufty/ESP-Sensor-Board/LuftyVSC/ ``` und öffne von dort aus PlatformIO. In PlatformIO navigiere zu ```/src/main.cpp```. In ```main.cpp``` musst du die hier beschrieben Änderungen vornehmen.
+
 
 ### WiFi
-
+In ```REPLACE_WITH_YOUR_SSID```musst du den Name deines WiFis eintragen und in ```REPLACE_WITH_YOUR_PASSWORD``` das dazugehörige Passwort.
 ```cpp
 const char *ssid = "REPLACE_WITH_YOUR_SSID";
 const char *password = "REPLACE_WITH_YOUR_PASSWORD";
 ```
 
 ### MQTT
+In ```MQTT_HOST```musst du die IP-Adresse deines Raspberry Pi eintragen.
+Unter ```MQTT_TOPIC_XY```definierst du das ein Topic auf dem du Publishen möchtest.
+In Unserem Projekt Publiziert der Sensor-ESP einen Befehl zum Fenster öffnen oder Schließen auf dem Topic ```MQTT_TOPIC_WINDOW```. Der Window-ESP Abonniert dieses Topic und empfängt so die Befehle die er ausführen muss. 
 ```cpp
 #define MQTT_HOST IPAddress(xxx, xxx, xxx, xxx)
 #define MQTT_PORT 1883
-#define MQTT_PUB_DIFFUSOR "esp/sensorBoard/diffusor"
-#define MQTT_PUB_WINDOW "esp/sensorBoard/window"
+#define MQTT_TOPIC_DIFFUSOR "esp/sensorBoard/diffusor"
+#define MQTT_TOPIC_WINDOW "esp/sensorBoard/window"
 ```
 
 ### API
+Unter ```REPLACE_WITH_YOUR_API_KEY```trägst du deinen, zu vor generierten, API-Key ein. 
 ```cpp
 String openWeatherMapApiKey = "REPLACE_WITH_YOUR_API_KEY";
 String weatherbitAirQualityApiKey = "REPLACE_WITH_YOUR_API_KEY";
