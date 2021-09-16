@@ -23,7 +23,7 @@
    5. MQTT-Setup
       1. MQTT auf Client
       2. Mosquitto-Broker auf Raspberry Pi einrichten
-6. [Ausblick / Erweiterungsmöglichkeiten](#6-ausblick / Erweiterungsmöglichkeiten)
+6. [Ausblick / Erweiterungsmöglichkeiten](#6-ausblick--erweiterungsmöglichkeiten)
 
 
 ## 1. Projektübersicht
@@ -85,7 +85,7 @@ In dem Projekt haben wir für jeden ESP einen eignenen Ordner mit dem Source-Cod
 ![alt text][Aktivitätsmodell]
 
 
-## 6. Installation
+## 5. Installation
 ### 1. Allgemein
 Als erstes Clont ihr euch das Repository oder ladet euch das Projekt als zip-Datei lokal auf euren Rechner. Danach navigiert ihr in die Ordner der einzelnen Komponenten, führt entsprechende Änderungen am Code durch und ladet den Code auf den dafür vorgesehenen ESP. Welche änderungen ihr wo vornehmen müsst, könnt ihr in den READMEs der einzelnen ESPs entnehmen.
 
@@ -124,7 +124,7 @@ Wie du die MQTT Clients konfigurierst zeigen wir dir Beispielhaft am ESP-Sensor.
 
 
 
-## 7. Ausblick / Erweiterungsmöglichkeiten
+## 6. Ausblick / Erweiterungsmöglichkeiten
 
 ### Cloud MQTT Broker:
 Um das System portabler und effitienter zu machen ist es sinnvol den MQTT Broker zu deployen und auf einem Cloud laufen zu lassen. damit verbraucht man weniger Material und die Installation und Portabilität des Systems wird einfacher und schneller.
