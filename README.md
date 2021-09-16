@@ -4,8 +4,6 @@
 
 ## Inhalt
 1. [Projektübersicht](#1-projektübersicht)
-   1. Szenario - ToDo
-   3. Projektziel - ToDo
 2. [Benötigte Teile](#2-benötigte-teile)
 3. [Vorrausetzungen](#3-vorrausetzungen)
    1. Sensor-ESP
@@ -26,8 +24,8 @@
 6. [Ausblick / Erweiterungsmöglichkeiten](#6-ausblick--erweiterungsmöglichkeiten)
 
 
-## 1. Projektübersicht
-Lufty ermöglicht, dass in jedem Raum eine bessere Luftqualität vorhanden ist duch ein automatisches Lüftungssystem.
+## 1. Projektübersicht (werden hier Szenario und Projektziel deutlich?)
+Lufty ist ein Projekt für das Fach IoT im Rahmen von Web Development an der Technische Hochschule Köln im Sommer Semester 2021. Das Thema für dieses Semester war Smart Environments. Unter dem Einfluss der Corona Pandemie entstand bei uns die Idee, mit Sensoren und Aktoren für eine perfekte Luftqualität zu sorgen. Die Studierenden konnten aufgrund der Pandemie nicht mehr in die Bibliothek oder zu anderen Arbeitsplätzen in der Hochschule. Um auch bei einer/einem Studierenden im (WG-)Zimmer gute Arbeitsbedingungen herzustellen haben wir Lufty entwickelt. Das (WG-)Zimmer ist auch Ausgangspunkt unserer Überlegung, jedoch lässt sich das Projekt durch kleiner Ergänzungen und Änderungen auch auf mehrere Räume oder ganze Gebaute skalieren. Durch das erreichen einen optimalen Luftqualität in Arbeits-, Wohn-, Gemeinschafts- und Schlafzimmern können Ansteckungen verringert, das Wohlbefinden erhöht und die Leistungsfähigkeit getigert werden.
 
 Das Lufty-Projekt besteht aus drei ESP32, einem Raspberry Pi 4, einem BME680-Sensor zum Messen der Luftqualität in Innenräumen, einen Servo-Motor zum öffnen eines Fensters und einen Diffusor zum um die Luftfeuchtigkeit zu erhöhen. 
 
