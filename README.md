@@ -87,7 +87,7 @@ In dem Projekt haben wir für jeden ESP einen eignenen Ordner mit dem Source-Cod
 
 ## 6. Installation
 ### 1. Allgemein
-Als erstes Clont ihr euch das Repository oder ladet euch das Projekt als zip-Datei lokal auf euren Rechner Danach navigiert ihr in die Ordner der einzelnen Komponenten, führt entsprechende Änderungen am Code durch und ladet den Code auf den dafür vorgesehenen ESP.
+Als erstes Clont ihr euch das Repository oder ladet euch das Projekt als zip-Datei lokal auf euren Rechner. Danach navigiert ihr in die Ordner der einzelnen Komponenten, führt entsprechende Änderungen am Code durch und ladet den Code auf den dafür vorgesehenen ESP. Welche änderungen ihr wo vornehmen müsst, könnt ihr in den READMEs der einzelnen ESPs entnehmen.
 
 ### 2. Sensor-ESP
 [hier geht es zur README des Sensor-Board](./ESP-Sensor-Board/README.md)
