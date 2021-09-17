@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-09-03T16:18:20.190Z" agent="5.0 (Macintosh)" etag="TELBEo8Fv09mrCAsYKcV" version="15.0.3" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-09-17T14:00:53.392Z" agent="5.0 (Macintosh)" etag="Lh2sV6a2Xip30S4xKRS9" version="15.2.7" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="5765" dy="3688" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="3626" dy="2495" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -436,7 +436,7 @@
         <mxCell id="OwfbI39isTWdKtGaW7ez-84" value="Diffusor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/glypho-free/64/drawer-front-upload-output-arrow-up-128.png;fontStyle=0" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
           <mxGeometry x="1805" y="1032" width="128" height="128" as="geometry" />
         </mxCell>
-        <mxCell id="OwfbI39isTWdKtGaW7ez-85" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/essentials-9/128/__Phone-128.png" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
+        <mxCell id="OwfbI39isTWdKtGaW7ez-85" value="Mobile Client" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/essentials-9/128/__Phone-128.png" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
           <mxGeometry x="1485" y="351" width="128" height="128" as="geometry" />
         </mxCell>
         <mxCell id="OwfbI39isTWdKtGaW7ez-86" value="M" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=center;html=1;verticalAlign=middle;strokeWidth=1;shape=ellipse;aspect=fixed;fontSize=35;" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
