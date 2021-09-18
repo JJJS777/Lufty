@@ -3,24 +3,29 @@
 
 
 ## Inhalt
-1. Projektübersicht
-2. Benötigte Teile
-3. Vorrausetzungen
+1. [Projektübersicht](#1-projektübersicht)
+2. [Benötigte Teile](#2-benötigte-teile)
+3. [Vorrausetzungen](#3-vorrausetzungen)
    1. Sensor-ESP
    2. Diffusor-ESP
    3. Window-ESP
    4. Raspberry Pi 4
-4. Anwendungslogik und Funktionsweise
+4. [Anwendungslogik und Funktionsweise](#4-anwendungslogik-und-funktionsweise)
    1. Architekturmodell
    2. Aktivitätsdiagram
-6. MQTT
-   1. MQTT auf Client
-   2. Mosquitto-Broker auf Raspberry Pi einrichten
-7. Ausblick / Erweiterungsmöglichkeiten
+5. [Installation](#5-installation)
+   1. Allgemein
+   2. Sensor-ESP
+   3. Diffusor-ESP
+   4. Window-ESP
+   5. MQTT-Setup
+      1. MQTT auf Client
+      2. Mosquitto-Broker auf Raspberry Pi einrichten
+6. [Ausblick / Erweiterungsmöglichkeiten](#6-ausblick--erweiterungsmöglichkeiten)
 
 
-## 1. Projektübersicht
-Lufty ermöglicht, dass in jedem Raum eine bessere Luftqualität vorhanden ist duch ein automatisches Lüftungssystem.
+## 1. Projektübersicht (werden hier Szenario und Projektziel deutlich?)
+Lufty ist ein Projekt für das Fach IoT im Rahmen von Web Development an der Technische Hochschule Köln im Sommer Semester 2021. Das Thema für dieses Semester war Smart Environments. Unter dem Einfluss der Corona Pandemie entstand bei uns die Idee, mit Sensoren und Aktoren für eine perfekte Luftqualität zu sorgen. Die Studierenden konnten aufgrund der Pandemie nicht mehr in die Bibliothek oder zu anderen Arbeitsplätzen in der Hochschule. Um auch bei einer/einem Studierenden im (WG-)Zimmer gute Arbeitsbedingungen herzustellen haben wir Lufty entwickelt. Das (WG-)Zimmer ist auch Ausgangspunkt unserer Überlegung, jedoch lässt sich das Projekt durch kleiner Ergänzungen und Änderungen auch auf mehrere Räume oder ganze Gebaute skalieren. Durch das erreichen einen optimalen Luftqualität in Arbeits-, Wohn-, Gemeinschafts- und Schlafzimmern können Ansteckungen verringert, das Wohlbefinden erhöht und die Leistungsfähigkeit getigert werden.
 
 Das Lufty-Projekt besteht aus drei ESP32, einem Raspberry Pi 4, einem BME680-Sensor zum Messen der Luftqualität in Innenräumen, einen Servo-Motor zum öffnen eines Fensters und einen Diffusor zum um die Luftfeuchtigkeit zu erhöhen. 
 
@@ -52,7 +57,7 @@ board = nodemcu-32s
 framework = arduino
 ```
 
-Am besten legt ihr für jedes ESP ein eigenes Projekt in PlatformIO an, da ihr für die unterschiedlichen ESP`s nicht immer alle bzw. die gleichen Abhängikeiten benötigt.
+Am besten legt ihr für jeden ESP ein eigenes Projekt in PlatformIO an, da ihr für die unterschiedlichen ESPs nicht immer alle bzw. die gleichen Abhängikeiten benötigt.
 
 
 ### ESP-Spezifisch
@@ -78,8 +83,21 @@ In dem Projekt haben wir für jeden ESP einen eignenen Ordner mit dem Source-Cod
 ![alt text][Aktivitätsmodell]
 
 
-## 5. MQTT
-### Mosquitto-Broker auf Raspberry Pi einrichten
+## 5. Installation
+### 1. Allgemein
+Als erstes Clont ihr euch das Repository oder ladet euch das Projekt als zip-Datei lokal auf euren Rechner. Danach navigiert ihr in die Ordner der einzelnen Komponenten, führt entsprechende Änderungen am Code durch und ladet den Code auf den dafür vorgesehenen ESP. Welche änderungen ihr wo vornehmen müsst, könnt ihr in den READMEs der einzelnen ESPs entnehmen.
+
+### 2. Sensor-ESP
+[hier geht es zur README des Sensor-Board](./ESP-Sensor-Board/README.md)
+
+### 3. Diffusor ESP
+[hier geht es zur README des Diffusor-Board](./ESP-Aktor-Board-Diffusor/README.md)
+
+### 4. Window ESP
+[hier geht es zur README des Window-Board](./ESP-Aktor-Board-Window/README.md)
+
+### 5. MQTT
+#### Mosquitto-Broker auf Raspberry Pi einrichten
 Für das Projekt nutzen wir einen [Mosquitto-Broker][6], der auf einem Raspberry Pi 4 installiert ist.
 Ihr könnt für euer Projekt einen beliebigen Broker verwenden. Zur besseren Skalierbarkeit des Projektes ist auch ein Cloud-Broker denkbar. 
 
@@ -96,11 +114,12 @@ pi@raspberry:~ $ sudo systemctl enable mosquitto.service
 Durch das eingeben von ```pi@raspberry:~ $ hostname -I ``` findest du die IP-Adresse deines Raspberry Pi herraus. Diese Benötigst du später bei der Konfiguration des Clients.
 
 
-### MQTT auf Client
+#### MQTT auf Client
 Wie du die MQTT Clients konfigurierst zeigen wir dir Beispielhaft am ESP-Sensor. 
 
 1. [Einzubinden der benötigten Bibliotheken](./ESP-Sensor-Board/README.md#mqtt-libraries)
 2. [Anpassen der Variablen und Arbeiten mit MQTT](./ESP-Sensor-Board/README.md#mqtt) 
+
 
 
 ## 6. Ausblick / Erweiterungsmöglichkeiten
@@ -120,5 +139,5 @@ Unsere Lösung für die Lüftung bei extremen Temperaturen (unter 5°c oder übe
 [5]: https://www.conrad.de/de/p/isocom-components-optokoppler-phototransistor-sfh615a-4x-dip-4-transistor-dc-183249.html 
 [6]: https://mosquitto.org/
 [Architekturmodell]:https://github.com/JJJS777/Lufty/blob/main/Artefakte/Architektur-Architekturdiagramm.png
-[Aktivitätsmodell]:https://github.com/JJJS777/Lufty/blob/main/Artefakte/Architektur-Aktivit%C3%A4tsdiagramm.png
+[Aktivitätsmodell]:https://github.com/JJJS777/Lufty/blob/main/Artefakte/Architektur-Aktivitätsdiagramm.drawio.png
 [logo]:https://github.com/JJJS777/Lufty/blob/main/Artefakte/341e316e-742d-4b23-a379-6eae5d3b70f6.jpeg
