@@ -18,8 +18,8 @@ extern "C" {
 #define MQTT_SUB_DIFFUSOR "esp/sensorBoard/diffusor"
 
 char mqttCommandMsg = 'c'; //ggf. zu lokaler variable machen
-const char *ssid = "Duckn3t";
-const char *password = "quack1QUACK4quack1";
+const char *ssid = "REPLACE_WITH_YOUR_SSID";
+const char *password = "REPLACE_WITH_YOUR_PASSWORD";
 static const int diffusorPin = 32;
 
 //MQTT-Timer-Hilfsvariable die alle 10 sec die Anweisung an den Broker publiziert

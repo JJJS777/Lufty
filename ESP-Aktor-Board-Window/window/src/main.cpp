@@ -21,8 +21,8 @@ extern "C" {
 char mqttCommandMsg = 'c'; //ggf. zu lokaler variable machen
 static const int servoPin = 16;
 int posDegrees = 0;
-const char *ssid = "Duckn3t";
-const char *password = "quack1QUACK4quack1";
+const char *ssid = "REPLACE_WITH_YOUR_SSID";
+const char *password = "REPLACE_WITH_YOUR_PASSWORD";
 
 //MQTT-Timer-Hilfsvariable die alle 10 sec die Anweisung an den Broker publiziert
 unsigned long previousMills = 0;

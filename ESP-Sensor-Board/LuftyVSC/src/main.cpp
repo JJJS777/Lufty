@@ -10,9 +10,10 @@
 #include <AsyncMqttClient.h>
 #include "bsec.h"
 
-extern "C" {
-  #include "freertos/FreeRTOS.h"
-  #include "freertos/timers.h"
+extern "C"
+{
+#include "freertos/FreeRTOS.h"
+#include "freertos/timers.h"
 }
 
 #define BLYNK_PRINT Serialear
@@ -35,9 +36,9 @@ AsyncMqttClient mqttClient;
 TimerHandle_t mqttReconnectTimer;
 TimerHandle_t wifiReconnectTimer;
 
-const char *ssid = "Duckn3t";
-const char *password = "quack1QUACK4quack1";
-const char auth[] = "h14JLgNFT8QLSKFXGJ9c9z9sSv5Lm8TX";
+const char *ssid = "REPLACE_WITH_YOUR_SSID";
+const char *password = "REPLACE_WITH_YOUR_PASSWORD";
+const char auth[] = "REPLACE_WITH_YOUR_BLYNK_AUTH_TOKEN";
 
 //Globale Variable
 float rawTemperature, temperature, rawHumidity, humidity, pressure, iaqData, staticIaq, gasResistance, co2Equivalent, breathVocEquivalent;
@@ -46,15 +47,15 @@ int aqiApi, iaqAccuracy;
 
 // THE DEFAULT TIMER IS SET TO 60 SECONDS FOR TESTING PURPOSES
 // For a final application, check the API call limits per hour/minute to avoid getting blocked/banned
-unsigned long previousMillis = 0;   // Stores last time temperature was published
-const long interval = 60000;        // Interval at which to publish sensor readings
+unsigned long previousMillis = 0; // Stores last time temperature was published
+const long interval = 60000;      // Interval at which to publish sensor readings
 
 BlynkTimer timer;
 
 /*OpenWeatherMap.org*/
 // Your Domain name with URL path or IP address with path
-String openWeatherMapApiKey = "a07094aa292e8325eaf597b2f9ce6e44";
-String weatherbitAirQualityApiKey = "8039659f67584d818415250bf91dfb17";
+String openWeatherMapApiKey = "REPLACE_WITH_YOUR_API_KEY";
+String weatherbitAirQualityApiKey = "REPLACE_WITH_YOUR_API_KEY";
 
 // Replace with your country code and city
 String city = "Cologne";
@@ -277,19 +278,22 @@ void closeWindow()
   Serial.printf("\nMessage: closing Window...\n\n");
 }
 
-void openWindow(){
+void openWindow()
+{
   uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_WINDOW, MQTT_QoS, true, String(1).c_str());
   Serial.printf("Publishing on topic %s at QoS %i, packetId %i: \n", MQTT_PUB_WINDOW, MQTT_QoS, packetIdPub);
   Serial.printf("\nMessage: opening Window...\n\n");
 }
 
-void diffusorOn(){
+void diffusorOn()
+{
   uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_DIFFUSOR, MQTT_QoS, true, String().c_str());
   Serial.printf("Publishing on topic %s at QoS %i, packetId: %i \n", MQTT_PUB_DIFFUSOR, MQTT_QoS, packetIdPub);
   Serial.printf("\nMessage: switching Diffusor on...\n\n");
 }
 
-void diffusorOff(){
+void diffusorOff()
+{
   uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_DIFFUSOR, MQTT_QoS, true, String(0).c_str());
   Serial.printf("Publishing on topic %s at QoS %i, packetId: %i \n", MQTT_PUB_DIFFUSOR, MQTT_QoS, packetIdPub);
   Serial.printf("\nMessage: switching Diffusor off...\n\n");
@@ -353,7 +357,8 @@ void loop()
 
   unsigned long currentMillis = millis();
   // Every X number of seconds it publishes a new MQTT message
-  if (currentMillis - previousMillis >= interval){
+  if (currentMillis - previousMillis >= interval)
+  {
     // Save the last time a new reading was published
     previousMillis = currentMillis;
     Serial.println(currentMillis);
@@ -363,25 +368,34 @@ void loop()
     timer.run();
     decodingJSON();
 
-    if (aqiApi < iaqData && windspeed < 60 && window_unblock_time <= currentMillis){
+    if (aqiApi < iaqData && windspeed < 60 && window_unblock_time <= currentMillis)
+    {
       diffusorOff();
       openWindow();
       //Grenzwertige Temp Fall
-      if (apiTemp <= 5 || apiTemp >= 30) {
+      if (apiTemp <= 5 || apiTemp >= 30)
+      {
         delay(5000);
         closeWindow();
         //Block fenster für 2 stunden
         window_unblock_time = millis() + 7200000;
       }
-    } else {
+    }
+    else
+    {
       closeWindow();
-      if (humidity <= 40) {
+      if (humidity <= 40)
+      {
         diffusorOn();
-      } if (humidity >= 60) {
+      }
+      if (humidity >= 60)
+      {
         diffusorOff();
       }
     }
-  } else {
+  }
+  else
+  {
     checkIaqSensorStatus();
   }
 }
