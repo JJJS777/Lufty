@@ -120,10 +120,10 @@ void onMqttPublish(uint16_t packetId)
 void window_open()
 {
     Serial.printf("\nwindow_open wurde aufgerufen, aktuelle Position Servo: %i\n" ,posDegrees);
-    if (posDegrees >= 180){
+    if (posDegrees >= 90){
         Serial.println("Fenster ist bereits offen!");
     } else {
-         for (posDegrees = 0; posDegrees < 180; posDegrees += 1) {    
+         for (posDegrees = 0; posDegrees < 90; posDegrees += 1) {    
             myservo.write(posDegrees); 
         }
         Serial.println("\n... Fenster öffnet sich ...\n");
@@ -138,7 +138,7 @@ void window_close()
     if (posDegrees == 0){
         Serial.println("Fenster ist bereits geschlossen!");
     } else {
-        for (posDegrees = 180; posDegrees > 0; posDegrees -= 1) {
+        for (posDegrees = 90; posDegrees > 0; posDegrees -= 1) {
             myservo.write(posDegrees);
         }
     }
