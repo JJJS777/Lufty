@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-09-17T14:19:46.527Z" agent="5.0 (Macintosh)" etag="rw3GxFRs76F54dqylt8Z" version="15.2.7" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-09-18T08:00:52.030Z" agent="5.0 (Macintosh)" etag="u7QooRky6ciB-t_51TCV" version="15.2.7" type="github" pages="4">
   <diagram name="Architekturdiagramm" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
-    <mxGraphModel dx="3626" dy="2495" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="5052" dy="3290" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -442,10 +442,10 @@
         <mxCell id="OwfbI39isTWdKtGaW7ez-86" value="M" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=center;html=1;verticalAlign=middle;strokeWidth=1;shape=ellipse;aspect=fixed;fontSize=35;" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
           <mxGeometry x="1755" y="721" width="60" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="OwfbI39isTWdKtGaW7ez-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" parent="OwfbI39isTWdKtGaW7ez-37" source="OwfbI39isTWdKtGaW7ez-88" target="OwfbI39isTWdKtGaW7ez-85" edge="1">
+        <mxCell id="OwfbI39isTWdKtGaW7ez-87" value="Subscribe" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" parent="OwfbI39isTWdKtGaW7ez-37" source="OwfbI39isTWdKtGaW7ez-88" target="OwfbI39isTWdKtGaW7ez-85" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="OwfbI39isTWdKtGaW7ez-88" value="blynk" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Software_as_a_Service.svg;" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
+        <mxCell id="OwfbI39isTWdKtGaW7ez-88" value="Blynk-Server" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Software_as_a_Service.svg;" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
           <mxGeometry x="990" y="351" width="129" height="129" as="geometry" />
         </mxCell>
         <mxCell id="OwfbI39isTWdKtGaW7ez-89" value="&lt;div&gt;Fenster&lt;/div&gt;&amp;nbsp;mit Motor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/stop-virus-outline-iconset/128/ic_wind-128.png" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
@@ -503,9 +503,14 @@
         <mxCell id="OwfbI39isTWdKtGaW7ez-101" value="Aktor-Board-Fenster" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
           <mxGeometry x="1485" y="881" width="115" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="OwfbI39isTWdKtGaW7ez-102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="OwfbI39isTWdKtGaW7ez-37" source="OwfbI39isTWdKtGaW7ez-103" edge="1">
+        <mxCell id="OwfbI39isTWdKtGaW7ez-102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startArrow=classic;startFill=1;" parent="OwfbI39isTWdKtGaW7ez-37" source="OwfbI39isTWdKtGaW7ez-103" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="455" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LIy0k9NPHYH3wMvZxJij-3" value="HTTP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OwfbI39isTWdKtGaW7ez-102">
+          <mxGeometry x="0.161" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="OwfbI39isTWdKtGaW7ez-103" value="openweathermap" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/web-development-5/500/api-code-window-128.png" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
@@ -514,7 +519,7 @@
         <mxCell id="OwfbI39isTWdKtGaW7ez-106" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.008;entryY=0.481;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;" parent="OwfbI39isTWdKtGaW7ez-37" source="OwfbI39isTWdKtGaW7ez-80" target="OwfbI39isTWdKtGaW7ez-88" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="OwfbI39isTWdKtGaW7ez-107" value="sendet Messdaten&lt;br&gt;&lt;div&gt;zur Visualisierung&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="OwfbI39isTWdKtGaW7ez-106" vertex="1" connectable="0">
+        <mxCell id="OwfbI39isTWdKtGaW7ez-107" value="Publish&lt;div&gt;sendet Messdaten&lt;/div&gt;&lt;div&gt;zur Visualisierung&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="OwfbI39isTWdKtGaW7ez-106" vertex="1" connectable="0">
           <mxGeometry x="0.4216" y="-4" relative="1" as="geometry">
             <mxPoint x="-1" as="offset" />
           </mxGeometry>
@@ -537,11 +542,16 @@
         <mxCell id="OwfbI39isTWdKtGaW7ez-146" value="MQTT Broker" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
           <mxGeometry x="970" y="1170" width="120" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="YDTFa3JfIcbp_EECWIde-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="OwfbI39isTWdKtGaW7ez-37" source="YDTFa3JfIcbp_EECWIde-1" target="OwfbI39isTWdKtGaW7ez-79" edge="1">
+        <mxCell id="YDTFa3JfIcbp_EECWIde-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" parent="OwfbI39isTWdKtGaW7ez-37" source="YDTFa3JfIcbp_EECWIde-1" target="OwfbI39isTWdKtGaW7ez-79" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="520" y="474" />
             </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LIy0k9NPHYH3wMvZxJij-2" value="HTTP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="YDTFa3JfIcbp_EECWIde-2">
+          <mxGeometry x="0.0498" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="YDTFa3JfIcbp_EECWIde-1" value="openweathermap" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/web-development-5/500/api-code-window-128.png" parent="OwfbI39isTWdKtGaW7ez-37" vertex="1">
