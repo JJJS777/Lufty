@@ -14,7 +14,9 @@
 ## Hardware
 * Connect the ESP32 chosen output pin (```servoPin``` ) with servo
 * Connect servo to the ESP32 Ground
-![](https://github.com/JJJS777/Lufty.git/blob/main/Artefakte/Artefakte\fenster-schaltung.png)
+
+![]https://github.com/JJJS777/Lufty/blob/main/Artefakte/fenster-schaltung.png)
+
 
 
 ## Software
