@@ -16,7 +16,7 @@
 * Connect Octocoppler to ESP32 GND
 * Connect diffusor button both sides to the Octocuppler
 * Optional Connect diffusor power out + - to the VIN and Gnd ports of the ESP32
-![](https://github.com/JJJS777/Lufty.git/blob/main/Artefakte/Artefakte\diffusor-schaltung.png)
+![]https://github.com/JJJS777/Lufty/blob/132319be717279fdbad0e80cf878d29a8ed65b00/Artefakte/diffusor-schaltung.png)
 
 ### Software
 #### Using Win10
