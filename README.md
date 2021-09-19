@@ -10,7 +10,7 @@
    2. Diffusor-ESP
    3. Window-ESP
    4. Raspberry Pi 4
-4. [Anwendungslogik und Funktionsweise](#4-anwendungslogik-und-funktionsweise)
+4. [Funktionsweise](#4-funktionsweise)
    1. Architekturmodell
    2. Aktivitätsdiagram
 5. [Installation](#5-installation)
@@ -74,7 +74,7 @@ In dem Projekt haben wir für jeden ESP einen eignenen Ordner mit dem Source-Cod
 
 
 
-## 4. Anwendungslogik und Funktionsweise
+## 4. Funktionsweise
 ### Architekturmodell
 ![alt text][Architekturmodell]
 
