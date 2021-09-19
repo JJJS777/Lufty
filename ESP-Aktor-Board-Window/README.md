@@ -1,14 +1,22 @@
 # Prerequisites:
-## Software
-* ```vscode```
-* ```platformio```
 ## Hardware
 * ESP32
 * Servo 
 * Wires
 * Project board
+## Software
+* ```vscode```
+* ```platformio```
+
 
 # Setup
+
+## Hardware
+* Connect the ESP32 chosen output pin (```servoPin``` ) with servo
+* Connect servo to the ESP32 Ground
+![](https://github.com/JJJS777/Lufty.git/blob/main/Artefakte/Artefakte\fenster-schaltung.png)
+
+
 ## Software
 ### Using Win10
 * open ```/ESP-Aktor-Board-Window/window``` as existing project in platformio
@@ -23,9 +31,6 @@
 ### Functions
 * ```window_open()```- opens window
 * ```window_close()``` - closes window
-## Hardware
-* Connect the ESP32 chosen output pin (```servoPin``` ) with servo
-* Connect servo to the ESP32 Ground
 
 # Team:
 * Julian Schiller

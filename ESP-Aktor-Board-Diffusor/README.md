@@ -1,15 +1,23 @@
 # Diffusor-ESP
 
 ## Prerequisites:
+
+### Hardware
+* ESP32
+* Octocoppler
+* Wires
+* Diffusor (we used **BONECO U50**)
 ### Software
 * ```vscode```
 * ```platformio```
-### Hardware
-* ESP32
-* Wires
-* Diffusor (we used **BONECO U50**)
-
 ## Setup
+### Hardware
+* Connect the ESP32 chosen output pin (```diffusorPin``` ) with the Octocoppler
+* Connect Octocoppler to ESP32 GND
+* Connect diffusor button both sides to the Octocuppler
+* Optional Connect diffusor power out + - to the VIN and Gnd ports of the ESP32
+![](https://github.com/JJJS777/Lufty.git/blob/main/Artefakte/Artefakte\diffusor-schaltung.png)
+
 ### Software
 #### Using Win10
 * open ```/ESP-Aktor-Board-Difffusor/difffusor``` as existing project in platformio
@@ -23,10 +31,7 @@
 #### Functions
 * ```difffusor_on()```- makes difffusor on
 * ```difffusor_off()``` - makes difffusor off
-### Hardware
-* Connect the ESP32 chosen output pin (```diffusorPin``` ) with diffusor button
-* Connect diffusor button to the ESP32 Ground
-* Optional Connect diffusor power out + - to the VIN and Gnd ports of the ESP32
+
 
 ## Team:
 * Julian Schiller
